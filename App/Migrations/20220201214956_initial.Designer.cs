@@ -9,10 +9,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace App.Data.Migrations
+namespace App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220128123339_initial")]
+    [Migration("20220201214956_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,10 +46,13 @@ namespace App.Data.Migrations
                     b.ToTable("Instructor");
                 });
 
-            modelBuilder.Entity("App.Data.Student", b =>
+            modelBuilder.Entity("App.Data.Party.StudentData", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("EnrollmentDate")
                         .HasColumnType("datetime2");
@@ -57,8 +60,8 @@ namespace App.Data.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Height")
-                        .HasColumnType("int");
+                    b.Property<string>("Height")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
@@ -69,15 +72,15 @@ namespace App.Data.Migrations
                     b.Property<string>("PhoneNr")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ShoeSize")
-                        .HasColumnType("int");
+                    b.Property<string>("ShoeSize")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Weight")
-                        .HasColumnType("int");
+                    b.Property<string>("Weight")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Student");
+                    b.ToTable("Students");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

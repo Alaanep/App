@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using App.Data;
+using App.Data.Party;
 
 namespace App.Data
 {
@@ -10,7 +11,7 @@ namespace App.Data
             : base(options)
         {
         }
-        public DbSet<App.Data.Student> Student { get; set; }
+        public DbSet<StudentData> Students { get; set; }
         public DbSet<App.Data.Instructor> Instructor { get; set; }
     }
 }

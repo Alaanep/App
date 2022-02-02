@@ -10,6 +10,7 @@ namespace App.Facade.Party
         [DisplayName("First Name")]public string? FirstName { get; set; }
         [DisplayName("Last Name")]public string? LastName { get; set; }
         [DisplayName("Phone nr")]public string? PhoneNr { get; set; }
+        [DisplayName("Email")] public string? Email { get; set; }
         [DisplayName("Weight")]public string? Weight { get; set; }
         [DisplayName("Height")]public string? Height { get; set; }
         [DisplayName("Shoe Size")]public string? ShoeSize { get; set; }

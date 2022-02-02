@@ -12,6 +12,7 @@ namespace App.Facade.Party
             FirstName = v.FirstName,
             LastName = v.LastName,
             PhoneNr = v.PhoneNr,
+            Email = v.Email,
             Height = v.Height,
             Weight = v.Weight,
             ShoeSize = v.ShoeSize,
@@ -26,11 +27,13 @@ namespace App.Facade.Party
             FirstName = student.FirstName,
             LastName = student.LastName,
             PhoneNr = student.PhoneNr,
+            Email = student.Email,
             Height = student.Height,
             Weight = student.Weight,
             ShoeSize = student.ShoeSize,
             EnrollmentDate = student.EnrollmentDate,
-            Level = student.Level
+            Level = student.Level,
+            FullName = student.ToString()
         };
     }
 }

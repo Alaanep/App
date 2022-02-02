@@ -1,5 +1,5 @@
 ﻿@page
-@model App.Pages.Students.DetailsModel
+@model App.Pages.Students.StudentsPage
 
 @{
     ViewData["Title"] = "Details";
@@ -28,6 +28,12 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Student.PhoneNr)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Student.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Student.Email)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Student.Weight)
@@ -62,6 +68,6 @@
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Student.Id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Edit" asp-page-handler="Edit" asp-route-id="@Model.Student.Id">Edit</a> |
+    <a asp-page="./Index" asp-page-handler="Index">Back to List</a>
 </div>

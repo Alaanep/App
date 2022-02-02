@@ -8,6 +8,7 @@ namespace App.Data.Party
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? PhoneNr { get; set; }
+        public string? Email { get; set; }
         public string? Weight { get; set; }
         public string? Height { get; set; }
         public string? ShoeSize { get; set; }

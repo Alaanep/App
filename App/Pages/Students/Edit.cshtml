@@ -1,5 +1,5 @@
 ﻿@page
-@model App.Pages.Students.EditModel
+@model App.Pages.Students.StudentsPage
 
 @{
     ViewData["Title"] = "Edit";
@@ -11,7 +11,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form method="post">
+        <form method="post" asp-page-handler="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Student.Id" />
             <div class="form-group">
@@ -28,6 +28,11 @@
                 <label asp-for="Student.PhoneNr" class="control-label"></label>
                 <input asp-for="Student.PhoneNr" class="form-control" />
                 <span asp-validation-for="Student.PhoneNr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Student.Email" class="control-label"></label>
+                <input asp-for="Student.Email" class="form-control" />
+                <span asp-validation-for="Student.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Student.Weight" class="control-label"></label>
@@ -62,7 +67,7 @@
 </div>
 
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="./Index" asp-page-handler="Index">Back to List</a>
 </div>
 
 @section Scripts {
