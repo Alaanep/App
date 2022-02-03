@@ -1,5 +1,5 @@
 ﻿@page
-@model App.Pages.Instructors.IndexModel
+@model App.Pages.Instructors.InstructorsPage
 
 @{
     ViewData["Title"] = "Index";
@@ -8,29 +8,35 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" asp-page-handler="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Instructor[0].FirstName)
+                @Html.DisplayNameFor(model => model.Instructors[0].FullName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Instructor[0].LastName)
+                @Html.DisplayNameFor(model => model.Instructors[0].FirstName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Instructor[0].PhoneNr)
+                @Html.DisplayNameFor(model => model.Instructors[0].LastName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Instructor[0].LessonsGiven)
+                @Html.DisplayNameFor(model => model.Instructors[0].PhoneNr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Instructors[0].LessonsGiven)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Instructor) {
+@foreach (var item in Model.Instructors) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
@@ -44,9 +50,9 @@
                 @Html.DisplayFor(modelItem => item.LessonsGiven)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-page="./Edit" asp-page-handler="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-page-handler="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-page-handler="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -49,7 +49,7 @@ namespace App.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Instructor",
+                name: "Instructors",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -60,7 +60,7 @@ namespace App.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Instructor", x => x.Id);
+                    table.PrimaryKey("PK_Instructors", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -70,8 +70,8 @@ namespace App.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNr = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Weight = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Height = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ShoeSize = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -247,7 +247,7 @@ namespace App.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Instructor");
+                name: "Instructors");
 
             migrationBuilder.DropTable(
                 name: "Students");

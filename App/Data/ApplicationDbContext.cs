@@ -12,6 +12,6 @@ namespace App.Data
         {
         }
         public DbSet<StudentData> Students { get; set; }
-        public DbSet<App.Data.Instructor> Instructor { get; set; }
+        public DbSet<InstructorData> Instructors { get; set; }
     }
 }

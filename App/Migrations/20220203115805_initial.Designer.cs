@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220201214956_initial")]
+    [Migration("20220203115805_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace App.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("App.Data.Instructor", b =>
+            modelBuilder.Entity("App.Data.Party.InstructorData", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -43,7 +43,7 @@ namespace App.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Instructor");
+                    b.ToTable("Instructors");
                 });
 
             modelBuilder.Entity("App.Data.Party.StudentData", b =>
