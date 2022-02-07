@@ -1,11 +1,11 @@
-﻿ using System;
+﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace App.Migrations
 {
-    public partial class initial : Migration
+    public partial class inital : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -61,6 +61,23 @@ namespace App.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Instructors", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Lessons",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Instructor = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Student = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LessonName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LessonTime = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    EquipmentNeeded = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Lessons", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -248,6 +265,9 @@ namespace App.Migrations
 
             migrationBuilder.DropTable(
                 name: "Instructors");
+
+            migrationBuilder.DropTable(
+                name: "Lessons");
 
             migrationBuilder.DropTable(
                 name: "Students");

@@ -1,0 +1,66 @@
+﻿@page
+@model App.Pages.Lessons.LessonsPage
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Lessons[0].Instructor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lessons[0].Student)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lessons[0].LessonName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lessons[0].LessonTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lessons[0].Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lessons[0].EquipmentNeeded)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Lessons) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instructor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LessonName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LessonTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EquipmentNeeded)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-page-handler="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-page-handler="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-page-handler="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

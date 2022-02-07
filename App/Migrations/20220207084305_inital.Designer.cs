@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220203115805_initial")]
-    partial class initial
+    [Migration("20220207084305_inital")]
+    partial class inital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,6 +44,34 @@ namespace App.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Instructors");
+                });
+
+            modelBuilder.Entity("App.Data.Party.LessonData", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("EquipmentNeeded")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Instructor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LessonName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("LessonTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Student")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Lessons");
                 });
 
             modelBuilder.Entity("App.Data.Party.StudentData", b =>

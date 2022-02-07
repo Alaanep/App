@@ -1,0 +1,55 @@
+﻿@page
+@model App.Pages.Lessons.LessonsPage
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>LessonData</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Lesson.Instructor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Lesson.Instructor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Lesson.Student)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Lesson.Student)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Lesson.LessonName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Lesson.LessonName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Lesson.LessonTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Lesson.LessonTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Lesson.Location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Lesson.Location)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Lesson.EquipmentNeeded)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Lesson.EquipmentNeeded)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-page-handler="Edit" asp-route-id="@Model.Lesson.Id">Edit</a> |
+    <a asp-page="./Index" asp-page-handler="Index">Back to List</a>
+</div>
