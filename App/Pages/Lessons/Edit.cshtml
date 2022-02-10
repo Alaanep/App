@@ -1,60 +1,18 @@
 ﻿@page
 @model App.Pages.Lessons.LessonsPage
+@using App.Pages.Extensions
 
 @{
-    ViewData["Title"] = "Edit";
+    
+    Layout = "_Edit";
 }
 
-<h1>Edit</h1>
+<body>
+<input type="hidden" asp-for="Lesson.Id" />
 
-<h4>LessonData</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post" asp-page-handler="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Lesson.Id" />
-            <div class="form-group">
-                <label asp-for="Lesson.Instructor" class="control-label"></label>
-                <input asp-for="Lesson.Instructor" class="form-control" />
-                <span asp-validation-for="Lesson.Instructor" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Lesson.Student" class="control-label"></label>
-                <input asp-for="Lesson.Student" class="form-control" />
-                <span asp-validation-for="Lesson.Student" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Lesson.LessonName" class="control-label"></label>
-                <input asp-for="Lesson.LessonName" class="form-control" />
-                <span asp-validation-for="Lesson.LessonName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Lesson.LessonTime" class="control-label"></label>
-                <input asp-for="Lesson.LessonTime" class="form-control" />
-                <span asp-validation-for="Lesson.LessonTime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Lesson.Location" class="control-label"></label>
-                <input asp-for="Lesson.Location" class="form-control" />
-                <span asp-validation-for="Lesson.Location" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Lesson.EquipmentNeeded" class="control-label"></label>
-                <input asp-for="Lesson.EquipmentNeeded" class="form-control" />
-                <span asp-validation-for="Lesson.EquipmentNeeded" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+<partial name="_CreateEditLesson"/>
+        
+</body>
 
-<div>
-    <a asp-page="./Index" asp-page-handler="Index">Back to List</a>
-</div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+
