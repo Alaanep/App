@@ -1,0 +1,17 @@
+﻿@model Microsoft.AspNetCore.Mvc.RazorPages.PageModel
+@{
+    ViewData["Title"] = "Delete";
+    ViewData["Subtitle"] = Model?.GetType()?.Name?.Replace("Page",string.Empty)??"Unspecified";
+    Layout = "_Layout";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>@ViewData["Subtitle"]</h4>
+<hr />
+@RenderBody()
+<form method="post">
+        
+    <input type="submit" value="Delete" handler="Delete" class="btn btn-danger" /> |
+    <a asp-page="./Index" asp-page-handler="Index">Back to List</a>
+</form>
