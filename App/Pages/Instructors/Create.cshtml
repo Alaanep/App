@@ -6,5 +6,6 @@
     Layout = "_Create";
 }
 <body>
-    <partial name = "_EditInstructor"/>
+     @Html.MyEditorForDelete(x => x.Instructor.Id)
+    <partial name = "_CreateEditInstructor"/>
 </body>
