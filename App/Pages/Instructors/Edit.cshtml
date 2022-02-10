@@ -1,50 +1,15 @@
 ﻿@page
 @model App.Pages.Instructors.InstructorsPage
+@using App.Pages.Extensions
 
 @{
-    ViewData["Title"] = "Edit";
+    
+    Layout = "_Edit";
 }
 
-<h1>Edit</h1>
+<body>
+<input type="hidden" asp-for="Instructor.Id" />
 
-<h4>Instructor</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post" asp-page-handler="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Instructor.Id" />
-            <div class="form-group">
-                <label asp-for="Instructor.FirstName" class="control-label"></label>
-                <input asp-for="Instructor.FirstName" class="form-control" />
-                <span asp-validation-for="Instructor.FirstName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Instructor.LastName" class="control-label"></label>
-                <input asp-for="Instructor.LastName" class="form-control" />
-                <span asp-validation-for="Instructor.LastName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Instructor.PhoneNr" class="control-label"></label>
-                <input asp-for="Instructor.PhoneNr" class="form-control" />
-                <span asp-validation-for="Instructor.PhoneNr" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Instructor.LessonsGiven" class="control-label"></label>
-                <input asp-for="Instructor.LessonsGiven" class="form-control" />
-                <span asp-validation-for="Instructor.LessonsGiven" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-page="./Index" asp-page-handler="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<partial name="_CreateEditInstructor"/>
+        
+</body>
