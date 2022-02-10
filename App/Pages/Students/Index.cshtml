@@ -1,84 +1,42 @@
 ﻿@page
 @model App.Pages.Students.StudentsPage
 
+@using App.Pages.Extensions
 @{
-    ViewData["Title"] = "Index";
+    
+    Layout = "_Index";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create" asp-page-handler="Create">Create New</a>
-</p>
+<body>
 <table class="table">
     <thead>
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Students[0].FullName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Students[0].FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Students[0].LastName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Students[0].PhoneNr)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Students[0].Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Students[0].Weight)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Students[0].Height)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Students[0].ShoeSize)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Students[0].EnrollmentDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Students[0].Level)
-        </th>
+        @Html.MyEditorForIndexTableHead(model => model.Students[0].FullName)
+        @Html.MyEditorForIndexTableHead(model => model.Students[0].FirstName)
+        @Html.MyEditorForIndexTableHead(model => model.Students[0].LastName)
+        @Html.MyEditorForIndexTableHead(model => model.Students[0].PhoneNr)
+        @Html.MyEditorForIndexTableHead(model => model.Students[0].Email)
+        @Html.MyEditorForIndexTableHead(model => model.Students[0].Weight)
+        @Html.MyEditorForIndexTableHead(model => model.Students[0].Height)
+        @Html.MyEditorForIndexTableHead(model => model.Students[0].ShoeSize)
+        @Html.MyEditorForIndexTableHead(model => model.Students[0].EnrollmentDate)
+        @Html.MyEditorForIndexTableHead(model => model.Students[0].Level)
         <th></th>
     </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Students) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FullName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FirstName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneNr)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Weight)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Height)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ShoeSize)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EnrollmentDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Level)
-        </td>
+        @Html.MyEditorForIndexTableBody(modelItem => item.FullName)
+        @Html.MyEditorForIndexTableBody(modelItem => item.FirstName)
+        @Html.MyEditorForIndexTableBody(modelItem => item.LastName)
+        @Html.MyEditorForIndexTableBody(modelItem => item.PhoneNr)
+        @Html.MyEditorForIndexTableBody(modelItem => item.Email)
+        @Html.MyEditorForIndexTableBody(modelItem => item.Weight)
+        @Html.MyEditorForIndexTableBody(modelItem => item.Height)
+        @Html.MyEditorForIndexTableBody(modelItem => item.ShoeSize)
+        @Html.MyEditorForIndexTableBody(modelItem => item.EnrollmentDate)
+        @Html.MyEditorForIndexTableBody(modelItem => item.Level)
         <td>
             <a asp-page="./Edit" asp-page-handler="Edit"  asp-route-id="@item.Id">Edit</a> |
             <a asp-page="./Details" asp-page-handler="Details" asp-route-id="@item.Id">Details</a> |
@@ -88,3 +46,4 @@
 }
     </tbody>
 </table>
+</body>

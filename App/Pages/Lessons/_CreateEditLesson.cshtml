@@ -1,10 +1,10 @@
 ﻿@model App.Pages.Lessons.LessonsPage
 @using App.Pages.Extensions
 
-@Html.MyEditorFor(m => m.Lesson.Instructor) 
-@Html.MyEditorFor(m => m.Lesson.Student)
-@Html.MyEditorFor(m => m.Lesson.LessonName) 
-@Html.MyEditorFor(m => m.Lesson.LessonTime) 
-@Html.MyEditorFor(m => m.Lesson.Location)
-@Html.MyEditorFor(m => m.Lesson.EquipmentNeeded) 
+@Html.MyEditorForCreateAndEdit(m => m.Lesson.Instructor) 
+@Html.MyEditorForCreateAndEdit(m => m.Lesson.Student)
+@Html.MyEditorForCreateAndEdit(m => m.Lesson.LessonName) 
+@Html.MyEditorForCreateAndEdit(m => m.Lesson.LessonTime) 
+@Html.MyEditorForCreateAndEdit(m => m.Lesson.Location)
+@Html.MyEditorForCreateAndEdit(m => m.Lesson.EquipmentNeeded) 
 

@@ -1,12 +1,12 @@
 ﻿@model App.Pages.Students.StudentsPage
 @using App.Pages.Extensions
 
-@Html.MyEditorFor(m => m.Student.FirstName) 
-@Html.MyEditorFor(m => m.Student.LastName)
-@Html.MyEditorFor(m => m.Student.PhoneNr)
-@Html.MyEditorFor(m => m.Student.Email)
-@Html.MyEditorFor(m => m.Student.Weight)
-@Html.MyEditorFor(m => m.Student.Height)
-@Html.MyEditorFor(m => m.Student.ShoeSize)
-@Html.MyEditorFor(m => m.Student.EnrollmentDate)
-@Html.MyEditorFor(m => m.Student.Level)
+@Html.MyEditorForCreateAndEdit(m => m.Student.FirstName) 
+@Html.MyEditorForCreateAndEdit(m => m.Student.LastName)
+@Html.MyEditorForCreateAndEdit(m => m.Student.PhoneNr)
+@Html.MyEditorForCreateAndEdit(m => m.Student.Email)
+@Html.MyEditorForCreateAndEdit(m => m.Student.Weight)
+@Html.MyEditorForCreateAndEdit(m => m.Student.Height)
+@Html.MyEditorForCreateAndEdit(m => m.Student.ShoeSize)
+@Html.MyEditorForCreateAndEdit(m => m.Student.EnrollmentDate)
+@Html.MyEditorForCreateAndEdit(m => m.Student.Level)
