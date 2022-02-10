@@ -1,6 +1,6 @@
 ﻿@model Microsoft.AspNetCore.Mvc.RazorPages.PageModel
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Details";
     ViewData["Subtitle"] = Model?.GetType()?.Name?.Replace("Page",string.Empty)??"Unspecified";
     Layout = "_Layout";
 }
@@ -9,6 +9,8 @@
 
 <h4>@ViewData["Subtitle"]</h4>
 <hr />
+<div class="container">
 <dl class="row">
-@RenderBody()
+    @RenderBody()
 </dl>
+</div>

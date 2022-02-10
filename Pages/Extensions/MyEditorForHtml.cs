@@ -32,25 +32,27 @@ namespace App.Pages.Extensions
 
         }
 
-        public static IHtmlContent MyEditorForDelete<TModel, TResult>(
+        public static IHtmlContent MyEditorForDeleteAndDetails<TModel, TResult>(
             this IHtmlHelper<TModel> h, Expression<Func<TModel, TResult>> e)
         {
-            var s = htmlStringsForDelete(h, e);
+            var s = htmlStringsForDeleteAndDetails(h, e);
             return new HtmlContentBuilder(s);
         }
 
-        private static List<object> htmlStringsForDelete<TModel, TResult>(IHtmlHelper<TModel> h, Expression<Func<TModel, TResult>> e)
+        private static List<object> htmlStringsForDeleteAndDetails<TModel, TResult>(IHtmlHelper<TModel> h, Expression<Func<TModel, TResult>> e)
         {
             var l = new List<object>();
-            l.Add(new HtmlString("<dl class =\"row\">"));
             l.Add(new HtmlString("<dt class =\"col-sm-2\">"));
             l.Add(h.DisplayNameFor(e));
             l.Add(new HtmlString("</dt>"));
             l.Add(new HtmlString("<dd class =\"col-sm-10\">"));
             l.Add(h.DisplayFor(e));
             l.Add(new HtmlString("</dd>"));
-            l.Add(new HtmlString("</dl>"));
+            
             return l;
         }
+
+
+
     }
 }

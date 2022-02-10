@@ -1,73 +1,19 @@
 ﻿@page
 @model App.Pages.Students.StudentsPage
 
+
+
 @{
-    ViewData["Title"] = "Details";
+    Layout = "_Details";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Student</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.FirstName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.FirstName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.LastName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.LastName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.PhoneNr)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.PhoneNr)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.Email)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.Email)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.Weight)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.Weight)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.Height)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.Height)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.ShoeSize)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.ShoeSize)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.EnrollmentDate)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.EnrollmentDate)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Student.Level)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Student.Level)
-        </dd>
-    </dl>
-</div>
+<body>
+<partial name="_StudentDetails"/>
 <div>
     <a asp-page="./Edit" asp-page-handler="Edit" asp-route-id="@Model.Student.Id">Edit</a> |
     <a asp-page="./Index" asp-page-handler="Index">Back to List</a>
+</div>
+</body>
+<div>
+   
 </div>

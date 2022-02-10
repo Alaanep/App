@@ -5,6 +5,10 @@
     Layout = "_Delete";
 }
 <body>
-<partial name="_DeleteStudent"/>
-<input type="hidden" asp-for="Student.Id" />
+    <partial name="_DeleteStudent"/>
+    <form method="post">
+        <input type="hidden" asp-for="Student.Id" />
+        <input type="submit" value="Delete" handler="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index" asp-page-handler="Index">Back to List</a>
+    </form>
 </body>
