@@ -2,27 +2,13 @@
 @model App.Pages.Instructors.InstructorsPage
 
 @{
-    ViewData["Title"] = "Delete";
+    Layout = "_Delete";
 }
-
-<h1>Delete</h1>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Instructor</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Instructor.FullName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Instructor.FullName)
-        </dd>
-    </dl>
-    
+<body>
+    <partial name="_DeleteInstructor"/>
     <form method="post">
         <input type="hidden" asp-for="Instructor.Id" />
-        <input type="submit" value="Delete" handler = "Delete" class="btn btn-danger" /> |
+        <input type="submit" value="Delete" handler="Delete" class="btn btn-danger" /> |
         <a asp-page="./Index" asp-page-handler="Index">Back to List</a>
     </form>
-</div>
+</body>

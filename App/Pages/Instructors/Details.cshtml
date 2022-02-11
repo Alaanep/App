@@ -1,43 +1,19 @@
 ﻿@page
 @model App.Pages.Instructors.InstructorsPage
 
+
+
 @{
-    ViewData["Title"] = "Details";
+    Layout = "_Details";
 }
 
-<h1>Details</h1>
-
+<body>
+<partial name="_InstructorDetails"/>
 <div>
-    <h4>Instructor</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Instructor.FullName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Instructor.FullName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Instructor.Id)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Instructor.Id)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Instructor.PhoneNr)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Instructor.PhoneNr)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Instructor.LessonsGiven)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Instructor.LessonsGiven)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-page-handler= "Edit" asp-route-id="@Model.Instructor.Id">Edit</a> |
+    <a asp-page="./Edit" asp-page-handler="Edit" asp-route-id="@Model.Instructor.Id">Edit</a> |
     <a asp-page="./Index" asp-page-handler="Index">Back to List</a>
+</div>
+</body>
+<div>
+   
 </div>
