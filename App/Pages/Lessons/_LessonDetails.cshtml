@@ -1,9 +1,9 @@
 ﻿@model App.Pages.Lessons.LessonsPage
 @using App.Pages.Extensions
 
-@Html.MyEditorForDeleteAndDetails(model => model.Lesson.Instructor)
-@Html.MyEditorForDeleteAndDetails(model => model.Lesson.Student)
-@Html.MyEditorForDeleteAndDetails(model => model.Lesson.LessonName)
-@Html.MyEditorForDeleteAndDetails(model => model.Lesson.LessonTime)
-@Html.MyEditorForDeleteAndDetails(model => model.Lesson.Location)
-@Html.MyEditorForDeleteAndDetails(model => model.Lesson.EquipmentNeeded)
+@Html.MyEditorForDeleteAndDetails(model => model.BindData.Instructor)
+@Html.MyEditorForDeleteAndDetails(model => model.BindData.Student)
+@Html.MyEditorForDeleteAndDetails(model => model.BindData.LessonName)
+@Html.MyEditorForDeleteAndDetails(model => model.BindData.LessonTime)
+@Html.MyEditorForDeleteAndDetails(model => model.BindData.Location)
+@Html.MyEditorForDeleteAndDetails(model => model.BindData.EquipmentNeeded)

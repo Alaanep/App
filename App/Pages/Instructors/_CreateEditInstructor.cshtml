@@ -2,8 +2,8 @@
 @model App.Pages.Instructors.InstructorsPage
 @using App.Pages.Extensions
 
- @Html.MyEditorForCreateAndEdit(x => x.Instructor.FirstName) 
- @Html.MyEditorForCreateAndEdit(x => x.Instructor.LastName)
- @Html.MyEditorForCreateAndEdit(x => x.Instructor.PhoneNr)
- @Html.MyEditorForCreateAndEdit(x => x.Instructor.LessonsGiven)
+ @Html.MyEditorForCreateAndEdit(x => x.BindData.FirstName) 
+ @Html.MyEditorForCreateAndEdit(x => x.BindData.LastName)
+ @Html.MyEditorForCreateAndEdit(x => x.BindData.PhoneNr)
+ @Html.MyEditorForCreateAndEdit(x => x.BindData.LessonsGiven)
 

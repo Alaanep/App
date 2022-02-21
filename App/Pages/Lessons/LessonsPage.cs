@@ -18,8 +18,7 @@ namespace App.Pages.Lessons
         //todo To protect from overposting attacks, enable the specific properties you want to bind to.
         //todo For more details, see https://aka.ms/RazorPagesCRUD.
         private readonly ApplicationDbContext context;
-        [BindProperty]
-        public LessonView Lesson { get; set; }
+        [BindProperty] public LessonView BindData { get; set; }
         public LessonsPage(ApplicationDbContext c) => context = c;
 
         public IActionResult OnGetCreate()
@@ -36,7 +35,7 @@ namespace App.Pages.Lessons
                 return Page();
             }
 
-            var d = new LessonViewFactory().Create(Lesson).Data;
+            var d = new LessonViewFactory().Create(BindData).Data;
             context.Lessons.Add(d);
             await context.SaveChangesAsync();
 
@@ -53,14 +52,14 @@ namespace App.Pages.Lessons
 
         public async Task<IActionResult> OnGetDetailsAsync(string id)
         {
-            Lesson = await getLesson(id);
-            return Lesson == null ? NotFound() : Page();
+            BindData = await getLesson(id);
+            return BindData == null ? NotFound() : Page();
         }
 
         public async Task<IActionResult> OnGetDeleteAsync(string id)
         {
-            Lesson = await getLesson(id);
-            return Lesson == null ? NotFound() : Page();
+            BindData = await getLesson(id);
+            return BindData == null ? NotFound() : Page();
         }
 
         public async Task<IActionResult> OnPostDeleteAsync(string id)
@@ -83,8 +82,8 @@ namespace App.Pages.Lessons
 
         public async Task<IActionResult> OnGetEditAsync(string id)
         {
-            Lesson = await getLesson(id);
-            return Lesson == null ? NotFound() : Page();
+            BindData = await getLesson(id);
+            return BindData == null ? NotFound() : Page();
         }
 
         public async Task<IActionResult> OnPostEditAsync()
@@ -94,7 +93,7 @@ namespace App.Pages.Lessons
                 return Page();
             }
 
-            var d = new LessonViewFactory().Create(Lesson).Data;
+            var d = new LessonViewFactory().Create(BindData).Data;
             context.Attach(d).State = EntityState.Modified;
 
             try
@@ -103,7 +102,7 @@ namespace App.Pages.Lessons
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!LessonDataExists(Lesson.Id))
+                if (!LessonDataExists(BindData.Id))
                 {
                     return NotFound();
                 }

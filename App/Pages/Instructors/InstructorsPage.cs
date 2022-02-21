@@ -12,7 +12,7 @@ namespace App.Pages.Instructors
     public class InstructorsPage:PageModel 
     {
         private readonly ApplicationDbContext context;
-        [BindProperty] public InstructorView Instructor { get; set; }
+        [BindProperty] public InstructorView BindData { get; set; }
         public IList<InstructorView> Instructors { get; set; }
         public InstructorsPage(ApplicationDbContext c) => context = c;
         public IActionResult OnGetCreate()
@@ -25,7 +25,7 @@ namespace App.Pages.Instructors
             {
                 return Page();
             }
-            var d = new InstructorViewFactory().Create(Instructor).Data;
+            var d = new InstructorViewFactory().Create(BindData).Data;
 
             context.Instructors.Add(d);
             await context.SaveChangesAsync();
@@ -34,8 +34,8 @@ namespace App.Pages.Instructors
         }
         public async Task<IActionResult> OnGetDetailsAsync(string id)
         {
-            Instructor = await getInstructor(id);
-            return Instructor == null? NotFound() : Page();
+            BindData = await getInstructor(id);
+            return BindData == null? NotFound() : Page();
         }
         private async Task<InstructorView> getInstructor(string id)
         {
@@ -46,8 +46,8 @@ namespace App.Pages.Instructors
         }
         public async Task<IActionResult> OnGetDeleteAsync(string id)
         {
-            Instructor = await getInstructor(id);
-            return Instructor == null ? NotFound() : Page();
+            BindData = await getInstructor(id);
+            return BindData == null ? NotFound() : Page();
         }
         public async Task<IActionResult> OnPostDeleteAsync(string id)
         {
@@ -68,8 +68,8 @@ namespace App.Pages.Instructors
         }
         public async Task<IActionResult> OnGetEditAsync(string id)
         {
-            Instructor = await getInstructor(id);
-            return Instructor == null ? NotFound() : Page();
+            BindData = await getInstructor(id);
+            return BindData == null ? NotFound() : Page();
         }
         public async Task<IActionResult> OnPostEditAsync()
         {
@@ -77,7 +77,7 @@ namespace App.Pages.Instructors
             {
                 return Page();
             }
-            var d = new InstructorViewFactory().Create(Instructor).Data;
+            var d = new InstructorViewFactory().Create(BindData).Data;
             context.Attach(d).State = EntityState.Modified;
 
             try
@@ -86,7 +86,7 @@ namespace App.Pages.Instructors
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!InstructorExists(Instructor.Id))
+                if (!InstructorExists(BindData.Id))
                 {
                     return NotFound();
                 }

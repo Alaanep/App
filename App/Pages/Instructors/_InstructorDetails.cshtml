@@ -1,7 +1,7 @@
 ﻿@model App.Pages.Instructors.InstructorsPage
 @using App.Pages.Extensions
 
-@Html.MyEditorForDeleteAndDetails(m => m.Instructor.FirstName) 
-@Html.MyEditorForDeleteAndDetails(m => m.Instructor.LastName)
-@Html.MyEditorForDeleteAndDetails(m => m.Instructor.PhoneNr)
-@Html.MyEditorForDeleteAndDetails(m => m.Instructor.LessonsGiven)
+@Html.MyEditorForDeleteAndDetails(m => m.BindData.FirstName) 
+@Html.MyEditorForDeleteAndDetails(m => m.BindData.LastName)
+@Html.MyEditorForDeleteAndDetails(m => m.BindData.PhoneNr)
+@Html.MyEditorForDeleteAndDetails(m => m.BindData.LessonsGiven)

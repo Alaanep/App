@@ -18,7 +18,7 @@ namespace App.Pages.Students
         private readonly ApplicationDbContext context;
 
         [BindProperty]
-        public StudentView Student { get; set; }
+        public StudentView BindData { get; set; }
         public IList<StudentView> Students { get; set; }
         public StudentsPage(ApplicationDbContext c) => context = c;
         
@@ -34,7 +34,7 @@ namespace App.Pages.Students
                 return Page();
             }
 
-            var d = new StudentViewFactory().Create(Student).Data;
+            var d = new StudentViewFactory().Create(BindData).Data;
             context.Students.Add(d);
             await context.SaveChangesAsync();
 
@@ -43,8 +43,8 @@ namespace App.Pages.Students
 
         public async Task<IActionResult> OnGetDetailsAsync(string id)
         {
-            Student = await getStudent(id);
-            return Student == null ? NotFound() : Page();
+            BindData = await getStudent(id);
+            return BindData == null ? NotFound() : Page();
         }
 
         private async Task<StudentView> getStudent(string id)
@@ -57,8 +57,8 @@ namespace App.Pages.Students
 
         public async Task<IActionResult> OnGetDeleteAsync(string id)
         {
-            Student = await getStudent(id);
-            return Student == null ? NotFound() : Page();
+            BindData = await getStudent(id);
+            return BindData == null ? NotFound() : Page();
         }
 
         public async Task<IActionResult> OnPostDeleteAsync(string id)
@@ -82,8 +82,8 @@ namespace App.Pages.Students
 
         public async Task<IActionResult> OnGetEditAsync(string id)
         {
-            Student = await getStudent(id);
-            return Student == null ? NotFound() : Page();
+            BindData = await getStudent(id);
+            return BindData == null ? NotFound() : Page();
         }
 
         
@@ -94,7 +94,7 @@ namespace App.Pages.Students
                 return Page();
             }
 
-            var d = new StudentViewFactory().Create(Student).Data;
+            var d = new StudentViewFactory().Create(BindData).Data;
             context.Attach(d).State = EntityState.Modified;
 
             try
@@ -103,7 +103,7 @@ namespace App.Pages.Students
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!studentExists(Student.Id))
+                if (!studentExists(BindData.Id))
                 {
                     return NotFound();
                 }
