@@ -4,10 +4,8 @@ using App.Facade.Party;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-
 namespace App.Pages.Instructors
-{
-    // TODO: To protect from overposting attacks, enable the specific properties you want to bind to.
+{ // TODO: To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see https://aka.ms/RazorPagesCRUD.
     public class InstructorsPage:PageModel 
     {
@@ -100,7 +98,7 @@ namespace App.Pages.Instructors
         }
         private bool InstructorExists(string id) 
             => context.Instructors.Any(e => e.Id == id);
-        public async Task OnGetIndexAsync()
+        public async Task<IActionResult> OnGetIndexAsync()
         {
             var list = await context.Instructors.ToListAsync();
             Instructors = new List<InstructorView>();
@@ -109,6 +107,7 @@ namespace App.Pages.Instructors
                 var v = new InstructorViewFactory().Create(new Instructor(d));
                 Instructors.Add(v);
             }
+            return Page();
         }
     }
 }

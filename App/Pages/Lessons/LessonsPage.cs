@@ -1,34 +1,25 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using App.Data;
 using App.Data.Party;
 using App.Domain.Party;
 using App.Facade.Party;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
+
 
 namespace App.Pages.Lessons
 {
     public class LessonsPage: PageModel
-    {
-        //todo To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
+    { //todo To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         //todo To protect from overposting attacks, enable the specific properties you want to bind to.
         //todo For more details, see https://aka.ms/RazorPagesCRUD.
         private readonly ApplicationDbContext context;
-        [BindProperty]
-        public LessonView Lesson { get; set; }
+        [BindProperty] public LessonView Lesson { get; set; }
         public LessonsPage(ApplicationDbContext c) => context = c;
-
         public IActionResult OnGetCreate()
         {
             return Page();
         }
-
-        
-
         public async Task<IActionResult> OnPostCreateAsync()
         {
             if (!ModelState.IsValid)
@@ -42,7 +33,6 @@ namespace App.Pages.Lessons
 
             return RedirectToPage("./Index", "Index");
         }
-
         private async Task<LessonView> getLesson(string id)
         {
             if (id == null) return null;
@@ -50,19 +40,16 @@ namespace App.Pages.Lessons
             if (d == null) return null;
             return new LessonViewFactory().Create(new Lesson(d));
         }
-
         public async Task<IActionResult> OnGetDetailsAsync(string id)
         {
             Lesson = await getLesson(id);
             return Lesson == null ? NotFound() : Page();
         }
-
         public async Task<IActionResult> OnGetDeleteAsync(string id)
         {
             Lesson = await getLesson(id);
             return Lesson == null ? NotFound() : Page();
         }
-
         public async Task<IActionResult> OnPostDeleteAsync(string id)
         {
             if (id == null)
@@ -80,13 +67,11 @@ namespace App.Pages.Lessons
 
             return RedirectToPage("./Index", "Index");
         }
-
         public async Task<IActionResult> OnGetEditAsync(string id)
         {
             Lesson = await getLesson(id);
             return Lesson == null ? NotFound() : Page();
         }
-
         public async Task<IActionResult> OnPostEditAsync()
         {
             if (!ModelState.IsValid)
@@ -115,18 +100,13 @@ namespace App.Pages.Lessons
 
             return RedirectToPage("./Index", "Index");
         }
-
         private bool LessonDataExists(string id)
         {
             return context.Lessons.Any(e => e.Id == id);
         }
-
-
         public IList<LessonView> Lessons { get; set; }
-
-        public async Task OnGetIndexAsync()
+        public async Task<IActionResult> OnGetIndexAsync()
         {
-
             var list = await context.Lessons.ToListAsync();
             Lessons = new List<LessonView>();
             foreach (var d in list)
@@ -134,6 +114,7 @@ namespace App.Pages.Lessons
                 var l = new LessonViewFactory().Create(new Lesson(d));
                 Lessons.Add(l);
             }
+            return Page();
         }
     }
 }
