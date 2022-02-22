@@ -1,12 +1,12 @@
 ﻿@model App.Pages.Students.StudentsPage
 @using App.Pages.Extensions
 
-@Html.MyEditorForDeleteAndDetails(m => m.Student.FirstName) 
-@Html.MyEditorForDeleteAndDetails(m => m.Student.LastName)
-@Html.MyEditorForDeleteAndDetails(m => m.Student.PhoneNr)
-@Html.MyEditorForDeleteAndDetails(m => m.Student.Email)
-@Html.MyEditorForDeleteAndDetails(m => m.Student.Weight)
-@Html.MyEditorForDeleteAndDetails(m => m.Student.Height)
-@Html.MyEditorForDeleteAndDetails(m => m.Student.ShoeSize)
-@Html.MyEditorForDeleteAndDetails(m => m.Student.EnrollmentDate)
-@Html.MyEditorForDeleteAndDetails(m => m.Student.Level)
+@Html.MyViewerFor(m => m.Student.FirstName) 
+@Html.MyViewerFor(m => m.Student.LastName)
+@Html.MyViewerFor(m => m.Student.PhoneNr)
+@Html.MyViewerFor(m => m.Student.Email)
+@Html.MyViewerFor(m => m.Student.Weight)
+@Html.MyViewerFor(m => m.Student.Height)
+@Html.MyViewerFor(m => m.Student.ShoeSize)
+@Html.MyViewerFor(m => m.Student.EnrollmentDate)
+@Html.MyViewerFor(m => m.Student.Level)
