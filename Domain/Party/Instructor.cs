@@ -2,21 +2,16 @@
 
 namespace App.Domain.Party
 {
-    public class Instructor
+    public class Instructor: Entity<InstructorData>
     {
         private const string defaultStr = "Undefined";
-
-        private InstructorData data;
         public Instructor() : this(new InstructorData()) { }
-        public Instructor(InstructorData d) => data = d;
-
-        public string Id => data?.Id ?? defaultStr;
-        public string FirstName => data?.FirstName ?? defaultStr;
-        public string LastName => data?.LastName ?? defaultStr;
-        public string PhoneNr => data?.PhoneNr ?? defaultStr;
-        public string LessonsGiven => data?.LessonsGiven ?? defaultStr;
-
+        public Instructor(InstructorData d) : base(d) { }
+        public string Id => Data?.Id ?? defaultStr;
+        public string FirstName => Data?.FirstName ?? defaultStr;
+        public string LastName => Data?.LastName ?? defaultStr;
+        public string PhoneNr => Data?.PhoneNr ?? defaultStr;
+        public string LessonsGiven => Data?.LessonsGiven ?? defaultStr;
         public override string ToString() => $"{FirstName} {LastName}";
-        public InstructorData Data => data;
     }
 }

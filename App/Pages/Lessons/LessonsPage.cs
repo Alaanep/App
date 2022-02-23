@@ -4,41 +4,23 @@ using App.Data;
 using App.Data.Party;
 using App.Domain.Party;
 using App.Facade.Party;
+using App.Infra.Party;
 using Microsoft.EntityFrameworkCore;
 
 
 namespace App.Pages.Lessons
 {
     public class LessonsPage: PageModel
-    { //todo To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
-        //todo To protect from overposting attacks, enable the specific properties you want to bind to.
-        //todo For more details, see https://aka.ms/RazorPagesCRUD.
-        private readonly ApplicationDbContext context;
+    {
+        private readonly ILessonsRepo repo;
         [BindProperty] public LessonView Lesson { get; set; }
-        public LessonsPage(ApplicationDbContext c) => context = c;
-        public IActionResult OnGetCreate()
-        {
-            return Page();
-        }
+        public LessonsPage(ApplicationDbContext c) => repo = new LessonsRepo(c, c.Lessons);
+        public IActionResult OnGetCreate()=>Page();
         public async Task<IActionResult> OnPostCreateAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            var d = new LessonViewFactory().Create(Lesson).Data;
-            context.Lessons.Add(d);
-            await context.SaveChangesAsync();
-
+            if (!ModelState.IsValid)return Page();
+            await repo.AddAsync(new LessonViewFactory().Create(Lesson));
             return RedirectToPage("./Index", "Index");
-        }
-        private async Task<LessonView> getLesson(string id)
-        {
-            if (id == null) return null;
-            var d = await context.Lessons.FirstOrDefaultAsync(m => m.Id == id);
-            if (d == null) return null;
-            return new LessonViewFactory().Create(new Lesson(d));
         }
         public async Task<IActionResult> OnGetDetailsAsync(string id)
         {
@@ -52,19 +34,8 @@ namespace App.Pages.Lessons
         }
         public async Task<IActionResult> OnPostDeleteAsync(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var d = await context.Lessons.FindAsync(id);
-
-            if (d != null)
-            {
-                context.Lessons.Remove(d);
-                await context.SaveChangesAsync();
-            }
-
+            if (id == null)return NotFound();
+            await repo.DeleteAsync(id);
             return RedirectToPage("./Index", "Index");
         }
         public async Task<IActionResult> OnGetEditAsync(string id)
@@ -74,47 +45,25 @@ namespace App.Pages.Lessons
         }
         public async Task<IActionResult> OnPostEditAsync()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            var d = new LessonViewFactory().Create(Lesson).Data;
-            context.Attach(d).State = EntityState.Modified;
-
-            try
-            {
-                await context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!LessonDataExists(Lesson.Id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
+            if (!ModelState.IsValid)return Page();
+            var obj = new LessonViewFactory().Create(Lesson);
+            var updated = await repo.UpdateAsync(obj);
+            if (!updated) return NotFound();
             return RedirectToPage("./Index", "Index");
-        }
-        private bool LessonDataExists(string id)
-        {
-            return context.Lessons.Any(e => e.Id == id);
         }
         public IList<LessonView> Lessons { get; set; }
         public async Task<IActionResult> OnGetIndexAsync()
         {
-            var list = await context.Lessons.ToListAsync();
+            var list = await repo.GetAsync();
             Lessons = new List<LessonView>();
-            foreach (var d in list)
+            foreach (var obj in list)
             {
-                var l = new LessonViewFactory().Create(new Lesson(d));
+                var l = new LessonViewFactory().Create(obj);
                 Lessons.Add(l);
             }
             return Page();
         }
+        private async Task<LessonView> getLesson(string id) => new LessonViewFactory().Create(await repo.GetAsync(id));
+        
     }
 }
