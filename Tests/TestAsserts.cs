@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.Tests;
 
-public abstract class AssertTests
+public abstract class TestAsserts
 {
     protected static void inconclusive() => Assert.Inconclusive();
     protected static void isNotNull([NotNull] object? o = null) => Assert.IsNotNull(o);
