@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace App.Tests;
 
-public abstract class BaseTests<Tclass>: AssertTests where Tclass: class, new()
+public abstract class BaseTests<Tclass>: TestAsserts where Tclass: class, new()
 {
     protected Tclass obj;
     protected  BaseTests()=>obj=new Tclass();//genereerib abstraktselt Tclass objekti
