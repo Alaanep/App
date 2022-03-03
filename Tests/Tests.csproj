@@ -22,11 +22,4 @@
     <ProjectReference Include="..\App\App.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Core\" />
-    <Folder Include="Infra\" />
-    <Folder Include="Domain\" />
-    <Folder Include="Pages\" />
-  </ItemGroup>
-
 </Project>
