@@ -13,24 +13,26 @@ namespace App.Pages.Lessons
     public class LessonsPage: PageModel
     {
         private readonly ILessonsRepo repo;
-        [BindProperty] public LessonView Lesson { get; set; }
-        public LessonsPage(ApplicationDbContext c) => repo = new LessonsRepo(c, c.Lessons);
+        [BindProperty] public LessonView Item { get; set; }
+        public IList<LessonView> Items { get; set; }
+        public string ItemId => Item?.Id ?? string.Empty;
+        public LessonsPage(AppDB c) => repo = new LessonsRepo(c, c.Lessons);
         public IActionResult OnGetCreate()=>Page();
         public async Task<IActionResult> OnPostCreateAsync()
         {
             if (!ModelState.IsValid)return Page();
-            await repo.AddAsync(new LessonViewFactory().Create(Lesson));
+            await repo.AddAsync(new LessonViewFactory().Create(Item));
             return RedirectToPage("./Index", "Index");
         }
         public async Task<IActionResult> OnGetDetailsAsync(string id)
         {
-            Lesson = await getLesson(id);
-            return Lesson == null ? NotFound() : Page();
+            Item = await getLesson(id);
+            return Item == null ? NotFound() : Page();
         }
         public async Task<IActionResult> OnGetDeleteAsync(string id)
         {
-            Lesson = await getLesson(id);
-            return Lesson == null ? NotFound() : Page();
+            Item = await getLesson(id);
+            return Item == null ? NotFound() : Page();
         }
         public async Task<IActionResult> OnPostDeleteAsync(string id)
         {
@@ -40,26 +42,26 @@ namespace App.Pages.Lessons
         }
         public async Task<IActionResult> OnGetEditAsync(string id)
         {
-            Lesson = await getLesson(id);
-            return Lesson == null ? NotFound() : Page();
+            Item = await getLesson(id);
+            return Item == null ? NotFound() : Page();
         }
         public async Task<IActionResult> OnPostEditAsync()
         {
             if (!ModelState.IsValid)return Page();
-            var obj = new LessonViewFactory().Create(Lesson);
+            var obj = new LessonViewFactory().Create(Item);
             var updated = await repo.UpdateAsync(obj);
             if (!updated) return NotFound();
             return RedirectToPage("./Index", "Index");
         }
-        public IList<LessonView> Lessons { get; set; }
+        
         public async Task<IActionResult> OnGetIndexAsync()
         {
             var list = await repo.GetAsync();
-            Lessons = new List<LessonView>();
+            Items = new List<LessonView>();
             foreach (var obj in list)
             {
                 var l = new LessonViewFactory().Create(obj);
-                Lessons.Add(l);
+                Items.Add(l);
             }
             return Page();
         }

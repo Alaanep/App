@@ -1,18 +1,18 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using App.Data;
-using App.Data.Party;
+using App.Infra.Party;
 
 namespace App.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
-        {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+            base.OnModelCreating(modelBuilder);
+            initializeTables(modelBuilder);
         }
-        public DbSet<StudentData> Students { get; set; }
-        public DbSet<InstructorData> Instructors { get; set; }
-        public DbSet<LessonData> Lessons { get; set; }
+        private static void initializeTables(ModelBuilder modelBuilder) {
+            AppDB.InitializeTables(modelBuilder);
+        }
     }
 }

@@ -11,21 +11,21 @@
 <table class="table">
     <thead>
     <tr>
-        @Html.MyEditorForIndexTableHead(model => model.Students[0].FullName)
-        @Html.MyEditorForIndexTableHead(model => model.Students[0].FirstName)
-        @Html.MyEditorForIndexTableHead(model => model.Students[0].LastName)
-        @Html.MyEditorForIndexTableHead(model => model.Students[0].PhoneNr)
-        @Html.MyEditorForIndexTableHead(model => model.Students[0].Email)
-        @Html.MyEditorForIndexTableHead(model => model.Students[0].Weight)
-        @Html.MyEditorForIndexTableHead(model => model.Students[0].Height)
-        @Html.MyEditorForIndexTableHead(model => model.Students[0].ShoeSize)
-        @Html.MyEditorForIndexTableHead(model => model.Students[0].EnrollmentDate)
-        @Html.MyEditorForIndexTableHead(model => model.Students[0].Level)
+        @Html.MyEditorForIndexTableHead(model => model.Items[0].FullName)
+        @Html.MyEditorForIndexTableHead(model => model.Items[0].FirstName)
+        @Html.MyEditorForIndexTableHead(model => model.Items[0].LastName)
+        @Html.MyEditorForIndexTableHead(model => model.Items[0].PhoneNr)
+        @Html.MyEditorForIndexTableHead(model => model.Items[0].Email)
+        @Html.MyEditorForIndexTableHead(model => model.Items[0].Weight)
+        @Html.MyEditorForIndexTableHead(model => model.Items[0].Height)
+        @Html.MyEditorForIndexTableHead(model => model.Items[0].ShoeSize)
+        @Html.MyEditorForIndexTableHead(model => model.Items[0].EnrollmentDate)
+        @Html.MyEditorForIndexTableHead(model => model.Items[0].Level)
         <th></th>
     </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Students) {
+@foreach (var item in Model.Items) {
     <tr>
         @Html.MyEditorForIndexTableBody(modelItem => item.FullName)
         @Html.MyEditorForIndexTableBody(modelItem => item.FirstName)

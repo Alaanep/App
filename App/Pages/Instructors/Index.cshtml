@@ -11,16 +11,16 @@
 <table class="table">
     <thead>
     <tr>
-        @Html.MyEditorForIndexTableHead(model => model.Instructors[0].FullName)
-        @Html.MyEditorForIndexTableHead(model => model.Instructors[0].FirstName)
-        @Html.MyEditorForIndexTableHead(model => model.Instructors[0].LastName)
-        @Html.MyEditorForIndexTableHead(model => model.Instructors[0].PhoneNr)
-        @Html.MyEditorForIndexTableHead(model => model.Instructors[0].LessonsGiven)
+        @Html.MyEditorForIndexTableHead(model => model.Items[0].FullName)
+        @Html.MyEditorForIndexTableHead(model => model.Items[0].FirstName)
+        @Html.MyEditorForIndexTableHead(model => model.Items[0].LastName)
+        @Html.MyEditorForIndexTableHead(model => model.Items[0].PhoneNr)
+        @Html.MyEditorForIndexTableHead(model => model.Items[0].LessonsGiven)
         <th></th>
     </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Instructors) {
+@foreach (var item in Model.Items) {
     <tr>
         @Html.MyEditorForIndexTableBody(modelItem => item.FullName)
         @Html.MyEditorForIndexTableBody(modelItem => item.FirstName)

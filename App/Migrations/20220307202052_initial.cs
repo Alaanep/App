@@ -9,6 +9,9 @@ namespace App.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "AppDB");
+
             migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
@@ -50,6 +53,7 @@ namespace App.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Instructors",
+                schema: "AppDB",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -65,6 +69,7 @@ namespace App.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Lessons",
+                schema: "AppDB",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -82,6 +87,7 @@ namespace App.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Students",
+                schema: "AppDB",
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
@@ -264,13 +270,16 @@ namespace App.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Instructors");
+                name: "Instructors",
+                schema: "AppDB");
 
             migrationBuilder.DropTable(
-                name: "Lessons");
+                name: "Lessons",
+                schema: "AppDB");
 
             migrationBuilder.DropTable(
-                name: "Students");
+                name: "Students",
+                schema: "AppDB");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

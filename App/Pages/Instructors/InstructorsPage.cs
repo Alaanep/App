@@ -10,26 +10,26 @@ namespace App.Pages.Instructors
     public class InstructorsPage:PageModel 
     {
         private readonly IInstructorsRepo repo;
-        private readonly ApplicationDbContext context;
-        [BindProperty] public InstructorView Instructor { get; set; }
-        public IList<InstructorView> Instructors { get; set; }
-        public InstructorsPage(ApplicationDbContext c) => repo = new InstructorsRepo(c, c.Instructors);
+        [BindProperty] public InstructorView Item { get; set; }
+        public IList<InstructorView> Items { get; set; }
+        public string ItemId => Item?.Id ?? string.Empty;
+        public InstructorsPage(AppDB c) => repo = new InstructorsRepo(c, c.Instructors);
         public IActionResult OnGetCreate() => Page();
         public async Task<IActionResult> OnPostCreateAsync()
         {
             if (!ModelState.IsValid) return Page();
-            await repo.AddAsync(new InstructorViewFactory().Create(Instructor));
+            await repo.AddAsync(new InstructorViewFactory().Create(Item));
             return RedirectToPage("./Index","Index");
         }
         public async Task<IActionResult> OnGetDetailsAsync(string id)
         {
-            Instructor = await getInstructor(id);
-            return Instructor == null? NotFound() : Page();
+            Item = await getInstructor(id);
+            return Item == null? NotFound() : Page();
         }
         public async Task<IActionResult> OnGetDeleteAsync(string id)
         {
-            Instructor = await getInstructor(id);
-            return Instructor == null ? NotFound() : Page();
+            Item = await getInstructor(id);
+            return Item == null ? NotFound() : Page();
         }
         public async Task<IActionResult> OnPostDeleteAsync(string id)
         {
@@ -39,13 +39,13 @@ namespace App.Pages.Instructors
         }
         public async Task<IActionResult> OnGetEditAsync(string id)
         {
-            Instructor = await getInstructor(id);
-            return Instructor == null ? NotFound() : Page();
+            Item = await getInstructor(id);
+            return Item == null ? NotFound() : Page();
         }
         public async Task<IActionResult> OnPostEditAsync()
         {
             if (!ModelState.IsValid) return Page();
-            var obj = new InstructorViewFactory().Create(Instructor);
+            var obj = new InstructorViewFactory().Create(Item);
             var updated = await repo.UpdateAsync(obj);
             if(!updated) return NotFound();
             return RedirectToPage("./Index","Index");
@@ -53,11 +53,11 @@ namespace App.Pages.Instructors
         public async Task<IActionResult> OnGetIndexAsync()
         {
             var list = await repo.GetAsync();
-            Instructors = new List<InstructorView>();
+            Items = new List<InstructorView>();
             foreach (var obj in list)
             {
                 var v = new InstructorViewFactory().Create(obj);
-                Instructors.Add(v);
+                Items.Add(v);
             }
             return Page();
         }

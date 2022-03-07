@@ -10,17 +10,17 @@
 <table class="table">
     <thead>
         <tr>
-            @Html.MyEditorForIndexTableHead(model => model.Lessons[0].Instructor)
-            @Html.MyEditorForIndexTableHead(model => model.Lessons[0].Student)
-            @Html.MyEditorForIndexTableHead(model => model.Lessons[0].LessonName)
-            @Html.MyEditorForIndexTableHead(model => model.Lessons[0].LessonTime)
-            @Html.MyEditorForIndexTableHead(model => model.Lessons[0].Location)
-            @Html.MyEditorForIndexTableHead(model => model.Lessons[0].EquipmentNeeded)
+            @Html.MyEditorForIndexTableHead(model => model.Items[0].Instructor)
+            @Html.MyEditorForIndexTableHead(model => model.Items[0].Student)
+            @Html.MyEditorForIndexTableHead(model => model.Items[0].LessonName)
+            @Html.MyEditorForIndexTableHead(model => model.Items[0].LessonTime)
+            @Html.MyEditorForIndexTableHead(model => model.Items[0].Location)
+            @Html.MyEditorForIndexTableHead(model => model.Items[0].EquipmentNeeded)
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Lessons) {
+@foreach (var item in Model.Items) {
         <tr>
             @Html.MyEditorForIndexTableBody(modelItem => item.Instructor)
             @Html.MyEditorForIndexTableBody(modelItem => item.Student)

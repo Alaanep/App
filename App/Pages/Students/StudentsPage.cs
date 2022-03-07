@@ -15,25 +15,26 @@ namespace App.Pages.Students
     {
         private readonly IStudentsRepo repo;
         private readonly ApplicationDbContext context;
-        [BindProperty] public StudentView Student { get; set; }
-        public IList<StudentView> Students { get; set; }
-        public StudentsPage(ApplicationDbContext c) => repo = new StudentsRepo(c, c.Students);
+        [BindProperty] public StudentView Item { get; set; }
+        public IList<StudentView> Items { get; set; }
+        public string ItemId => Item?.Id ?? string.Empty;
+        public StudentsPage(AppDB c) => repo = new StudentsRepo(c, c.Students);
         public IActionResult OnGetCreate()=>Page();
         public async Task<IActionResult> OnPostCreateAsync()
         {
             if (!ModelState.IsValid) return Page();
-            await repo.AddAsync(new StudentViewFactory().Create(Student));
+            await repo.AddAsync(new StudentViewFactory().Create(Item));
             return RedirectToPage("./Index", "Index");
         }
         public async Task<IActionResult> OnGetDetailsAsync(string id)
         {
-            Student = await getStudent(id);
-            return Student == null ? NotFound() : Page();
+            Item = await getStudent(id);
+            return Item == null ? NotFound() : Page();
         }
         public async Task<IActionResult> OnGetDeleteAsync(string id)
         {
-            Student = await getStudent(id);
-            return Student == null ? NotFound() : Page();
+            Item = await getStudent(id);
+            return Item == null ? NotFound() : Page();
         }
         public async Task<IActionResult> OnPostDeleteAsync(string id)
         {
@@ -43,13 +44,13 @@ namespace App.Pages.Students
         }
         public async Task<IActionResult> OnGetEditAsync(string id)
         {
-            Student = await getStudent(id);
-            return Student == null ? NotFound() : Page();
+            Item = await getStudent(id);
+            return Item == null ? NotFound() : Page();
         }
         public async Task<IActionResult> OnPostEditAsync()
         {
             if (!ModelState.IsValid) return Page();
-            var obj = new StudentViewFactory().Create(Student);
+            var obj = new StudentViewFactory().Create(Item);
             var updated = await repo.UpdateAsync(obj);
             if (!updated) return NotFound();
             return RedirectToPage("./Index", "Index");
@@ -57,11 +58,11 @@ namespace App.Pages.Students
         public async Task<IActionResult> OnGetIndexAsync()
         {
             var list = await repo.GetAsync();
-            Students = new List<StudentView>();
+            Items = new List<StudentView>();
             foreach (var obj in list)
             {
                 var v = new StudentViewFactory().Create(obj);
-                Students.Add(v);
+                Items.Add(v);
             }
             return Page();
         }
