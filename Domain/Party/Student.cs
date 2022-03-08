@@ -1,14 +1,8 @@
 ﻿using App.Data.Party;
-
-namespace App.Domain.Party
-{
-    public class Student: Entity<StudentData>
-    {
-        private const string defaultStr = "Undefined";
-        private DateTime defaultDate = DateTime.MinValue;
+namespace App.Domain.Party {
+    public class Student: Entity<StudentData> {
         public Student(): this(new StudentData()){ }
         public Student(StudentData d): base(d){}
-        public string Id => Data?.Id ?? defaultStr;
         public string FirstName => Data?.FirstName ?? defaultStr;
         public string LastName => Data?.LastName ?? defaultStr;
         public string PhoneNr => Data?.PhoneNr?? defaultStr;

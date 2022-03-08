@@ -1,4 +1,5 @@
 using App.Data;
+using App.Domain.Party;
 using App.Infra.Party;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddRazorPages();
+builder.Services.AddTransient<ILessonsRepo, LessonsRepo>();
+builder.Services.AddTransient<IStudentsRepo, StudentsRepo>();
+builder.Services.AddTransient<IInstructorsRepo, InstructorsRepo>();
 
 var app = builder.Build();
 

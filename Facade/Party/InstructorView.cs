@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace App.Facade.Party
 {
-    public class InstructorView
+    public class InstructorView: BaseView
     {
-        [Required] public string Id { get; set; }
         [DisplayName("First name")] [Required] public string? FirstName { get; set; }
         [DisplayName("Last name")] [Required] public string? LastName { get; set; }
         [DisplayName("Phone nr")] public string? PhoneNr { get; set; }

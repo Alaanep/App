@@ -5,9 +5,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace App.Facade.Party
 {
-    public class LessonView
+    public class LessonView: BaseView
     {
-        [Required] public string Id { get; set; }
         [DisplayName("Instructor")]public  string? Instructor { get; set; }
         [DisplayName("Student")] public string? Student { get; set; }
         [DisplayName("Lesson: ")] public string? LessonName { get; set; }

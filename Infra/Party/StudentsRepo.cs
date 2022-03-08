@@ -6,7 +6,7 @@ namespace App.Infra.Party
 {
     public class StudentsRepo: Repo<Student, StudentData>, IStudentsRepo
     {
-        public StudentsRepo(DbContext c, DbSet<StudentData>s): base(c,s){}
+        public StudentsRepo(AppDB db): base(db,db.Students){}
 
         protected override Student toDomain(StudentData d) => new Student(d);
     }

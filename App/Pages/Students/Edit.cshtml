@@ -1,15 +1,10 @@
 ﻿@page
-@model App.Pages.Students.StudentsPage
-@using App.Pages.Extensions
-
+@model Pages.StudentsPage
 @{
     
     Layout = "_Edit";
 }
-
 <body>
 <input type="hidden" asp-for="Item.Id" />
-
 <partial name="_CreateEditStudent"/>
-        
 </body>

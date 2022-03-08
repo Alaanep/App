@@ -6,7 +6,7 @@ namespace App.Infra.Party
 {
     public class LessonsRepo: Repo<Lesson, LessonData>, ILessonsRepo
     {
-        public LessonsRepo(DbContext c, DbSet<LessonData> s) : base(c, s) { }
+        public LessonsRepo(AppDB db) : base(db, db.Lessons) { }
         protected override Lesson toDomain(LessonData d) => new Lesson(d);
     }
 }
