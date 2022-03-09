@@ -5,6 +5,6 @@ namespace App.Tests.App
     [TestClass]
     public class IsAppTested:IsAssemblyTested
     {
-        protected override void isAllTested() => inconclusive("Namespace has to be changed to \"App.App\"");
+        protected override void isAllTested() => isInconclusive("Namespace has to be changed to \"App.App\"");
     }
 }

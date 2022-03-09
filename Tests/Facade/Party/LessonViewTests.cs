@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace App.Tests.Facade.Party
 {
     [TestClass]
-    public class LessonViewTests: BaseTests<LessonView>
+    public class LessonViewTests: SealedClassTests<LessonView>
     {
         [TestMethod] public void IdTest() => isProperty<string>();
         [TestMethod] public void InstructorTest() => isProperty<string?>();

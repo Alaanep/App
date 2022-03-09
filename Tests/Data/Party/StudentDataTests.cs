@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace App.Tests.Data.Party
 {
     [TestClass]
-    public class StudentDataTests: BaseTests<StudentData>
+    public class StudentDataTests: SealedClassTests<StudentData>
     {
         [TestMethod] public void IdTest() => isProperty<string>();
         [TestMethod] public void FirstNameTest() => isProperty<string?>();

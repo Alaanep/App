@@ -4,10 +4,11 @@ using System.Reflection;
 
 namespace App.Tests;
 
-public abstract class BaseTests<Tclass>: IsTypeTested where Tclass: class, new()
-{
-    protected Tclass obj;
-    protected  BaseTests()=>obj=new Tclass();//genereerib abstraktselt Tclass objekti
+public abstract class BaseTests: IsTypeTested {
+    protected object obj;
+    protected BaseTests() => obj = createObj();
+
+    protected abstract object createObj();
 
     protected void isProperty<T>(T? value = default, bool isReadOnly = false)
     {

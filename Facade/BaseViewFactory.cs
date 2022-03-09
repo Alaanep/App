@@ -2,7 +2,7 @@
 using App.Data;
 using App.Domain;
 
-namespace ABC.Facade.Party;
+namespace App.Facade;
 
 public abstract class BaseViewFactory<TView, TEntity, TData>
     where TView: class, new()

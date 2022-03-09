@@ -62,7 +62,7 @@ namespace App.Tests
         private static bool isTestFor(string testingMember, string memberToBeTested) =>
             testingMember.Equals(memberToBeTested + "Test");
         private bool allAreTested() => membersOfType.IsEmpty();
-        private void reportNotAllIsTested() => inconclusive($"Member \"{nameOfFirstNotTested()}\" is not tested");
+        private void reportNotAllIsTested() => isInconclusive($"Member \"{nameOfFirstNotTested()}\" is not tested");
 
         private string nameOfFirstNotTested() => membersOfType?.GetFirst() ?? string.Empty;
 

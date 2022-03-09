@@ -6,9 +6,9 @@ namespace App.Tests.Aids
     public class GetAssemblyTests : IsTypeTested
     {
         [TestMethod]
-        public void ByNameTest() => inconclusive();
-        [TestMethod] public void OfTypeTest() => inconclusive();
-        [TestMethod] public void TypesTest() => inconclusive();
-        [TestMethod] public void TypeTest() => inconclusive();
+        public void ByNameTest() => isInconclusive();
+        [TestMethod] public void OfTypeTest() => isInconclusive();
+        [TestMethod] public void TypesTest() => isInconclusive();
+        [TestMethod] public void TypeTest() => isInconclusive();
     }
 }

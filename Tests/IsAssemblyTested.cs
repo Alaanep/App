@@ -36,7 +36,7 @@ namespace App.Tests
         private static Assembly? getAssembly(string? name) => GetAssembly.ByName(name);
         private static List<Type>? getTypes(Assembly? a) => GetAssembly.Types(a);
         private static string? getNamespace(object o) => GetNameSpace.OfType(o);
-        private void reportNotAllIsTested() => inconclusive($"Class\"{fullNameOfFirstNotTested()}\" is not tested");
+        private void reportNotAllIsTested() => isInconclusive($"Class\"{fullNameOfFirstNotTested()}\" is not tested");
         private string fullNameOfFirstNotTested() => firstNotTestedType(typesToBeTested)?.FullName ?? string.Empty;
         private static Type? firstNotTestedType(List<Type>? l) => l.GetFirst();
         private bool allAreTested() => typesToBeTested.IsEmpty();

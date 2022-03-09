@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace App.Tests.Facade.Party
 {
     [TestClass]
-    public class InstructorViewTests:BaseTests<InstructorView>
+    public class InstructorViewTests:SealedClassTests<InstructorView>
     {
         [TestMethod] public void IdTest() => isProperty<string>();
         [TestMethod] public void FirstNameTest() => isProperty<string?>();
