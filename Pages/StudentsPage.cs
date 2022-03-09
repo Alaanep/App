@@ -11,7 +11,7 @@ namespace App.Pages
     public class StudentsPage : BasePage<StudentView, Student, IStudentsRepo>
     {
         public StudentsPage(IStudentsRepo r) : base(r) { }
-        protected override Student toObject(StudentView item) => new StudentViewFactory().Create(item);
-        protected override StudentView toView(Student entity) => new StudentViewFactory().Create(entity);
+        protected override Student toObject(StudentView? item) => new StudentViewFactory().Create(item);
+        protected override StudentView toView(Student? entity) => new StudentViewFactory().Create(entity);
     }
 }

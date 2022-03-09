@@ -1,4 +1,5 @@
 ﻿@model InstructorsPage
 @using Extensions
 
-@Html.MyViewerFor(model => model.Item.FullName)
+@Html.MyViewerFor(model => model.Item.FirstName)
+@Html.MyViewerFor(model => model.Item.LastName)

@@ -1,12 +1,10 @@
-﻿
+﻿using ABC.Facade.Party;
+using App.Domain.Party;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
+using App.Data.Party;
 
-
-namespace App.Facade.Party
-{
-    public class LessonView: BaseView
-    {
+namespace App.Facade.Party {
+    public class LessonView: BaseView {
         [DisplayName("Instructor")]public  string? Instructor { get; set; }
         [DisplayName("Student")] public string? Student { get; set; }
         [DisplayName("Lesson: ")] public string? LessonName { get; set; }
@@ -14,5 +12,8 @@ namespace App.Facade.Party
         [DisplayName("Location")] public string? Location { get; set; }
         [DisplayName("Equipment needed: ")] public string? EquipmentNeeded { get; set; }
         [DisplayName("Lesson")] public string? FullName { get; set; }
+    }
+    public sealed class LessonViewFactory : BaseViewFactory<LessonView, Lesson, LessonData> {
+        protected override Lesson toEntity(LessonData d) => new(d);
     }
 }

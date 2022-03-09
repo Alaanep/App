@@ -1,5 +1,6 @@
 using App.Data;
 using App.Domain.Party;
+using App.Infra;
 using App.Infra.Party;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

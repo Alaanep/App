@@ -3,15 +3,15 @@ namespace App.Domain.Party {
     public class Student: Entity<StudentData> {
         public Student(): this(new StudentData()){ }
         public Student(StudentData d): base(d){}
-        public string FirstName => Data?.FirstName ?? defaultStr;
-        public string LastName => Data?.LastName ?? defaultStr;
-        public string PhoneNr => Data?.PhoneNr?? defaultStr;
-        public string Email => Data?.Email?? defaultStr;
-        public string Weight => Data?.Weight ?? defaultStr;
-        public string Height => Data?.Height ?? defaultStr;
-        public string ShoeSize => Data?.ShoeSize ?? defaultStr;
-        public DateTime EnrollmentDate => Data?.EnrollmentDate ?? defaultDate;
-        public string Level => Data?.Level?? defaultStr;
+        public string FirstName => getValue(Data?.FirstName);
+        public string LastName => getValue(Data?.LastName);
+        public string PhoneNr => getValue(Data?.PhoneNr);
+        public string Email => getValue(Data?.Email);
+        public string Weight => getValue(Data?.Weight);
+        public string Height => getValue(Data?.Height);
+        public string ShoeSize => getValue(Data?.ShoeSize);
+        public DateTime EnrollmentDate => getValue(Data?.EnrollmentDate);
+        public string Level => getValue(Data?.Level);
         public override string ToString() => $"{FirstName} {LastName}";
     }
 }

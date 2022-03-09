@@ -1,5 +1,7 @@
-﻿
-@model LessonsPage
+﻿@model LessonsPage
 @using Extensions
 
-@Html.MyViewerFor(model => model.Item.FullName)
+@Html.MyViewerFor(model => model.Item.LessonName)
+@Html.MyViewerFor(model => model.Item.Student)
+@Html.MyViewerFor(model => model.Item.Instructor)
+@Html.MyViewerFor(model => model.Item.LessonTime)

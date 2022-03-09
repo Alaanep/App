@@ -1,7 +1,5 @@
-﻿namespace App.Data.Party
-{
-    public class InstructorData: EntityData
-    {
+﻿namespace App.Data.Party {
+    public sealed class InstructorData: EntityData {
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? PhoneNr { get; set; }
