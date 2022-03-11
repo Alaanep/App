@@ -1,4 +1,5 @@
-﻿using App.Data.Party;
+﻿using App.Aids;
+using App.Data.Party;
 using App.Domain.Party;
 using App.Facade.Party;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -9,16 +10,12 @@ namespace App.Tests.Facade.Party {
 
         [TestMethod]
         public void CreateViewTest() {
-            var d = new InstructorData() {
-                Id = "id",
-                FirstName = "first",
-                LastName = "last",
-                PhoneNr = "phoneNr",
-                LessonsGiven = "1"
-            };
+            var d = GetRandom.Value<InstructorData>();
             var e = new Instructor(d);
             var v = new InstructorViewFactory().Create(e);
             isNotNull(v);
+            //Vaja mõelda meetod, mis kontrollib, propertid kas on võrdsed
+            //arePropertiesEqual(v,e, nameof(v.FullName)
             areEqual(v.Id, e.Id);
             areEqual(v.FirstName, e.FirstName);
             areEqual(v.LastName, e.LastName);
@@ -28,16 +25,11 @@ namespace App.Tests.Facade.Party {
         }
         [TestMethod]
         public void CreateEntityTest() {
-            var v = new InstructorView() {
-                Id = "id",
-                FirstName = "first",
-                LastName = "last",
-                PhoneNr = "PhoneNr",
-                LessonsGiven = "1",
-                FullName = "name"
-            };
+            var v = GetRandom.Value<InstructorView>();
             var e = new InstructorViewFactory().Create(v);
             isNotNull(e);
+            //Vaja mõelda meetod, mis kontrollib, kas propertid on võrdsed
+            //arePropertiesEqual(v,e)
             areEqual(e.Id, v.Id);
             areEqual(e.FirstName, v.FirstName);
             areEqual(e.LastName, v.LastName);

@@ -1,8 +1,12 @@
 ﻿namespace App.Aids;
 
 public static class Strings {
-    public static string? Remove(this string fromString, string theString) => Safe.Run(() => fromString?.Replace(theString, string.Empty), string.Empty);
-    public static bool IsRealTypeName(this string? s) => Safe.Run(() => s?.All(x=>x.IsNameChar()) ?? false);
+    public static string? Remove(this string fromString, string theString) 
+        => Safe.Run(() => fromString?.Replace(theString, string.Empty), string.Empty);
+    public static bool IsTypeName(this string? s) => Safe.Run(() 
+        => s?.All(x=>x.IsNameChar()) ?? false);
+    public static bool IsFullTypeName(this string? s) 
+        => Safe.Run(() => s?.All(x => x.IsFullNameChar()) ?? false); 
     public static string RemoveTail(this string? s, char separator = '.') {
         if (string.IsNullOrEmpty(s)) return String.Empty;
         for (var i = s.Length; i > 0; i--) {

@@ -1,4 +1,5 @@
-﻿using App.Data.Party;
+﻿using App.Aids;
+using App.Data.Party;
 using App.Domain.Party;
 using App.Facade.Party;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -10,15 +11,7 @@ namespace App.Tests.Facade.Party {
 
         [TestMethod]
         public void CreateViewTest() {
-            var d = new LessonData() {
-                Id = "id",
-                Instructor = "instructor",
-                Student = "student",
-                LessonName = "lessonName",
-                LessonTime = System.DateTime.Now,
-                Location = "location",
-                EquipmentNeeded = "equipment"
-            };
+        var d = GetRandom.Value<LessonData>();
             var e = new Lesson(d);
             var v = new LessonViewFactory().Create(e);
             isNotNull(v);
@@ -33,16 +26,7 @@ namespace App.Tests.Facade.Party {
         }
         [TestMethod]
         public void CreateEntityTest() {
-            var v = new LessonView() {
-                Id = "id",
-                Instructor = "instructor",
-                Student = "student",
-                LessonName = "lessonName",
-                LessonTime = System.DateTime.Now,
-                Location = "location",
-                EquipmentNeeded = "equipment",
-                FullName = "name"
-            };
+            var v = GetRandom.Value<LessonView>();
             var e = new LessonViewFactory().Create(v);
             isNotNull(e);
             areEqual(e.Id, v.Id);
