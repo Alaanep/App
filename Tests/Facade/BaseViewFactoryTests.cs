@@ -10,9 +10,6 @@ namespace App.Tests.Facade {
         private class testClass: BaseViewFactory<InstructorView, Instructor, InstructorData> {
             protected override Instructor toEntity(InstructorData d) => new(d);
         }
-        
         protected override object createObj() => new testClass();
-
-        
     }
 }
