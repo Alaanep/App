@@ -1,6 +1,7 @@
 using App.Data;
 using App.Domain.Party;
 using App.Infra;
+using App.Infra.Initializers;
 using App.Infra.Party;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddTransient<ILessonsRepo, LessonsRepo>();
 builder.Services.AddTransient<IStudentsRepo, StudentsRepo>();
 builder.Services.AddTransient<IInstructorsRepo, InstructorsRepo>();
+//builder.Services.AddTransient < ICountryRepo, CountryRepo>();
+
 
 var app = builder.Build();
 
@@ -33,6 +36,14 @@ else {
     app.UseExceptionHandler("/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+}
+
+using (var scope = app.Services.CreateScope()) {
+    var appDb = scope.ServiceProvider.GetService<AppDB>();
+    appDb?.Database?.EnsureCreated();
+    AppInitializer.Init(appDb);
+
+
 }
 app.UseHttpsRedirection();
 app.UseStaticFiles();

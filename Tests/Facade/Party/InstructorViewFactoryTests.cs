@@ -14,28 +14,32 @@ namespace App.Tests.Facade.Party {
             var e = new Instructor(d);
             var v = new InstructorViewFactory().Create(e);
             isNotNull(v);
+            isNotNull(v);
             //Vaja mõelda meetod, mis kontrollib, propertid kas on võrdsed
-            //arePropertiesEqual(v,e, nameof(v.FullName)
-            areEqual(v.Id, e.Id);
-            areEqual(v.FirstName, e.FirstName);
-            areEqual(v.LastName, e.LastName);
-            areEqual(v.PhoneNr, e.PhoneNr);
-            areEqual(v.LessonsGiven, e.LessonsGiven);
-            areEqual(v.FullName, e.ToString());
+            arePropertiesEqual(v, e, nameof(v.FullName));
+            //arePropertiesEqual(v, e, nameof(v.FullName)); //
+            //areEqual(v.Id, e.Id);
+            //areEqual(v.FirstName, e.FirstName);
+            //areEqual(v.LastName, e.LastName);
+            //areEqual(v.PhoneNr, e.PhoneNr);
+            //areEqual(v.LessonsGiven, e.LessonsGiven);
+            //areEqual(v.FullName, e.ToString());
         }
         [TestMethod]
         public void CreateEntityTest() {
             var v = GetRandom.Value<InstructorView>();
             var e = new InstructorViewFactory().Create(v);
             isNotNull(e);
+            isNotNull(v);
             //Vaja mõelda meetod, mis kontrollib, kas propertid on võrdsed
             //arePropertiesEqual(v,e)
-            areEqual(e.Id, v.Id);
-            areEqual(e.FirstName, v.FirstName);
-            areEqual(e.LastName, v.LastName);
-            areEqual(e.PhoneNr, v.PhoneNr);
-            areEqual(e.LessonsGiven, v.LessonsGiven);
-            areNotEqual(e.ToString(), v.FullName);
+            arePropertiesEqual(e, v, nameof(e.Data));
+            //areEqual(e.Id, v.Id);
+            //areEqual(e.FirstName, v.FirstName);
+            //areEqual(e.LastName, v.LastName);
+            //areEqual(e.PhoneNr, v.PhoneNr);
+            //areEqual(e.LessonsGiven, v.LessonsGiven);
+            //areNotEqual(e.ToString(), v.FullName);
         }
 
     }

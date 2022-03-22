@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="App.Tests.TestAsserts">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAABAAAAMCAAAABAACAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>TestAsserts.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.IsAssemblyTested" Collapsed="true">
+    <Position X="3.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gABIAEgAAAEAAFCAGAABwCAAAIApAQAgAAAAIAAgAAA=</HashCode>
+      <FileName>IsAssemblyTested.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.IsTypeTested" Collapsed="true">
+    <Position X="6.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gABIAkgAAAAIABCAmAAA0AAQAYApAwCABAAEAAAgAAA=</HashCode>
+      <FileName>IsTypeTested.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Aids.IsAidsTested" Collapsed="true">
+    <Position X="3.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Aids\IsAidsTested.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.App.IsAppTested" Collapsed="true">
+    <Position X="3.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App\IsAppTested.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Core.IsCoreTested" Collapsed="true">
+    <Position X="3.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\IsCoreTested.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Data.IsDataTested" Collapsed="true">
+    <Position X="3.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\IsDataTested.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Domain.IsDomainTested" Collapsed="true">
+    <Position X="3.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Domain\IsDomainTested.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Facade.IsFacadeTested" Collapsed="true">
+    <Position X="3.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Facade\IsFacadeTested.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Infra.IsInfraTested" Collapsed="true">
+    <Position X="3.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infra\IsInfraTested.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Pages.IsPagesTested" Collapsed="true">
+    <Position X="3.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Pages\IsPagesTested.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Aids.CharsTests" Collapsed="true">
+    <Position X="6.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Aids\CharsTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Aids.GetAssemblyTests" Collapsed="true">
+    <Position X="6.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAIAAgAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Aids\GetAssemblyTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Aids.GetNameSpaceTests" Collapsed="true">
+    <Position X="6.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Aids\GetNameSpaceTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Aids.GetRandomTests" Collapsed="true">
+    <Position X="6.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAACgABAAAAAAAAAJQAAAAAAAIAAAAAAABQAA=</HashCode>
+      <FileName>Aids\GetRandomTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Aids.ListsTests" Collapsed="true">
+    <Position X="6.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Aids\ListsTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Aids.MethodsTests" Collapsed="true">
+    <Position X="6.75" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Aids\MethodsTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Aids.SafeTests" Collapsed="true">
+    <Position X="6.75" Y="12" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Aids\SafeTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Aids.StringsTests" Collapsed="true">
+    <Position X="6.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Aids\StringsTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Aids.TypesTests" Collapsed="true">
+    <Position X="6.75" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Aids\TypesTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.BaseTests" Collapsed="true">
+    <Position X="6.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAABAAAAABAAAAAAAAECAAQIAAAAAAA=</HashCode>
+      <FileName>BaseTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.AbstractClassTests" Collapsed="true">
+    <Position X="9" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AbstractClassTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.SealedClassTests&lt;TClass&gt;" Collapsed="true">
+    <Position X="11.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>SealedClassTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Facade.BaseViewFactoryTests" Collapsed="true">
+    <Position X="8.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Facade\BaseViewFactoryTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Facade.BaseViewTests" Collapsed="true">
+    <Position X="8.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Facade\BaseViewTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Infra.RepoTests" Collapsed="true">
+    <Position X="8.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Infra\RepoTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Data.Party.InstructorDataTests" Collapsed="true">
+    <Position X="12.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAIAAAAAAAAAwAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Party\InstructorDataTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Data.Party.LessonDataTests" Collapsed="true">
+    <Position X="12.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAAIAAAAAgAAIAAAAAAACAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\Party\LessonDataTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Data.Party.StudentDataTests" Collapsed="true">
+    <Position X="12.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAQAwAAAgAAIABAAAAAgAAIAABA=</HashCode>
+      <FileName>Data\Party\StudentDataTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Facade.Party.InstructorViewFactoryTests" Collapsed="true">
+    <Position X="12.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAACAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Facade\Party\InstructorViewFactoryTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Facade.Party.InstructorViewTests" Collapsed="true">
+    <Position X="12.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAIAgAAAAAAAwAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Facade\Party\InstructorViewTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Facade.Party.LessonViewFactoryTests" Collapsed="true">
+    <Position X="12.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAACAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Facade\Party\LessonViewFactoryTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Facade.Party.LessonViewTests" Collapsed="true">
+    <Position X="12.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAAIAAAAAggAIAAAAAAACAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Facade\Party\LessonViewTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Facade.Party.StudentViewFactoryTests" Collapsed="true">
+    <Position X="12.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAACAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Facade\Party\StudentViewFactoryTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Tests.Facade.Party.StudentViewTests" Collapsed="true">
+    <Position X="12.25" Y="15.5" Width="1.5" />
+    <InheritanceLine Type="App.Tests.SealedClassTests&lt;TClass&gt;" FixedFromPoint="true">
+      <Path>
+        <Point X="11.938" Y="6.441" />
+        <Point X="11.938" Y="15.346" />
+        <Point X="13" Y="15.346" />
+        <Point X="13" Y="15.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAgAAAAAQAwAAAgAAIABAAAAAgAAIAABA=</HashCode>
+      <FileName>Facade\Party\StudentViewTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

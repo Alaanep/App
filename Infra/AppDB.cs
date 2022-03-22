@@ -7,6 +7,8 @@ namespace App.Infra {
         public DbSet<StudentData>? Students { get; set; }
         public DbSet<InstructorData>? Instructors { get; set; }
         public DbSet<LessonData>? Lessons { get; set; }
+        public DbSet<CountryData>? Countries { get; set; }
+        //public DbSet<CurrencyData>? Currencies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             base.OnModelCreating(modelBuilder);
@@ -17,6 +19,8 @@ namespace App.Infra {
             _= (modelBuilder?.Entity<StudentData>()?.ToTable(nameof(Students), nameof(AppDB)));
             _= (modelBuilder?.Entity<InstructorData>()?.ToTable(nameof(Instructors), nameof(AppDB)));
             _= (modelBuilder?.Entity<LessonData>()?.ToTable(nameof(Lessons), nameof(AppDB)));
+            _ = (modelBuilder?.Entity<CountryData>()?.ToTable(nameof(Countries), nameof(AppDB)));
+            //_ = (modelBuilder?.Entity<CurrencyData>()?.ToTable(nameof(Currencies), nameof(AppDB)));
         }
     }
 }
