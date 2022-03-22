@@ -1,0 +1,14 @@
+﻿@page
+@model App.Pages.CountriesPage;
+@using App.Pages.Extensions
+
+@{
+
+    Layout = "_Create";
+}
+<body>
+    @MyEditorForHtml.MyEditorFor(Html, m => m.Item.Id)
+    <partial name="_EditCountry"/>
+
+</body>
+
