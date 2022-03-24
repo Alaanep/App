@@ -27,6 +27,6 @@ public static class AppInitializer {
         new LessonsInitializer(appDb).Init();
         new StudentsInitializer(appDb).Init();
         new CountriesInitializer(appDb).Init();
-        
+        new CurrenciesInitializer(appDb).Init();
     }
 }

@@ -12,7 +12,7 @@ public sealed class CountriesInitializer : BaseInitializer<CountryData> {
             var l = new List<CountryData>();
             foreach (CultureInfo cul in CultureInfo.GetCultures(CultureTypes.SpecificCultures)) {
                 var country = new RegionInfo(new CultureInfo(cul.Name, false).LCID);
-                var data = greateCountry(country.ThreeLetterISORegionName, country.EnglishName, country.NativeName);
+                var data = createCountry(country.ThreeLetterISORegionName, country.EnglishName, country.NativeName);
                 if (l.FirstOrDefault(x => x.Id == data.Id) is not null) continue;
                 l.Add(data);
             }
@@ -21,6 +21,6 @@ public sealed class CountriesInitializer : BaseInitializer<CountryData> {
         }
     }
 
-    internal static CountryData greateCountry(string code, string name, string description) => new CountryData() {
+    internal static CountryData createCountry(string code, string name, string description) => new CountryData() {
         Id = code, Code = code, Name = name, Description = description};
 }

@@ -1,0 +1,8 @@
+﻿@model App.Pages.CurrenciesPage;
+@using App.Pages.Extensions
+
+@MyEditorForHtml.MyEditorFor(Html, m => m.Item.Code)
+@MyEditorForHtml.MyEditorFor(Html, m => m.Item.Symbol)
+@MyEditorForHtml.MyEditorFor(Html, m => m.Item.EnglishName)
+@MyEditorForHtml.MyEditorFor(Html, m => m.Item.NativeName)
+

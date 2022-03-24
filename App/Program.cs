@@ -24,6 +24,7 @@ builder.Services.AddTransient<ILessonsRepo, LessonsRepo>();
 builder.Services.AddTransient<IStudentsRepo, StudentsRepo>();
 builder.Services.AddTransient<IInstructorsRepo, InstructorsRepo>();
 builder.Services.AddTransient < ICountryRepo, CountryRepo>();
+builder.Services.AddTransient<ICurrencyRepo, CurrencyRepo>();
 
 
 var app = builder.Build();
@@ -42,8 +43,6 @@ using (var scope = app.Services.CreateScope()) {
     var appDb = scope.ServiceProvider.GetService<AppDB>();
     appDb?.Database?.EnsureCreated();
     AppInitializer.Init(appDb);
-
-
 }
 app.UseHttpsRedirection();
 app.UseStaticFiles();
