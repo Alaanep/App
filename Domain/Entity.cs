@@ -1,10 +1,10 @@
 ﻿using App.Data;
 namespace App.Domain {
     public abstract class Entity {
-        protected const string defaultStr = "Undefined";
+        public static string DefaultStr => "Undefined";
         protected const bool defaultBool = false;
         protected static DateTime defaultDate => DateTime.MinValue;
-        protected static string getValue(string? v) => v ?? defaultStr;
+        protected static string getValue(string? v) => v ?? DefaultStr;
         protected static bool getValue(bool? v) => v ?? defaultBool;
         protected static DateTime getValue(DateTime? v) => v ?? defaultDate;
     }

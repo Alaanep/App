@@ -1,4 +1,6 @@
-﻿using App.Data.Party;
+﻿using App.Data;
+using App.Data.Party;
+using App.Domain;
 using System.Globalization;
 
 namespace App.Infra.Initializers
@@ -15,6 +17,9 @@ namespace App.Infra.Initializers
                 foreach (CultureInfo cul in CultureInfo.GetCultures(CultureTypes.SpecificCultures))
                 {
                     var currency = new RegionInfo(new CultureInfo(cul.Name, false).LCID);
+                    var id = currency.ISOCurrencySymbol;
+                    if (l.FirstOrDefault(x => x.Id == id) is not null) continue;
+                    if (string.IsNullOrWhiteSpace(currency.ISOCurrencySymbol)) continue;
                     var data = createCurrency(currency.ISOCurrencySymbol, currency.CurrencySymbol, currency.CurrencyEnglishName, currency.CurrencyNativeName);
                     if (l.FirstOrDefault(x => x.Id == data.Id) is not null) continue;
                     l.Add(data);
@@ -22,7 +27,14 @@ namespace App.Infra.Initializers
                 return l;
             }
         }
-        internal static CurrencyData createCurrency(string code, string symbol, string englishName, string nativeName) => new () { 
-            Id = code, Code = code, Symbol = symbol,  EnglishName = englishName, NativeName = nativeName };
+        internal static CurrencyData createCurrency(string code, string symbol, string englishName, string nativeName) 
+            => new () 
+            { 
+            Id = code ?? EntityData.NewId, 
+            Code = code ?? Entity.DefaultStr, 
+            Symbol = symbol,  
+            EnglishName = englishName, 
+            NativeName = nativeName 
+            };
     }
 }
