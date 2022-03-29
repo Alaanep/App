@@ -4,7 +4,7 @@ using App.Data.Party;
 using App.Domain.Party;
 
 namespace App.Facade.Party {
-    public sealed class StudentView: BaseView {
+    public sealed class StudentView: UniqueView {
         [DisplayName("First Name")]public string? FirstName { get; set; }
         [DisplayName("Last Name")]public string? LastName { get; set; }
         [DisplayName("Phone nr")]public string? PhoneNr { get; set; }

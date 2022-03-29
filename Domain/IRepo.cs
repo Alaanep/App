@@ -1,7 +1,7 @@
 ﻿namespace App.Domain
 {
-    public interface IRepo<T> : IBaseRepo<T> where T : Entity { }
-    public interface IBaseRepo<T> where T : Entity {
+    public interface IRepo<T> : IBaseRepo<T> where T : UniqueEntity { }
+    public interface IBaseRepo<T> where T : UniqueEntity {
         //crud
         bool Add(T obj);
         T Get(string id);

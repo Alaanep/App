@@ -1,5 +1,5 @@
 ﻿namespace App.Data.Party {
-    public sealed class LessonData: EntityData {
+    public sealed class LessonData: UniqueData {
         public string? Instructor { get; set; }
         public string? Student { get; set; }
         public string? LessonName { get; set; }

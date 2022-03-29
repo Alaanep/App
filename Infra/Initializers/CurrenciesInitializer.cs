@@ -18,10 +18,9 @@ namespace App.Infra.Initializers
                 {
                     var currency = new RegionInfo(new CultureInfo(cul.Name, false).LCID);
                     var id = currency.ISOCurrencySymbol;
+                    if (!isCorrectIsoCode(id)) continue;
                     if (l.FirstOrDefault(x => x.Id == id) is not null) continue;
-                    if (string.IsNullOrWhiteSpace(currency.ISOCurrencySymbol)) continue;
                     var data = createCurrency(currency.ISOCurrencySymbol, currency.CurrencySymbol, currency.CurrencyEnglishName, currency.CurrencyNativeName);
-                    if (l.FirstOrDefault(x => x.Id == data.Id) is not null) continue;
                     l.Add(data);
                 }
                 return l;
@@ -30,11 +29,11 @@ namespace App.Infra.Initializers
         internal static CurrencyData createCurrency(string code, string symbol, string englishName, string nativeName) 
             => new () 
             { 
-            Id = code ?? EntityData.NewId, 
-            Code = code ?? Entity.DefaultStr, 
+            Id = code ?? UniqueData.NewId, 
+            Code = code ?? UniqueEntity.DefaultStr, 
             Symbol = symbol,  
-            EnglishName = englishName, 
-            NativeName = nativeName 
+            Name = englishName,
+            Description = nativeName 
             };
     }
 }

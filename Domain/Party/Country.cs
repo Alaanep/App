@@ -2,11 +2,10 @@
 
 namespace App.Domain.Party
 {
-    public sealed class Country : Entity<CountryData> {
+    public interface ICountryRepo : IRepo<Country> { }
+
+    public sealed class Country : NamedEntity<CountryData> {
         public Country() : this(new CountryData()) { }
         public Country(CountryData d) : base(d) {}
-        public string Name => getValue(Data?.Name);
-        public string Description => getValue(Data?.Description);
-        public string Code => getValue(Data?.Code);
     }
 }

@@ -6,8 +6,8 @@ namespace App.Facade;
 
 public abstract class BaseViewFactory<TView, TEntity, TData>
     where TView: class, new()
-    where TData: EntityData, new()
-    where TEntity: Entity<TData> {
+    where TData: UniqueData, new()
+    where TEntity: UniqueEntity<TData> {
     protected abstract TEntity toEntity(TData d);
     protected virtual void copy(object? from, object? to) {
         var tFrom = from?.GetType();

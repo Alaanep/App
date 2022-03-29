@@ -15,20 +15,19 @@ public sealed class CountriesInitializer : BaseInitializer<CountryData> {
             foreach (CultureInfo cul in CultureInfo.GetCultures(CultureTypes.SpecificCultures)) {
                 var country = new RegionInfo(new CultureInfo(cul.Name, false).LCID);
                 var id = country.ThreeLetterISORegionName;
+                if (!isCorrectIsoCode(id)) continue;
                 if (l.FirstOrDefault(x => x.Id == id) is not null) continue;
-                if (string.IsNullOrWhiteSpace(country.ThreeLetterISORegionName)) continue;
                 var data = createCountry(country.ThreeLetterISORegionName, country.EnglishName, country.NativeName);
                 l.Add(data);
             }
             return l;
         }
     }
-
-    internal static CountryData createCountry(string code, string name, string description) 
+    internal static CountryData createCountry(string code, string englishName, string nativeName) 
         => new () 
         {
-            Id = code??EntityData.NewId, 
-            Code = code??Entity.DefaultStr, 
-            Name = name, Description = description
+            Id = code??UniqueData.NewId, 
+            Code = code??UniqueEntity.DefaultStr, 
+            Name = englishName, Description = nativeName
         };
 }

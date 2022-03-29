@@ -1,6 +1,7 @@
 ﻿using App.Data.Party;
 namespace App.Domain.Party {
-    public class Student: Entity<StudentData> {
+    public interface IStudentsRepo : IRepo<Student> { }
+    public class Student: UniqueEntity<StudentData> {
         public Student(): this(new StudentData()){ }
         public Student(StudentData d): base(d){}
         public string FirstName => getValue(Data?.FirstName);

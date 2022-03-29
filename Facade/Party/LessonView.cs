@@ -3,7 +3,7 @@ using System.ComponentModel;
 using App.Data.Party;
 
 namespace App.Facade.Party {
-    public sealed class LessonView: BaseView {
+    public sealed class LessonView: UniqueView {
         [DisplayName("Instructor")]public  string? Instructor { get; set; }
         [DisplayName("Student")] public string? Student { get; set; }
         [DisplayName("Lesson: ")] public string? LessonName { get; set; }
