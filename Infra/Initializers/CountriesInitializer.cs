@@ -17,7 +17,7 @@ public sealed class CountriesInitializer : BaseInitializer<CountryData> {
                 var id = country.ThreeLetterISORegionName;
                 if (!isCorrectIsoCode(id)) continue;
                 if (l.FirstOrDefault(x => x.Id == id) is not null) continue;
-                var data = createCountry(country.ThreeLetterISORegionName, country.EnglishName, country.NativeName);
+                var data = createCountry(id, country.EnglishName, country.NativeName);
                 l.Add(data);
             }
             return l;

@@ -20,7 +20,7 @@ namespace App.Infra.Initializers
                     var id = currency.ISOCurrencySymbol;
                     if (!isCorrectIsoCode(id)) continue;
                     if (l.FirstOrDefault(x => x.Id == id) is not null) continue;
-                    var data = createCurrency(currency.ISOCurrencySymbol, currency.CurrencySymbol, currency.CurrencyEnglishName, currency.CurrencyNativeName);
+                    var data = createCurrency(id, currency.CurrencySymbol, currency.CurrencyEnglishName, currency.CurrencyNativeName);
                     l.Add(data);
                 }
                 return l;

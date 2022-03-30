@@ -1,15 +1,10 @@
 ﻿@page
-@model App.Pages.CountriesPage;
+@model App.Pages.Party.CountriesPage;
 
 @{
-    ViewData["Title"] = "Index";
+    Layout = "_Index";
 }
-
-<h1>Index</h1>
-
-<p>
-    <a asp-page="Create" asp-page-handler="Create">Create New</a>
-</p>
+<body>
 <table class="table">
     <thead>
     <tr>
@@ -47,3 +42,4 @@
 }
     </tbody>
 </table>
+</body>

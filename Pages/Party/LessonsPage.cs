@@ -1,8 +1,9 @@
 ﻿using App.Domain.Party;
 using App.Facade.Party;
-namespace App.Pages
+
+namespace App.Pages.Party
 {
-    public class LessonsPage: BasePage<LessonView, Lesson, ILessonsRepo>
+    public class LessonsPage: PagedPage<LessonView, Lesson, ILessonsRepo>
     {
         public LessonsPage(ILessonsRepo r) : base(r){}
         protected override Lesson toObject(LessonView? item) => new LessonViewFactory().Create(item);
