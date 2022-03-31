@@ -10,7 +10,9 @@
         public int PageSize { get; set; }
     }
     public interface IOrderedRepo<T> : IFilteredRepo<T> where T : UniqueEntity { }
-    public interface IFilteredRepo<T> : ICrudRepo<T> where T : UniqueEntity { }
+    public interface IFilteredRepo<T> : ICrudRepo<T> where T : UniqueEntity {
+        public string CurrentFilter { get; set; }
+    }
     public interface ICrudRepo<T> : IBaseRepo<T> where T : UniqueEntity { }
     public interface IBaseRepo<T> where T : UniqueEntity {
         //crud

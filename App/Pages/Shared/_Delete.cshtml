@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Delete";
     ViewData["Subtitle"] = Model?.GetType()?.Name?.Replace("Page",string.Empty)??"Unspecified";
     Layout = "_Layout";
@@ -11,10 +10,23 @@
 <h4>@ViewData["Subtitle"]</h4>
 <hr />
 <dl class="row">
+
 @RenderBody()
-<form method="post">
+
+<form method="post"
+    asp-route-id="@itemId"
+    asp-route-handler="Delete"
+    asp-route-sortOrder="@Model.CurrentSort"
+    asp-route-pageIndex="@Model.PageIndex" 
+    asp-route-currentFilter="@Model.CurrentFilter" > 
     <input type="hidden" asp-for-id="@itemId" />
-    <input type="submit" value="Delete" handler="Delete" class="btn btn-danger" />
-    <a asp-page="./Index" asp-page-handler="Index">Back to List</a>
+    <input type="submit" value="Delete" class="btn btn-danger" />&nbsp
+
+       <a asp-page="Index" 
+       asp-page-handler="Index" 
+       asp-route-sortOrder="@Model.CurrentSort"
+       asp-route-pageIndex="@Model.PageIndex" 
+       asp-route-currentFilter="@Model.CurrentFilter"
+       >Back to List</a>
 </form>
 </dl>

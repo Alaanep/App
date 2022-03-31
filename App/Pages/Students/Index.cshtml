@@ -37,11 +37,32 @@
         @Html.MyEditorForIndexTableBody(modelItem => item.ShoeSize)
         @Html.MyEditorForIndexTableBody(modelItem => item.EnrollmentDate)
         @Html.MyEditorForIndexTableBody(modelItem => item.Level)
+
         <td>
-            <a asp-page="./Edit" asp-page-handler="Edit"  asp-route-id="@item.Id">Edit</a>
-            <a asp-page="./Details" asp-page-handler="Details" asp-route-id="@item.Id">Details</a> 
-            <a asp-page="./Delete" asp-page-handler="Delete" asp-route-id="@item.Id">Delete</a>
-        </td>
+            <a asp-page="./Edit" 
+               asp-page-handler="Edit" 
+               asp-route-id="@item.Id"    
+               asp-route-sortOrder="@Model.CurrentSort"
+               asp-route-pageIndex="@Model.PageIndex" 
+               asp-route-currentFilter="@Model.CurrentFilter" 
+               >Edit</a>&nbsp;
+
+            <a asp-page="./Details" 
+               asp-page-handler="Details" 
+               asp-route-id="@item.Id"    
+               asp-route-sortOrder="@Model.CurrentSort"
+               asp-route-pageIndex="@Model.PageIndex" 
+               asp-route-currentFilter="@Model.CurrentFilter" 
+               >Details</a>&nbsp;
+
+            <a asp-page="./Delete" 
+               asp-page-handler="Delete" 
+               asp-route-id="@item.Id"    
+               asp-route-sortOrder="@Model.CurrentSort"
+               asp-route-pageIndex="@Model.PageIndex" 
+               asp-route-currentFilter="@Model.CurrentFilter" 
+               >Delete</a>        
+       </td>
     </tr>
 }
     </tbody>
