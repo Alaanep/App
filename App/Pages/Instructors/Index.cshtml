@@ -8,11 +8,46 @@
 <table class="table">
     <thead>
     <tr>
-        @Html.MyEditorForIndexTableHead(model => model.Items[0].FullName)
-        @Html.MyEditorForIndexTableHead(model => model.Items[0].FirstName)
-        @Html.MyEditorForIndexTableHead(model => model.Items[0].LastName)
-        @Html.MyEditorForIndexTableHead(model => model.Items[0].PhoneNr)
-        @Html.MyEditorForIndexTableHead(model => model.Items[0].LessonsGiven)
+        <th>
+            <a asp-page="./Index"
+               asp-page-handler="Index"
+               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.FullName))"
+               asp-route-pageIndex="@Model.PageIndex"
+               asp-route-currentFilter="@Model.CurrentFilter"
+            >@nameof(Model.Item.FullName)</a>
+        </th>
+        <th>
+            <a asp-page="./Index"
+               asp-page-handler="Index"
+               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.FirstName))"
+               asp-route-pageIndex="@Model.PageIndex"
+               asp-route-currentFilter="@Model.CurrentFilter"
+            >@nameof(Model.Item.FirstName)</a>
+        </th>
+        <th>
+            <a asp-page="./Index"
+               asp-page-handler="Index"
+               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.LastName))"
+               asp-route-pageIndex="@Model.PageIndex"
+               asp-route-currentFilter="@Model.CurrentFilter"
+            >@nameof(Model.Item.LastName)</a>
+        </th>
+        <th>
+            <a asp-page="./Index"
+               asp-page-handler="Index"
+               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.PhoneNr))"
+               asp-route-pageIndex="@Model.PageIndex"
+               asp-route-currentFilter="@Model.CurrentFilter"
+            >@nameof(Model.Item.PhoneNr)</a>
+        </th>
+        <th>
+            <a asp-page="./Index"
+               asp-page-handler="Index"
+               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.LessonsGiven))"
+               asp-route-pageIndex="@Model.PageIndex"
+               asp-route-currentFilter="@Model.CurrentFilter"
+            >@nameof(Model.Item.LessonsGiven)</a>
+        </th>
         <th></th>
     </tr>
     </thead>

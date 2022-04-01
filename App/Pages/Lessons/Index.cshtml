@@ -9,15 +9,52 @@
 <body>
 <table class="table">
     <thead>
-        <tr>
-            @Html.MyEditorForIndexTableHead(model => model.Items[0].Instructor)
-            @Html.MyEditorForIndexTableHead(model => model.Items[0].Student)
-            @Html.MyEditorForIndexTableHead(model => model.Items[0].LessonName)
-            @Html.MyEditorForIndexTableHead(model => model.Items[0].LessonTime)
-            @Html.MyEditorForIndexTableHead(model => model.Items[0].Location)
-            @Html.MyEditorForIndexTableHead(model => model.Items[0].EquipmentNeeded)
-            <th></th>
-        </tr>
+    <tr>
+        <th>
+            <a asp-page="./Index"
+               asp-page-handler="Index"
+               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.Instructor))"
+               asp-route-pageIndex="@Model.PageIndex"
+               asp-route-currentFilter="@Model.CurrentFilter"
+            >@nameof(Model.Item.Instructor)</a>
+        </th>
+        <th>
+            <a asp-page="./Index"
+               asp-page-handler="Index"
+               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.Student))"
+               asp-route-pageIndex="@Model.PageIndex"
+               asp-route-currentFilter="@Model.CurrentFilter">@nameof(Model.Item.Student)</a>
+        </th>
+        <th>
+            <a asp-page="./Index"
+               asp-page-handler="Index"
+               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.LessonName))"
+               asp-route-pageIndex="@Model.PageIndex"
+               asp-route-currentFilter="@Model.CurrentFilter">@nameof(Model.Item.LessonName)</a>
+        </th>
+        <th>
+            <a asp-page="./Index"
+               asp-page-handler="Index"
+               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.LessonTime))"
+               asp-route-pageIndex="@Model.PageIndex"
+               asp-route-currentFilter="@Model.CurrentFilter">@nameof(Model.Item.LessonTime)</a>
+        </th>
+        <th>
+            <a asp-page="./Index"
+               asp-page-handler="Index"
+               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.Location))"
+               asp-route-pageIndex="@Model.PageIndex"
+               asp-route-currentFilter="@Model.CurrentFilter">@nameof(Model.Item.Location)</a>
+        </th>
+        <th>
+            <a asp-page="./Index"
+               asp-page-handler="Index"
+               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.EquipmentNeeded))"
+               asp-route-pageIndex="@Model.PageIndex"
+               asp-route-currentFilter="@Model.CurrentFilter">@nameof(Model.Item.EquipmentNeeded)</a>
+        </th>
+        <th></th>
+    </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Items) {

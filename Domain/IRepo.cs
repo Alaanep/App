@@ -9,7 +9,11 @@
         public bool HasPreviousPage { get;}
         public int PageSize { get; set; }
     }
-    public interface IOrderedRepo<T> : IFilteredRepo<T> where T : UniqueEntity { }
+
+    public interface IOrderedRepo<T> : IFilteredRepo<T> where T : UniqueEntity {
+        public string CurrentSort { get; set; }
+        public string SortOrder(string propertyName);
+    }
     public interface IFilteredRepo<T> : ICrudRepo<T> where T : UniqueEntity {
         public string CurrentFilter { get; set; }
     }
