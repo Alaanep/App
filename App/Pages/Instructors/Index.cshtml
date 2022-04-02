@@ -9,44 +9,20 @@
     <thead>
     <tr>
         <th>
-            <a asp-page="./Index"
-               asp-page-handler="Index"
-               asp-route-order="@Model.SortOrder(nameof(Model.Item.FullName))"
-               asp-route-idx="@Model.PageIndex"
-               asp-route-filter="@Model.CurrentFilter"
-            >@nameof(Model.Item.FullName)</a>
+            @Html.MyTabHdr(nameof(Model.Item.FullName))
         </th>
         <th>
-            <a asp-page="./Index"
-               asp-page-handler="Index"
-               asp-route-order="@Model.SortOrder(nameof(Model.Item.FirstName))"
-               asp-route-idx="@Model.PageIndex"
-               asp-route-filter="@Model.CurrentFilter"
-            >@nameof(Model.Item.FirstName)</a>
+            @Html.MyTabHdr(nameof(Model.Item.FirstName))
+           
         </th>
         <th>
-            <a asp-page="./Index"
-               asp-page-handler="Index"
-               asp-route-order="@Model.SortOrder(nameof(Model.Item.LastName))"
-               asp-route-idx="@Model.PageIndex"
-               asp-route-filter="@Model.CurrentFilter"
-            >@nameof(Model.Item.LastName)</a>
+            @Html.MyTabHdr(nameof(Model.Item.LastName))
         </th>
         <th>
-            <a asp-page="./Index"
-               asp-page-handler="Index"
-               asp-route-order="@Model.SortOrder(nameof(Model.Item.PhoneNr))"
-               asp-route-idx="@Model.PageIndex"
-               asp-route-filter="@Model.CurrentFilter"
-            >@nameof(Model.Item.PhoneNr)</a>
+            @Html.MyTabHdr(nameof(Model.Item.PhoneNr))
         </th>
         <th>
-            <a asp-page="./Index"
-               asp-page-handler="Index"
-               asp-route-order="@Model.SortOrder(nameof(Model.Item.LessonsGiven))"
-               asp-route-idx="@Model.PageIndex"
-               asp-route-filter="@Model.CurrentFilter"
-            >@nameof(Model.Item.LessonsGiven)</a>
+            @Html.MyTabHdr(nameof(Model.Item.LessonsGiven))
         </th>
         <th></th>
     </tr>
@@ -64,7 +40,7 @@
             <a asp-page="./Edit" 
                asp-page-handler="Edit" 
                asp-route-id="@item.Id"    
-               asp-route-order="@Model.CurrentSort"
+               asp-route-order="@Model.CurrentOrder"
                asp-route-idx="@Model.PageIndex" 
                asp-route-filter="@Model.CurrentFilter" 
                >Edit</a>&nbsp;
@@ -72,7 +48,7 @@
             <a asp-page="./Details" 
                asp-page-handler="Details" 
                asp-route-id="@item.Id"    
-               asp-route-order="@Model.CurrentSort"
+               asp-route-order="@Model.CurrentOrder"
                asp-route-idx="@Model.PageIndex" 
                asp-route-filter="@Model.CurrentFilter" 
                >Details</a>&nbsp;
@@ -80,7 +56,7 @@
             <a asp-page="./Delete" 
                asp-page-handler="Delete" 
                asp-route-id="@item.Id"    
-               asp-route-order="@Model.CurrentSort"
+               asp-route-order="@Model.CurrentOrder"
                asp-route-idx="@Model.PageIndex" 
                asp-route-filter="@Model.CurrentFilter" 
                >Delete</a>        
