@@ -13,45 +13,45 @@
         <th>
             <a asp-page="./Index"
                asp-page-handler="Index"
-               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.Instructor))"
-               asp-route-pageIndex="@Model.PageIndex"
-               asp-route-currentFilter="@Model.CurrentFilter"
+               asp-route-order="@Model.SortOrder(nameof(Model.Item.Instructor))"
+               asp-route-idx="@Model.PageIndex"
+               asp-route-filter="@Model.CurrentFilter"
             >@nameof(Model.Item.Instructor)</a>
         </th>
         <th>
             <a asp-page="./Index"
                asp-page-handler="Index"
-               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.Student))"
-               asp-route-pageIndex="@Model.PageIndex"
-               asp-route-currentFilter="@Model.CurrentFilter">@nameof(Model.Item.Student)</a>
+               asp-route-order="@Model.SortOrder(nameof(Model.Item.Student))"
+               asp-route-idx="@Model.PageIndex"
+               asp-route-filter="@Model.CurrentFilter">@nameof(Model.Item.Student)</a>
         </th>
         <th>
             <a asp-page="./Index"
                asp-page-handler="Index"
-               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.LessonName))"
-               asp-route-pageIndex="@Model.PageIndex"
-               asp-route-currentFilter="@Model.CurrentFilter">@nameof(Model.Item.LessonName)</a>
+               asp-route-order="@Model.SortOrder(nameof(Model.Item.LessonName))"
+               asp-route-idx="@Model.PageIndex"
+               asp-route-filter="@Model.CurrentFilter">@nameof(Model.Item.LessonName)</a>
         </th>
         <th>
             <a asp-page="./Index"
                asp-page-handler="Index"
-               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.LessonTime))"
-               asp-route-pageIndex="@Model.PageIndex"
-               asp-route-currentFilter="@Model.CurrentFilter">@nameof(Model.Item.LessonTime)</a>
+               asp-route-order="@Model.SortOrder(nameof(Model.Item.LessonTime))"
+               asp-route-idx="@Model.PageIndex"
+               asp-route-filter="@Model.CurrentFilter">@nameof(Model.Item.LessonTime)</a>
         </th>
         <th>
             <a asp-page="./Index"
                asp-page-handler="Index"
-               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.Location))"
-               asp-route-pageIndex="@Model.PageIndex"
-               asp-route-currentFilter="@Model.CurrentFilter">@nameof(Model.Item.Location)</a>
+               asp-route-order="@Model.SortOrder(nameof(Model.Item.Location))"
+               asp-route-idx="@Model.PageIndex"
+               asp-route-filter="@Model.CurrentFilter">@nameof(Model.Item.Location)</a>
         </th>
         <th>
             <a asp-page="./Index"
                asp-page-handler="Index"
-               asp-route-sortOrder="@Model.SortOrder(nameof(Model.Item.EquipmentNeeded))"
-               asp-route-pageIndex="@Model.PageIndex"
-               asp-route-currentFilter="@Model.CurrentFilter">@nameof(Model.Item.EquipmentNeeded)</a>
+               asp-route-order="@Model.SortOrder(nameof(Model.Item.EquipmentNeeded))"
+               asp-route-idx="@Model.PageIndex"
+               asp-route-filter="@Model.CurrentFilter">@nameof(Model.Item.EquipmentNeeded)</a>
         </th>
         <th></th>
     </tr>
@@ -70,25 +70,25 @@
             <a asp-page="./Edit" 
                asp-page-handler="Edit" 
                asp-route-id="@item.Id"    
-               asp-route-sortOrder="@Model.CurrentSort"
-               asp-route-pageIndex="@Model.PageIndex" 
-               asp-route-currentFilter="@Model.CurrentFilter" 
+               asp-route-order="@Model.CurrentSort"
+               asp-route-idx="@Model.PageIndex" 
+               asp-route-filter="@Model.CurrentFilter" 
                >Edit</a>&nbsp;
 
             <a asp-page="./Details" 
                asp-page-handler="Details" 
                asp-route-id="@item.Id"    
-               asp-route-sortOrder="@Model.CurrentSort"
-               asp-route-pageIndex="@Model.PageIndex" 
-               asp-route-currentFilter="@Model.CurrentFilter" 
+               asp-route-order="@Model.CurrentSort"
+               asp-route-idx="@Model.PageIndex" 
+               asp-route-filter="@Model.CurrentFilter" 
                >Details</a>&nbsp;
 
             <a asp-page="./Delete" 
                asp-page-handler="Delete" 
                asp-route-id="@item.Id"    
-               asp-route-sortOrder="@Model.CurrentSort"
-               asp-route-pageIndex="@Model.PageIndex" 
-               asp-route-currentFilter="@Model.CurrentFilter" 
+               asp-route-order="@Model.CurrentSort"
+               asp-route-idx="@Model.PageIndex" 
+               asp-route-filter="@Model.CurrentFilter" 
                >Delete</a>            
             </td>
 
