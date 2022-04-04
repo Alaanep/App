@@ -5,14 +5,10 @@ namespace App.Infra.Initializers {
 
         public InstructorsInitializer(AppDB? db) : base(db, db?.Instructors) { }
 
-        protected override IEnumerable<InstructorData> getEntities => new InstructorData[] {
-            createInstructor("Toomas", "Toob", "51543765", "3"),
-            createInstructor("Madis", "Viib", "52543765", "4"),
-            createInstructor("Maru", "Vahva",  "53543765", "5")
-        };
-
-        internal static InstructorData createInstructor(string firstName, string lastName, string phoneNr, string lessonsGiven) {
-            var instructor = new InstructorData() {
+        internal static InstructorData createInstructor(string firstName, string lastName, string phoneNr, string lessonsGiven)
+        {
+            var instructor = new InstructorData()
+            {
                 Id = Guid.NewGuid().ToString(),
                 FirstName = firstName,
                 LastName = lastName,
@@ -21,5 +17,10 @@ namespace App.Infra.Initializers {
             };
             return instructor;
         }
+        protected override IEnumerable<InstructorData> getEntities => new InstructorData[] {
+            createInstructor("Toomas", "Toob", "51543765", "3"),
+            createInstructor("Madis", "Viib", "52543765", "4"),
+            createInstructor("Maru", "Vahva",  "53543765", "5")
+        };
     }
 }

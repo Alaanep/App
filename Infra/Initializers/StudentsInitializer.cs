@@ -11,17 +11,10 @@ namespace App.Infra.Initializers {
             createStudent("Helle", "Hell", "56456789", "hellehell@mail.com", "78", "178", "44", new DateTime(1988,08,08),"B1")
         };
 
-        internal static StudentData createStudent(string firstName,
-            string lastName,
-            string phoneNr,
-            string email,
-            string weight,
-            string height,
-            string shoeSize,
-            DateTime enrollmentDate,
-            string level) {
-            var student = 
-                new StudentData() {
+        internal static StudentData createStudent(string firstName, string lastName, string phoneNr,
+            string email, string weight, string height, string shoeSize, DateTime enrollmentDate,string level) 
+        {
+            var student =  new StudentData() {
                 Id = Guid.NewGuid().ToString(),
                 FirstName = firstName,
                 LastName = lastName,

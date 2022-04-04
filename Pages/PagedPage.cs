@@ -1,10 +1,11 @@
-﻿using App.Domain;
+﻿using App.Aids;
+using App.Domain;
 using App.Facade;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.Pages;
 
-public abstract class PagedPage<TView, TEntity, TRepo> : OrderedPage<TView, TEntity, TRepo>, IPageModel
+public abstract class PagedPage<TView, TEntity, TRepo> : OrderedPage<TView, TEntity, TRepo>, IPageModel, IIndexModel<TView>
     where TView : UniqueView
     where TEntity : UniqueEntity
     where TRepo : IPagedRepo<TEntity> {
@@ -28,4 +29,11 @@ public abstract class PagedPage<TView, TEntity, TRepo> : OrderedPage<TView, TEnt
             currentFilter = CurrentFilter,
             sortOrder = CurrentOrder
         });
+    public virtual string[] IndexColumns => Array.Empty<string>();
+    public object? GetValue(string name, TView v)
+        => Safe.Run(() => {
+            var pi = v?.GetType()?.GetProperty(name);
+            return pi == null ? null : pi.GetValue(v);
+        }, null);
 }
+

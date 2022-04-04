@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace App.Pages.Extensions;
 
-public static class MyTabHrdHtml {
+public static partial class MyTabHrdHtml {
     public static IHtmlContent MyTabHdr<TModel>
         (this IHtmlHelper<TModel> html, string name) {
         var s = htmlStrings(name, html.ViewData.Model as IPageModel);
@@ -20,6 +20,5 @@ public static class MyTabHrdHtml {
         };
         return list;
     }
-
     private static string? pageName(IPageModel m) => m?.GetType()?.Name?.Replace("Page", "");
 }
