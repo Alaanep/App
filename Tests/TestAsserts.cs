@@ -16,21 +16,4 @@ public abstract class TestAsserts
     protected static void isInstanceOfType(object o, Type expectedType, string? message = null) => Assert.IsInstanceOfType(o, expectedType, message);
     protected static void isTrue(bool? b, string? message = null) => Assert.IsTrue(b ?? false, message ?? string.Empty);
     protected static void isFalse(bool? b, string? message = null) => Assert.IsTrue(b ?? true, message ?? string.Empty);
-    protected static void arePropertiesEqual(object? expected, object? actual, string? exceptPropName=null,  string? message = null) {
-        long changes = 0;
-        foreach (var expectedProp in expected?.GetType()?.GetProperties() ?? Array.Empty<PropertyInfo>()){
-            var actualProp = actual?.GetType()?.GetProperty(expectedProp.Name);
-            if (actualProp != null) {
-                if (!expectedProp.GetValue(expected).Equals(actualProp.GetValue(actual)))changes++;
-            }
-            else {
-                if(exceptPropName == null) {
-                    changes++;
-                    break;
-                }
-                if (!expectedProp.Name.Contains(exceptPropName))changes++;
-            }
-        }
-        isTrue(changes == 0);
-    }
 }

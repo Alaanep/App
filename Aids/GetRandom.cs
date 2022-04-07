@@ -83,7 +83,7 @@ public static class GetRandom
         else if (t == typeof(string)) return String();
         return null;
     }
-    private static T tryGetObject<T>()
+    private static T? tryGetObject<T>()
     {
         var o = tryCreate<T>();
         foreach (var pi in o?.GetType()?.GetProperties() ?? Array.Empty<PropertyInfo>())
@@ -94,9 +94,9 @@ public static class GetRandom
         }
         return o;
     }
-    private static T tryCreate<T>()
-    {
-        var c = typeof(T).GetConstructor(Array.Empty<Type>());
-        return (T)c?.Invoke(null);
-    }
+    private static T? tryCreate<T>() =>
+        Safe.Run(() => {
+            var c = typeof(T).GetConstructor(Array.Empty<Type>());
+            return (c?.Invoke(null) is T t) ? t : default;
+        });
 }

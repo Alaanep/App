@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace App.Pages;
 
 public abstract class PagedPage<TView, TEntity, TRepo> : OrderedPage<TView, TEntity, TRepo>, IPageModel, IIndexModel<TView>
-    where TView : UniqueView
+    where TView : UniqueView, new()
     where TEntity : UniqueEntity
     where TRepo : IPagedRepo<TEntity> {
     protected PagedPage(TRepo r) : base(r) { }
@@ -34,7 +34,7 @@ public abstract class PagedPage<TView, TEntity, TRepo> : OrderedPage<TView, TEnt
     public virtual object? GetValue(string name, TView v)
         => Safe.Run(() => {
             var pi = v?.GetType()?.GetProperty(name);
-            return pi == null ? null : pi.GetValue(v);
+            return pi?.GetValue(v);
         }, null);
     public string? DisplayName(string name) => Safe.Run(() => {
         var p = typeof(TView).GetProperty(name);

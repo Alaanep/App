@@ -1,11 +1,10 @@
 ﻿@page
 @model Pages.Party.StudentsPage
 @using App.Pages.Extensions
-
 @{
     Layout = "_Create";
 }
 <body>
-@Html.MyEditorFor(m => m.Item.Id)
-<partial name="_CreateEditStudent"/>
+    @Html.MyEditorFor(m => m.Item.Id)
+    <partial name="_CreateEditStudent"/>
 </body>

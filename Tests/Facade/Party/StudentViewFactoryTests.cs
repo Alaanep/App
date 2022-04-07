@@ -32,17 +32,17 @@ namespace App.Tests.Facade.Party {
             var v = GetRandom.Value<StudentView>();
             var e = new StudentViewFactory().Create(v);
             isNotNull(e);
-            areEqual(e.Id, v.Id);
-            areEqual(e.FirstName, v.FirstName);
-            areEqual(e.LastName, v.LastName);
-            areEqual(e.PhoneNr, v.PhoneNr);
-            areEqual(e.Email, v.Email);
-            areEqual(e.Weight, v.Weight);
-            areEqual(e.Height, v.Height);
-            areEqual(e.ShoeSize, v.ShoeSize);
-            areEqual(e.EnrollmentDate, v.EnrollmentDate);
-            areEqual(e.Level, v.Level);
-            areNotEqual(e.ToString(), v.FullName);
+            areEqual(e.Id, v?.Id);
+            areEqual(e.FirstName, v?.FirstName);
+            areEqual(e.LastName, v?.LastName);
+            areEqual(e.PhoneNr, v?.PhoneNr);
+            areEqual(e.Email, v?.Email);
+            areEqual(e.Weight, v?.Weight);
+            areEqual(e.Height, v?.Height);
+            areEqual(e.ShoeSize, v?.ShoeSize);
+            areEqual(e.EnrollmentDate, v?.EnrollmentDate);
+            areEqual(e.Level, v?.Level);
+            areNotEqual(e.ToString(), v?.FullName);
         }
     }
 }

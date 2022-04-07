@@ -1,10 +1,10 @@
 ﻿@model App.Pages.Party.CurrenciesPage
 @using App.Pages.Extensions
 
-@MyViewerForHtml.MyViewerFor(Html, m => m.Item.Code)
-@MyViewerForHtml.MyViewerFor(Html, m => m.Item.Symbol)
-@MyViewerForHtml.MyViewerFor(Html, m => m.Item.Name)
-@MyViewerForHtml.MyViewerFor(Html, m => m.Item.Description)
+@Html.MyEditorFor(m => m.Item.Code)
+@Html.MyEditorFor(m => m.Item.Symbol)
+@Html.MyEditorFor(m => m.Item.Name)
+@Html.MyEditorFor(m => m.Item.Description)
 
 
 

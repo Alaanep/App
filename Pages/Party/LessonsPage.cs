@@ -6,7 +6,7 @@ namespace App.Pages.Party
 {
     public class LessonsPage: PagedPage<LessonView, Lesson, ILessonsRepo>
     {
-        private IStudentsRepo students;
+        private readonly IStudentsRepo students;
 
         public LessonsPage(ILessonsRepo r, IStudentsRepo s) : base(r) {
             students = s;
@@ -32,8 +32,7 @@ namespace App.Pages.Party
 
         public override object? GetValue(string name, LessonView v) {
             var result = base.GetValue(name, v);
-            if (name == nameof(LessonView.Student)) return StudentName(result as string);
-            return result;
+            return name == nameof(LessonView.Student) ? StudentName(result as string) : result;
         }
     }
 }

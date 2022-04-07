@@ -68,7 +68,7 @@ namespace App.Infra
             }
             catch { return false; }
         }
-        internal async Task<List<TData>> runSql(IQueryable<TData> query) => await query.AsNoTracking().ToListAsync();//systeem ei jalgi muudatusi
+        internal static async Task<List<TData>> runSql(IQueryable<TData> query) => await query.AsNoTracking().ToListAsync();//systeem ei jalgi muudatusi
     }
 
 }

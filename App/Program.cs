@@ -42,7 +42,7 @@ else {
 using (var scope = app.Services.CreateScope()) {
     var appDb = scope.ServiceProvider.GetService<AppDB>();
     appDb?.Database?.EnsureCreated();
-    AppInitializer.Init(appDb);
+    if (appDb != null) AppInitializer.Init(appDb);
 }
 app.UseHttpsRedirection();
 app.UseStaticFiles();

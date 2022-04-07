@@ -86,11 +86,11 @@ namespace App.Tests.Aids
         {
             var x = GetRandom.Value<InstructorData>() as InstructorData;
             var y = GetRandom.Value<InstructorData>() as InstructorData;
-            areNotEqual(x.Id, y.Id, nameof(x.Id));
-            areNotEqual(x.FirstName, y.FirstName, nameof(x.FirstName));
-            areNotEqual(x.LastName, y.LastName, nameof(x.LastName));
-            areNotEqual(x.PhoneNr, y.PhoneNr, nameof(x.PhoneNr));
-            areNotEqual(x.LessonsGiven, y.LessonsGiven, nameof(x.LessonsGiven));
+            areNotEqual(x?.Id, y?.Id, nameof(x.Id));
+            areNotEqual(x?.FirstName, y?.FirstName, nameof(x.FirstName));
+            areNotEqual(x?.LastName, y?.LastName, nameof(x.LastName));
+            areNotEqual(x?.PhoneNr, y?.PhoneNr, nameof(x.PhoneNr));
+            areNotEqual(x?.LessonsGiven, y?.LessonsGiven, nameof(x.LessonsGiven));
         }
     }
 }

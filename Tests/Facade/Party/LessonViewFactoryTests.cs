@@ -29,14 +29,14 @@ namespace App.Tests.Facade.Party {
             var v = GetRandom.Value<LessonView>();
             var e = new LessonViewFactory().Create(v);
             isNotNull(e);
-            areEqual(e.Id, v.Id);
-            areEqual(e.Instructor, v.Instructor);
-            areEqual(e.Student, v.Student);
-            areEqual(e.LessonName, v.LessonName);
-            areEqual(e.LessonTime, v.LessonTime);
-            areEqual(e.Location, v.Location);
-            areEqual(e.EquipmentNeeded, v.EquipmentNeeded);
-            areNotEqual(e.ToString(), v.FullName);
+            areEqual(e.Id, v?.Id);
+            areEqual(e.Instructor, v?.Instructor);
+            areEqual(e.Student, v?.Student);
+            areEqual(e.LessonName, v?.LessonName);
+            areEqual(e.LessonTime, v?.LessonTime);
+            areEqual(e.Location, v?.Location);
+            areEqual(e.EquipmentNeeded, v?.EquipmentNeeded);
+            areNotEqual(e.ToString(), v?.FullName);
         }
     }
 }

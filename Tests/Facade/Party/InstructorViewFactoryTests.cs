@@ -31,13 +31,13 @@ namespace App.Tests.Facade.Party {
             isNotNull(e);
             isNotNull(v);
             //Vaja mõelda meetod, mis kontrollib, kas propertid on võrdsed
-            arePropertiesEqual(e, v, nameof(e.Data));
-            areEqual(e.Id, v.Id);
-            areEqual(e.FirstName, v.FirstName);
-            areEqual(e.LastName, v.LastName);
-            areEqual(e.PhoneNr, v.PhoneNr);
-            areEqual(e.LessonsGiven, v.LessonsGiven);
-            areNotEqual(e.ToString(), v.FullName);
+           
+            areEqual(e.Id, v?.Id);
+            areEqual(e.FirstName, v?.FirstName);
+            areEqual(e.LastName, v?.LastName);
+            areEqual(e.PhoneNr, v?.PhoneNr);
+            areEqual(e.LessonsGiven, v?.LessonsGiven);
+            areNotEqual(e.ToString(), v?.FullName);
         }
 
     }

@@ -5,11 +5,12 @@ namespace App.Pages.Extensions;
 
 public static partial class MyTabHrdHtml {
     public static IHtmlContent MyTabHdr<TModel>
-        (this IHtmlHelper<TModel> html, string name) {
+        (this IHtmlHelper<TModel> html, string? name) {
         var s = htmlStrings(name, html.ViewData.Model as IPageModel);
         return new HtmlContentBuilder(s);
     }
-    private static List<object> htmlStrings(string name, IPageModel? m) {
+    private static List<object> htmlStrings(string? name, IPageModel? m) {
+        name ??= "Unspecified";
         var list = new List<object> {
             new HtmlString($"<a href=\"/{pageName(m)}?"),
             new HtmlString($"handler=Index&amp;"),
@@ -20,5 +21,5 @@ public static partial class MyTabHrdHtml {
         };
         return list;
     }
-    private static string? pageName(IPageModel m) => m?.GetType()?.Name?.Replace("Page", "");
+    private static string? pageName(IPageModel? m) => m?.GetType()?.Name?.Replace("Page", "");
 }
