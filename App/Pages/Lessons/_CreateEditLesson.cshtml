@@ -1,10 +1,18 @@
 ﻿@model App.Pages.Party.LessonsPage
 @using App.Pages.Extensions
 
-@Html.MyEditorFor(m => m.Item.Instructor) 
-@Html.MyEditorFor(m => m.Item.Student)
+@Html.MyEditorFor(m => m.Item.Instructor)
+<div class="row">
+    <dd class="col-sm-2">
+        @Html.LabelFor(x=>x.Item.Student, null, new { @class = "control-label"})
+    </dd>
+    <dd class="col-sm-10">
+        @Html.DropDownListFor(x=>x.Item.Student, Model.Students, new { @class = "form-control"})
+        @Html.ValidationMessageFor(x=>x.Item.Student, null, new { @class = "text-danger"})
+    </dd>
+</div>
+
 @Html.MyEditorFor(m => m.Item.LessonName) 
 @Html.MyEditorFor(m => m.Item.LessonTime) 
 @Html.MyEditorFor(m => m.Item.Location)
 @Html.MyEditorFor(m => m.Item.EquipmentNeeded) 
-

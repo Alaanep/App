@@ -5,4 +5,5 @@ public interface IPageModel {
     public string? CurrentFilter { get; }
     public string? CurrentOrder { get; }
     public string? SortOrder (string propertyName);
+
 }
