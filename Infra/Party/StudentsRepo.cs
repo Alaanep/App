@@ -21,5 +21,21 @@ namespace App.Infra.Party {
                 || contains(x.EnrollmentDate.ToString(), y)
                 || contains(x.Level, y));
         }
+
+        /*internal override IQueryable<StudentData> addFilter(IQueryable<StudentData> q) {
+            var y = CurrentFilter;
+            if (string.IsNullOrWhiteSpace(y)) return q;
+            return q.Where(
+                x => x.Id.Contains(y)
+                     || x.FirstName.Contains(y)
+                     || x.LastName.Contains(y)
+                     || x.PhoneNr.Contains(y)
+                     || x.Email.Contains(y)
+                     || x.Weight.Contains(y)
+                     || x.Height.Contains(y)
+                     || x.ShoeSize.Contains(y)
+                     || x.EnrollmentDate.ToString().Contains(y)
+                     || x.Level.Contains(y));
+        }*/
     }
 }

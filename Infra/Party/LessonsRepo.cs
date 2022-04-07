@@ -18,5 +18,18 @@ namespace App.Infra.Party {
                 || contains(x.Location, y)
                 || contains(x.EquipmentNeeded, y));
         }
+
+        /*internal override IQueryable<LessonData> addFilter(IQueryable<LessonData> q) {
+            var y = CurrentFilter;
+            if (string.IsNullOrWhiteSpace(y)) return q;
+            return q.Where(
+                x => x.Id.Contains(y)
+                     || x.Instructor.Contains(y)
+                     || x.Student.Contains(y)
+                     || x.LessonName.Contains(y)
+                     || x.LessonTime.ToString().Contains(y)
+                     || x.Location.Contains(y)
+                     || x.EquipmentNeeded.Contains(y));
+        }*/
     }
 }
