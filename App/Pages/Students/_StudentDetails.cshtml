@@ -9,4 +9,4 @@
 @Html.MyViewerFor(m => m.Item.Height)
 @Html.MyViewerFor(m => m.Item.ShoeSize)
 @Html.MyViewerFor(m => m.Item.EnrollmentDate)
-@Html.MyViewerFor(m => m.Item.Level)
+@Html.MyViewerFor(m => m.Item.Level, Model.LevelDescription(Model.Item.Level))

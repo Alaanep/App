@@ -1,5 +1,8 @@
-﻿using App.Domain.Party;
+﻿using App.Aids;
+using App.Data.Party;
+using App.Domain.Party;
 using App.Facade.Party;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace App.Pages.Party {
     //todo To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
@@ -21,5 +24,20 @@ namespace App.Pages.Party {
             nameof(StudentView.EnrollmentDate),
             nameof(StudentView.Level),
         };
+
+        public IEnumerable<SelectListItem> Levels
+            => Enum.GetValues<Level>()?
+                   .Select(x => new SelectListItem(x.Description(), x.ToString()))
+               ?? new List<SelectListItem>();
+
+        public string LevelDescription(Level? level)
+            => (level ?? Level.NotKnown).Description();
+
+        public override object? GetValue(string name, StudentView v) {
+            var result = base.GetValue(name, v);
+            return name == nameof(StudentView.Level) ? LevelDescription((Level)result) : result;
+        }
+
+
     }
 }

@@ -19,7 +19,7 @@ namespace App.Infra.Party {
                 || contains(x.Height, y)
                 || contains(x.ShoeSize, y)
                 || contains(x.EnrollmentDate.ToString(), y)
-                || contains(x.Level, y));
+                || contains(x.Level.ToString(), y));
         }
 
         /*internal override IQueryable<StudentData> addFilter(IQueryable<StudentData> q) {

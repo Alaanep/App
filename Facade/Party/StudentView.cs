@@ -14,7 +14,7 @@ namespace App.Facade.Party {
         [DisplayName("Shoe Size")]public string? ShoeSize { get; set; }
         [DataType(DataType.Date)]
         [DisplayName("Enrollment Date")]public DateTime? EnrollmentDate { get; set; }
-        [DisplayName("Level")]public string? Level { get; set; }
+        [DisplayName("Level")]public Level? Level { get; set; }
         [DisplayName("Full Name")]public string? FullName { get; set; }
     }
     public sealed class StudentViewFactory : BaseViewFactory<StudentView, Student, StudentData> {

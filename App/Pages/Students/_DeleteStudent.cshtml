@@ -3,3 +3,4 @@
 
 @Html.MyViewerFor(model => model.Item.FirstName)
 @Html.MyViewerFor(model => model.Item.LastName)
+@Html.MyViewerFor(m => m.Item.Level, Model.LevelDescription(Model.Item.Level))

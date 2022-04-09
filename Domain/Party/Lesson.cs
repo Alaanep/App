@@ -7,7 +7,7 @@ namespace App.Domain.Party {
         public Lesson(LessonData d): base(d){}
         public string Instructor => getValue(Data?.Instructor);
         public string Student => getValue(Data?.Student);
-        public string LessonName => getValue(Data?.LessonName);
+        public Level LessonName => getValue(Data?.LessonName);
         public DateTime LessonTime => getValue(Data?.LessonTime);
         public string Location => getValue(Data?.Location);
         public string EquipmentNeeded => getValue(Data?.EquipmentNeeded);

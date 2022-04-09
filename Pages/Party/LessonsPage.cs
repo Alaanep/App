@@ -1,4 +1,6 @@
-﻿using App.Domain.Party;
+﻿using App.Aids;
+using App.Data.Party;
+using App.Domain.Party;
 using App.Facade.Party;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -33,6 +35,20 @@ namespace App.Pages.Party
         public override object? GetValue(string name, LessonView v) {
             var result = base.GetValue(name, v);
             return name == nameof(LessonView.Student) ? StudentName(result as string) : result;
+        }
+
+
+        public IEnumerable<SelectListItem> Levels
+            => Enum.GetValues<Level>()?
+                   .Select(x => new SelectListItem(x.Description(), x.ToString()))
+               ?? new List<SelectListItem>();
+
+        public string LevelDescription(Level? isoGender)
+            => (isoGender ?? Level.NotKnown).Description();
+
+        public  object? GetLessonValue(string name, LessonView v) {
+            var result = base.GetValue(name, v);
+            return name == nameof(LessonView.LessonName) ? LevelDescription((Level)result) : result;
         }
     }
 }

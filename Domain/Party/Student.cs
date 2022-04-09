@@ -12,7 +12,7 @@ namespace App.Domain.Party {
         public string Height => getValue(Data?.Height);
         public string ShoeSize => getValue(Data?.ShoeSize);
         public DateTime EnrollmentDate => getValue(Data?.EnrollmentDate);
-        public string Level => getValue(Data?.Level);
+        public Level Level => getValue(Data?.Level);
         public override string ToString() => $"{FirstName} {LastName}";
     }
 }

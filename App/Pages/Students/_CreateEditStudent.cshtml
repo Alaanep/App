@@ -9,4 +9,4 @@
 @Html.MyEditorFor(m => m.Item.Height)
 @Html.MyEditorFor(m => m.Item.ShoeSize)
 @Html.MyEditorFor(m => m.Item.EnrollmentDate)
-@Html.MyEditorFor(m => m.Item.Level)
+@Html.MyDropDownFor(m=>m.Item.Level, Model.Levels)

@@ -5,11 +5,9 @@ using System.Linq.Expressions;
 
 namespace App.Pages.Extensions
 {
-    public static class MyEditorForHtml
-    {
+    public static class MyEditorForHtml {
         public static IHtmlContent MyEditorFor<TModel, TResult>(
-            this IHtmlHelper<TModel> html, Expression<Func<TModel,TResult>> e)
-        {
+            this IHtmlHelper<TModel> html, Expression<Func<TModel,TResult>> e) {
             var s = htmlStrings(html, e);
             return new HtmlContentBuilder(s);
         }
@@ -29,28 +27,6 @@ namespace App.Pages.Extensions
                 l.Add(new HtmlString("</dd>"));
             l.Add(new HtmlString("</div>"));
             return l;
-
         }
-
-        public static IHtmlContent MyViewerFor<TModel, TResult>(
-            this IHtmlHelper<TModel> html, Expression<Func<TModel, TResult>> expression, TResult value) {
-            var h = htmlStrings(html, expression, value);
-            return new HtmlContentBuilder(h);
-        }
-
-        private static List<object> htmlStrings<TModel, TResult>(IHtmlHelper<TModel> html, Expression<Func<TModel, TResult>> expression, TResult value) {
-            var list = new List<object> {
-                new HtmlString("<dl class=\"row\">"),
-                new HtmlString("<dt class=\"col-sm-2\">"),
-                html.DisplayNameFor(expression),
-                new HtmlString("</dt>"),
-                new HtmlString("<dd class=\"col-sm-10\">"),
-                html.Raw(value),
-                new HtmlString("</dd>"),
-                new HtmlString("</dl>")
-            };
-            return list;
-        }
-
     }
 }

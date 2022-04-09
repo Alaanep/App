@@ -13,7 +13,7 @@ namespace App.Infra.Party {
                 x => contains(x.Id, y)
                 || contains(x.Instructor, y)
                 || contains(x.Student, y)
-                || contains(x.LessonName, y)
+                || contains(x.LessonName.ToString(), y)
                 || contains(x.LessonTime.ToString(), y)
                 || contains(x.Location, y)
                 || contains(x.EquipmentNeeded, y));

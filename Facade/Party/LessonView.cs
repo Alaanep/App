@@ -6,7 +6,7 @@ namespace App.Facade.Party {
     public sealed class LessonView: UniqueView {
         [DisplayName("Instructor")]public  string? Instructor { get; set; }
         [DisplayName("Student")] public string? Student { get; set; }
-        [DisplayName("Lesson: ")] public string? LessonName { get; set; }
+        [DisplayName("Lesson: ")] public Level? LessonName { get; set; }
         [DisplayName("Lesson Time")] public DateTime? LessonTime { get; set; }
         [DisplayName("Location")] public string? Location { get; set; }
         [DisplayName("Equipment needed: ")] public string? EquipmentNeeded { get; set; }

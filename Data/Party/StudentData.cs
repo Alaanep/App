@@ -9,6 +9,6 @@ namespace App.Data.Party {
         public string? Height { get; set; }
         public string? ShoeSize { get; set; }
         [DataType(DataType.Date)] public DateTime? EnrollmentDate { get; set; }
-        public string? Level { get; set; }
+        public Level Level { get; set; }
     }
 }
