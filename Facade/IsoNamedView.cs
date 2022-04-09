@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace App.Facade.Party
 {
@@ -6,7 +7,7 @@ namespace App.Facade.Party
     {
         [DisplayName("English Name")] public new string? Name { get; set; }
         [DisplayName("Native Name")] public new string? Description { get; set; }
-        [DisplayName("Code")] public new string? Code { get; set; }
+        [Required][DisplayName("Code")] public new string? Code { get; set; }
     }
 
 }

@@ -1,8 +1,44 @@
 ﻿@page
-@model App.Pages.Party.CurrenciesPage;
+@using App.Facade.Party
+@model App.Pages.Party.CurrenciesPage
+
 @{
-    Layout="_Details";
+    Layout = "_Details";
+
+    var columns = new[] { 
+        nameof(CountryView.Code)
+        , nameof(CountryView.Name)
+        , nameof(CountryView.Description)
+    };
+    object? getValue<T>(string propertyname, T item) {
+        var pi = typeof(T).GetProperty(propertyname);
+        return pi?.GetValue(item);
+    }
+
 }
-<body>
+
+<Body>
     <partial name="_ShowCurrency"/>
-</body>
+    <br>
+    <h4>Countries</h4>
+<br>
+
+    <table class="table">
+    <thead>
+    <tr>
+        @foreach (var name in columns) { <td> @Html.Raw(name) </td> }
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Countries) {
+            <tr>
+                @foreach (var name in columns) {
+                    <td>
+                    @Html.Raw(getValue(name, item))
+                    </td>
+                }
+            </tr>
+        }
+    </tbody>
+    </table>
+</Body>

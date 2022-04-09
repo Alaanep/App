@@ -1,0 +1,8 @@
+﻿@model App.Pages.Party.CountryCurrenciesPage;
+@using App.Pages.Extensions
+
+@Html.MyEditorFor(m => m.Item.Name)
+@Html.MyEditorFor(m => m.Item.Code)
+@Html.MyDropDownFor(m => m.Item.CountryId, Model.Countries)
+@Html.MyDropDownFor(m => m.Item.CurrencyId, Model.Currencies)
+

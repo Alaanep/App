@@ -13,10 +13,9 @@ namespace App.Domain
         protected static Level getValue(Level? v) => v ?? Level.NotKnown;
     }
     public abstract class UniqueEntity<TData> : UniqueEntity where TData : UniqueData, new() {
-        public TData Data => data;
-        private readonly TData data;
+        public TData Data { get; }
         public UniqueEntity() : this(new TData()) {}
-        public UniqueEntity(TData d) => data = d;
+        public UniqueEntity(TData d) => Data = d;
         public string Id => getValue(Data?.Id);
     }
 }

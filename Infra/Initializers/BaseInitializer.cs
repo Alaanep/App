@@ -22,13 +22,3 @@ public abstract class BaseInitializer<TData> where TData: UniqueData {
     internal static bool isCorrectIsoCode(string id) => string.IsNullOrWhiteSpace(id) ? false : char.IsLetter(id[0]);
 
 }
-
-public static class AppInitializer {
-    public static void Init(AppDB appDb) {
-        new InstructorsInitializer(appDb).Init();
-        new LessonsInitializer(appDb).Init();
-        new StudentsInitializer(appDb).Init();
-        new CountriesInitializer(appDb).Init();
-        new CurrenciesInitializer(appDb).Init();
-    }
-}

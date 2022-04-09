@@ -1,0 +1,9 @@
+﻿@page
+@using App.Pages.Extensions
+@model App.Pages.Party.CountryCurrenciesPage;
+@{
+    Layout = "_Index";
+}
+<body>
+    @Html.ShowTable(Model.Items)
+</body>

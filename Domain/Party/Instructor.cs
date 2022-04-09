@@ -4,7 +4,7 @@ namespace App.Domain.Party {
     public interface IInstructorsRepo : IRepo<Instructor> { }
 
     public class Instructor: UniqueEntity<InstructorData> {
-        public Instructor() : this(new InstructorData()) { }
+        public Instructor() : this(new ()) { }
         public Instructor(InstructorData d) : base(d) { }
         public string FirstName => getValue(Data?.FirstName);
         public string LastName => getValue(Data?.LastName);

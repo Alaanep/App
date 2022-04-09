@@ -3,7 +3,7 @@ namespace App.Domain.Party {
     public interface ILessonsRepo : IRepo<Lesson> { }
 
     public class Lesson: UniqueEntity<LessonData> {
-        public Lesson(): this(new LessonData()){}
+        public Lesson(): this(new ()){}
         public Lesson(LessonData d): base(d){}
         public string Instructor => getValue(Data?.Instructor);
         public string Student => getValue(Data?.Student);

@@ -1,4 +1,5 @@
 using App.Data;
+using App.Domain;
 using App.Domain.Party;
 using App.Infra;
 using App.Infra.Initializers;
@@ -25,6 +26,7 @@ builder.Services.AddTransient<IStudentsRepo, StudentsRepo>();
 builder.Services.AddTransient<IInstructorsRepo, InstructorsRepo>();
 builder.Services.AddTransient < ICountryRepo, CountryRepo>();
 builder.Services.AddTransient<ICurrencyRepo, CurrencyRepo>();
+builder.Services.AddTransient<ICountryCurrenciesRepo, CountryCurrenciesRepo>();
 
 
 var app = builder.Build();
@@ -40,6 +42,7 @@ else {
 }
 
 using (var scope = app.Services.CreateScope()) {
+    GetRepo.SetService (app.Services);
     var appDb = scope.ServiceProvider.GetService<AppDB>();
     appDb?.Database?.EnsureCreated();
     if (appDb != null) AppInitializer.Init(appDb);
