@@ -9,6 +9,6 @@ namespace App.Domain.Party
         public string CountryId => getValue(Data?.CountryId);
         public string CurrencyId => getValue(Data?.CurrencyId);
         public Country? Country => GetRepo.Instance<ICountryRepo>()?.Get(CountryId);
-        public Currency? Currency => GetRepo.Instance<ICurrencyRepo>()?.Get(CountryId);
+        public Currency? Currency => GetRepo.Instance<ICurrencyRepo>()?.Get(CurrencyId);
     }
 }
