@@ -9,31 +9,29 @@ namespace App.Infra.Initializers
     {
         public CurrenciesInitializer(AppDB? db) : base(db, db?.Currencies) { }
 
-        protected override IEnumerable<CurrencyData> getEntities
-        {
-            get
-            {
+        protected override IEnumerable<CurrencyData> getEntities {
+            get {
                 var l = new List<CurrencyData>();
-                foreach (CultureInfo cul in CultureInfo.GetCultures(CultureTypes.SpecificCultures))
-                {
+                foreach (CultureInfo cul in CultureInfo.GetCultures(CultureTypes.SpecificCultures)) {
                     var currency = new RegionInfo(new CultureInfo(cul.Name, false).LCID);
                     var id = currency.ISOCurrencySymbol;
                     if (!isCorrectIsoCode(id)) continue;
                     if (l.FirstOrDefault(x => x.Id == id) is not null) continue;
-                    var data = createCurrency(id, currency.CurrencySymbol, currency.CurrencyEnglishName, currency.CurrencyNativeName);
+                    var data = greateCurrency(id, currency.CurrencyEnglishName, currency.CurrencyNativeName, currency.CurrencySymbol);
+
                     l.Add(data);
                 }
                 return l;
             }
         }
-        internal static CurrencyData createCurrency(string code, string symbol, string englishName, string nativeName) 
-            => new () 
-            { 
-            Id = code ?? UniqueData.NewId, 
-            Code = code ?? UniqueEntity.DefaultStr, 
-            Symbol = symbol,  
-            Name = englishName,
-            Description = nativeName 
-            };
+
+
+        internal static CurrencyData greateCurrency(string code, string name, string description, string symbol) => new CurrencyData() {
+            Id = code ?? UniqueData.NewId,
+            Code = code ?? UniqueEntity.DefaultStr,
+            Name = name,
+            Description = description,
+            Symbol = symbol ?? UniqueEntity.DefaultStr
+        };
     }
 }
