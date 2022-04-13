@@ -14,9 +14,15 @@ namespace App.Facade.Party {
     }
     public sealed class LessonViewFactory : BaseViewFactory<LessonView, Lesson, LessonData> {
         protected override Lesson toEntity(LessonData d) => new(d);
+        public override Lesson Create(LessonView? v) {
+            v ??= new LessonView();
+            v.LessonName ??= Level.NotKnown;
+            return base.Create(v);
+        }
         public override LessonView Create(Lesson? e) {
             var v = base.Create(e);
             v.FullName = e?.ToString();
+            v.LessonName = e?.LessonName;
             return v;
         }
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using App.Data.Party;
 using App.Facade.Party;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -17,7 +18,7 @@ namespace App.Tests.Facade.Party
         [TestMethod] public void HeightTest() => isProperty<string?>();
         [TestMethod] public void ShoeSizeTest() => isProperty<string?>();
         [TestMethod] public void EnrollmentDateTest() => isProperty<DateTime?>();
-        [TestMethod] public void LevelTest() => isProperty<string?>();
+        [TestMethod] public void LevelTest() => isProperty<Level>();
         [TestMethod] public void FullNameTest() => isProperty<string?>();
     }
 }
