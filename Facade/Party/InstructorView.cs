@@ -3,8 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using App.Data.Party;
 using App.Domain.Party;
 
-namespace App.Facade.Party
-{
+namespace App.Facade.Party {
     public sealed class InstructorView: UniqueView {
         [DisplayName("First name")] [Required] public string? FirstName { get; set; }
         [DisplayName("Last name")] [Required] public string? LastName { get; set; }

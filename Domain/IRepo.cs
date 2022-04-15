@@ -1,5 +1,4 @@
-﻿namespace App.Domain
-{
+﻿namespace App.Domain {
     public interface IRepo<T> : IPagedRepo<T> where T : UniqueEntity { }
 
     public interface IPagedRepo<T> : IOrderedRepo<T> where T : UniqueEntity {

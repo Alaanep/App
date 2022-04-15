@@ -1,4 +1,5 @@
-﻿using App.Data.Party;
+﻿using System.Runtime.CompilerServices;
+using App.Data.Party;
 
 namespace App.Domain.Party
 {
@@ -17,5 +18,6 @@ namespace App.Domain.Party
             => CountryCurrencies
             .Select(x => x.Currency)
             .ToList() ?? new List<Currency?>();
+
     }
 }

@@ -29,7 +29,7 @@ namespace App.Tests.Facade.Party {
         }
         [TestMethod]
         public void CreateEntityTest() {
-            var v = GetRandom.Value<CurrencyData>();
+            var v = GetRandom.Value<CurrencyView>();
             var e = new CurrencyViewFactory().Create(v);
             isNotNull(e);
             //todo motelge

@@ -1,8 +1,7 @@
 ﻿using App.Data;
 namespace App.Domain
 {
-    public abstract class NamedEntity<TData> : UniqueEntity<TData> where TData : NamedData, new()
-    {
+    public abstract class NamedEntity<TData> : UniqueEntity<TData> where TData : NamedData, new() {
         public NamedEntity() : this(new TData()) { }
         public NamedEntity(TData d): base(d) { }
         public string Name => getValue(Data?.Name);

@@ -1,8 +1,7 @@
 ﻿using App.Data;
 using App.Data.Party;
 
-namespace App.Domain
-{
+namespace App.Domain {
     public abstract class UniqueEntity {
         public static string DefaultStr => "Undefined";
         protected const bool defaultBool = false;

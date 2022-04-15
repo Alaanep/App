@@ -12,12 +12,13 @@ namespace App.Tests.Aids
 
         private string? assemblyName;
         private Assembly? assembly;
-        private static string[] typeNames = Array.Empty<string>();
+        private  string[] typenames = Array.Empty<string>();
 
         [TestInitialize] public void Init() {
             assemblyName = $"{nameof(App)}.{nameof(Aids)}";
             assembly = GetAssembly.ByName(assemblyName);
-            typeNames = new string[] { nameof(Chars), nameof(Enums), nameof(Lists), nameof(Strings), nameof(Safe), nameof(Types) };
+            typenames = new string[] { nameof(Chars), nameof(Enums), nameof(Lists)
+                , nameof(Strings), nameof(Safe), nameof(Types) };
         }
 
         [TestCleanup] public void Clean() {
@@ -30,13 +31,12 @@ namespace App.Tests.Aids
             var obj = new CountryData();
             assembly = GetAssembly.OfType(obj);
         }
-        [TestMethod] public void TypesTest() {
+        [TestMethod]
+        public void TypesTest() {
             var l = GetAssembly.Types(assembly);
-            isTrue(typeNames.Length <= (l?.Count?? - 2));
-            foreach (var n in typeNames) {
+            isTrue(typenames.Length <= (l?.Count ?? -1));
+            foreach (var n in typenames)
                 areEqual(l?.FirstOrDefault(x => x.Name == n)?.Name, n);
-
-            }
             isNull(l?.FirstOrDefault(x => x.Name == GetRandom.String()));
         }
         [TestMethod]
@@ -46,7 +46,6 @@ namespace App.Tests.Aids
             isNotNull(obj);
             areEqual(n, obj.Name);
         }
-
-        private string randomTypeName = typeNames[GetRandom.Int32(0, typeNames.Length)];
+        private string randomTypeName => typenames[GetRandom.Int32(0, typenames.Length)];
     }
 }
