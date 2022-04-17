@@ -5,7 +5,7 @@ public static class Strings {
         => Safe.Run(() => fromString?.Replace(theString, string.Empty), string.Empty);
     public static bool IsTypeName(this string? s) => Safe.Run(() 
         => s?.All(x=>x.IsNameChar()) ?? false);
-    public static bool IsFullTypeName(this string? s) 
+    public static bool IsTypeFullName(this string? s) 
         => Safe.Run(() => s?.All(x => x.IsFullNameChar()) ?? false); 
     public static string RemoveTail(this string? s, char separator = '.') {
         if (string.IsNullOrEmpty(s)) return String.Empty;

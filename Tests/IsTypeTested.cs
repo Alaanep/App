@@ -12,7 +12,7 @@ namespace App.Tests
         private string? namespaceOfTest;
         private string? namespaceOfType;
         private Assembly? assemblyToBeTested;
-        private Type? typesToBeTested;
+        private Type? typeToBeTested;
         private List<string>? membersOfType;
         private List<string>? membersOfTest;
         [TestMethod] public void IsAllTested() => isAllTested();
@@ -23,8 +23,8 @@ namespace App.Tests
             namespaceOfTest = getNamespace(this);
             namespaceOfType = removeTestsTagFrom(namespaceOfTest);
             assemblyToBeTested = getAssembly(namespaceOfType);
-            typesToBeTested = getType(assemblyToBeTested, nameOfType);
-            membersOfType = getMembers(typesToBeTested);
+            typeToBeTested = getType(assemblyToBeTested, nameOfType);
+            membersOfType = getMembers(typeToBeTested);
             membersOfTest = getMembers(GetType());
             removeNotTests(GetType());
             removeNotNeedTesting();
@@ -32,7 +32,6 @@ namespace App.Tests
             if (allAreTested()) return;
             reportNotAllIsTested();
         }
-
         private static string? getName(object o) => Types.GetName(o?.GetType());
         private static string? removeTestsTagFrom(string? nameOfTests) =>
             nameOfTests?.Remove("Tests")?.Remove("Test")?.Replace("..", ".");

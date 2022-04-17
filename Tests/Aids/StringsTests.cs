@@ -21,8 +21,8 @@ namespace App.Tests.Aids
         }
         [TestMethod]
         public void IsTypeFullNameTest() {
-            isFalse(Strings.IsFullTypeName(testStr));
-            isTrue(Strings.IsFullTypeName(Strings.Remove(testStr, "1")));
+            isFalse(Strings.IsTypeFullName(testStr));
+            isTrue(Strings.IsTypeFullName(Strings.Remove(testStr, "1")));
         }
         [TestMethod] public void RemoveTailTest() => areEqual("a1b1c1.d1e1f1", Strings.RemoveTail(testStr));
     }
