@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.Tests.Aids {
     [TestClass] public class EnumsTests : IsTypeTested {
-            [TestMethod] public void DescriptionTests()
+            [TestMethod] public void DescriptionTest()
                 => areEqual("Not Known", Enums.Description(Level.NotKnown));
 
             [TestMethod] public void ToStringTest()
