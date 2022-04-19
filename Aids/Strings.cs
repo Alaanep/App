@@ -16,4 +16,14 @@ public static class Strings {
         }
         return s;
     }
+
+    public static string RemoveHead(this string? s, char separator = '.') {
+        if (string.IsNullOrEmpty(s)) return String.Empty;
+        for (var i = 0; i < s.Length;) {
+            var c = s[i];
+            s = s[1..];
+            if (c == separator) return s;
+        }
+        return s;
+    }
 }
