@@ -1,11 +1,12 @@
 ﻿using App.Aids;
 using App.Data.Party;
 using App.Domain.Party;
+using App.Facade;
 using App.Facade.Party;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.Tests.Facade.Party {
-    [TestClass]public class InstructorViewFactoryTests: SealedClassTests<InstructorView> {
+    [TestClass]public class InstructorViewFactoryTests: SealedClassTests<InstructorViewFactory, BaseViewFactory<InstructorView, Instructor, InstructorData>> {
         [TestMethod] public void CreateTest() { }
 
         [TestMethod]

@@ -1,4 +1,5 @@
 ﻿using System;
+using App.Data;
 using App.Data.Party;
 using App.Domain.Party;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -6,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace App.Tests.Data.Party
 {
     [TestClass]
-    public class LessonDataTests: SealedClassTests<LessonData>
+    public class LessonDataTests: SealedClassTests<LessonData, UniqueData>
     {
         [TestMethod]public void IdTest() => isProperty<string>();
         [TestMethod] public void InstructorTest() => isProperty<string?>();

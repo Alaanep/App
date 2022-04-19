@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using App.Facade;
 
 namespace App.Tests.Facade.Party
 {
     [TestClass]
-    public class InstructorViewTests:SealedClassTests<InstructorView>
+    public class InstructorViewTests:SealedClassTests<InstructorView, UniqueView>
     {
         [TestMethod] public void IdTest() => isProperty<string>();
         [TestMethod] public void FirstNameTest() => isProperty<string?>();

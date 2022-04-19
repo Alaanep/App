@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace App.Tests.Infra
 {
     [TestClass]
-    public class RepoTests : AbstractClassTests
+    public class RepoTests : AbstractClassTests<Repo<Instructor, InstructorData>, PagedRepo<Instructor, InstructorData>>
     {
         private class testClass : Repo<Instructor, InstructorData>
         {
@@ -15,6 +15,6 @@ namespace App.Tests.Infra
 
             protected override Instructor toDomain(InstructorData d) => new(d);
         }
-        protected override object createObj() => new testClass(null, null);
+        protected override Repo<Instructor, InstructorData> createObj() => new testClass(null, null);
     }
 }

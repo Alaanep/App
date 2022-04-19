@@ -1,11 +1,12 @@
 ﻿using System;
 using App.Data.Party;
+using App.Facade;
 using App.Facade.Party;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.Tests.Facade.Party {
     [TestClass]
-    public class LessonViewTests: SealedClassTests<LessonView> {
+    public class LessonViewTests: SealedClassTests<LessonView, UniqueView> {
         [TestMethod] public void IdTest() => isProperty<string>();
         [TestMethod] public void InstructorTest() => isProperty<string?>();
         [TestMethod] public void StudentTest() => isProperty<string?>();
