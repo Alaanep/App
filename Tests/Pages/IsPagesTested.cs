@@ -2,5 +2,5 @@
 
 namespace App.Tests.Pages
 {
-    [TestClass] public class IsPagesTested:IsAssemblyTested    { }
+    [TestClass] public class IsPagesTested:AssemblyTests    { }
 }

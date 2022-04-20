@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace App.Tests.Data.Party
 {
     [TestClass]
-    public class LevelTests : IsTypeTested
+    public class LevelTests : TypeTests
     {
         [TestMethod] public void B1Test() => doTest(Level.B1, 1, "B1");
         [TestMethod] public void B2Test() => doTest(Level.B2, 2, "B2");

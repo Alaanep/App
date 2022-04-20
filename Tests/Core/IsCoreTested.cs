@@ -2,5 +2,5 @@
 
 namespace App.Tests.Core
 {
-    [TestClass] public class IsCoreTested:IsAssemblyTested   {    }
+    [TestClass] public class IsCoreTested:AssemblyTests   {    }
 }

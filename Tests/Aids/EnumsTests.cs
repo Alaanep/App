@@ -3,7 +3,7 @@ using App.Data.Party;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.Tests.Aids {
-    [TestClass] public class EnumsTests : IsTypeTested {
+    [TestClass] public class EnumsTests : TypeTests {
             [TestMethod] public void DescriptionTest()
                 => areEqual("Not Known", Enums.Description(Level.NotKnown));
 

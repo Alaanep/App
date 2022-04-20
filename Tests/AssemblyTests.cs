@@ -5,7 +5,7 @@ using System.Reflection;
 using App.Aids;
 
 namespace App.Tests {
-    public abstract class IsAssemblyTested:TestAsserts {
+    public abstract class AssemblyTests:TestAsserts {
         private static string testsStr => "Tests";
         private string notTestedMsg => $"Class \"{fullNameOfFirstNotTested()}\" is not tested";
         private static string testProjectStr => $"{testsStr}.";
@@ -79,7 +79,7 @@ namespace App.Tests {
         }
         private static bool isCorrectTest(Type x) => isCorrectlyInherited(x) && isTestClass(x);
         private static bool isTestClass(Type x) => x?.HasAttribute<TestClassAttribute>() ?? false;
-        private static bool isCorrectlyInherited(Type x) => x.IsInherited(typeof(IsTypeTested));
+        private static bool isCorrectlyInherited(Type x) => x.IsInherited(typeof(TypeTests));
 
         private static bool isTestFor(Type testingType, Type typeToBeTested) {
             var testName = typeToBeTested.FullName ?? String.Empty;

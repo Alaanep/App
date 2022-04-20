@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.Tests.Aids
 {
-    [TestClass] public class TypesTests : IsTypeTested {
+    [TestClass] public class TypesTests : TypeTests {
         private Type type = typeof(object);
         private string? nameSpace;
         private string? fullName;

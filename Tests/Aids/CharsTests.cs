@@ -3,7 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.Tests.Aids
 {
-    [TestClass] public class CharsTests: IsTypeTested  {
+    [TestClass] public class CharsTests: TypeTests  {
         private char letter;
         private char digit;
         [TestInitialize] public void Init() {

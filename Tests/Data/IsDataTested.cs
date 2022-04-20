@@ -3,7 +3,7 @@
 namespace App.Tests.Data
 {
     [TestClass]
-    public class IsDataTested:IsAssemblyTested
+    public class IsDataTested:AssemblyTests
     {
 
     }
