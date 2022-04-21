@@ -1,24 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Net.Http;
 using System.Reflection;
 using App.Aids;
-using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.Tests
 {
-    public class TestHost<TProgram> : WebApplicationFactory<TProgram> where TProgram : class { }
-
-    public class HostTests : TestAsserts {
-        internal static readonly TestHost<Program> host;
-        internal static readonly HttpClient client;
-
-        static HostTests() {
-            host = new TestHost<Program>();
-            client = host.CreateClient();
-        }
-    }
     public class TypeTests : HostTests {
         private string? nameOfTest;
         private string? nameOfType;
