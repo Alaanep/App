@@ -18,5 +18,8 @@ namespace App.Tests.Domain.Party;
     [TestMethod] public void ShoeSizeTest() => isReadOnly(obj.Data.ShoeSize);
     [TestMethod] public void EnrollmentDateTest() => isReadOnly(obj.Data.EnrollmentDate);
     [TestMethod] public void LevelTest() => isReadOnly(obj.Data.Level);
-    [TestMethod] public void ToStringTest() => isInconclusive();
+    [TestMethod] public void ToStringTest() {
+        var expected = $"{obj.FirstName} {obj.LastName}";
+        areEqual(expected, obj.ToString());
+    }
 }

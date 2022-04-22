@@ -14,5 +14,8 @@ namespace App.Tests.Domain.Party;
     [TestMethod] public void LessonTimeTest() => isReadOnly(obj.Data.LessonTime);
     [TestMethod] public void LocationTest() => isReadOnly(obj.Data.Location);
     [TestMethod] public void EquipmentNeededTest() => isReadOnly(obj.Data.EquipmentNeeded);
-    [TestMethod] public void ToStringTest() => isInconclusive();
+    [TestMethod] public void ToStringTest() {
+       var expected = $"{obj.Instructor} {obj.Student} {obj.LessonName} {obj.LessonTime}";
+        areEqual(expected, obj.ToString());
+    }
 }

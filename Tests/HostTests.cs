@@ -25,6 +25,7 @@ public abstract class HostTests : TestAsserts {
         client = host.CreateClient();
     }
     protected virtual object? isReadOnly<T>(string? callingMethod = null) => null;
+    protected virtual void arePropertiesEqual(object? x, object? y) { }
 
     protected void itemTest<TRepo, TObj, TData>(string id, Func<TData, TObj> toObj, Func<TObj?> getObj)
         where TRepo : class, IRepo<TObj>
@@ -59,7 +60,7 @@ public abstract class HostTests : TestAsserts {
         var r = GetRepo.Instance<TRepo>();
         isNotNull(r);
         var list = new List<TData>();
-        var cnt = GetRandom.Int32(0, 30);
+        var cnt = GetRandom.Int32(5, 30);
         for (var i = 0; i < cnt; i++)
         {
             var x = GetRandom.Value<TData>();
@@ -81,5 +82,29 @@ public abstract class HostTests : TestAsserts {
             areEqualProperties(data, y);
         }
     }
-
+    protected void relatedItemsTest<TRepo, TRelatedItem, TItem, TData>(Action relatedTest,
+    Func<List<TRelatedItem>> relatedItems, Func<List<TItem?>> items,
+    Func<TRelatedItem, string> detailId,
+    Func<TData, TItem> toObj, Func<TItem?, TData?> toData, Func<TRelatedItem?, TData?> relatedToData)
+    where TRepo : class, IRepo<TItem>
+    where TItem : UniqueEntity
+    where TRelatedItem : UniqueEntity
+    {
+        relatedTest();
+        var list = relatedItems();
+        var r = GetRepo.Instance<TRepo>();
+        foreach (var e in list)
+        {
+            var x = GetRandom.Value<TData>();
+            if (x is not null) x.Id = detailId(e);
+            r?.Add(toObj(x));
+        }
+        var currencies = items();
+        areEqual(list.Count, currencies.Count);
+        foreach (var e in list)
+        {
+            var a = currencies.Find(x => x?.Id == detailId(e));
+            arePropertiesEqual(toData(a), relatedToData(e));
+        }
+    }
 }
