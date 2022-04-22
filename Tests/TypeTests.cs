@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.Tests
 {
-    public class TypeTests : HostTests {
+    public abstract class TypeTests : HostTests {
         private string? nameOfTest;
         private string? nameOfType;
         private string? namespaceOfTest;

@@ -10,6 +10,9 @@ namespace App.Tests.Domain.Party;
     protected override Currency createObj() => new (GetRandom.Value<CurrencyData>());
 
     [TestMethod] public void SymbolTest() => isReadOnly(obj.Data.Symbol);
-    [TestMethod] public void CountryCurrenciesTest() => isInconclusive();
+    [TestMethod] public void CountryCurrenciesTest()     
+        => itemsTest<ICountryCurrenciesRepo, CountryCurrency, CountryCurrencyData>(
+            d => d.CurrencyId = obj.Id, d => new CountryCurrency(d), () => obj.CountryCurrencies);
+
     [TestMethod] public void CountriesTest() => isInconclusive();
 }

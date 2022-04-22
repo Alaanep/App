@@ -2,17 +2,12 @@
 using App.Data.Party;
 using App.Domain;
 using App.Domain.Party;
-using App.Infra.Party;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.Tests.Domain.Party;
 
 [TestClass]
 public class CountryCurrencyTests : SealedClassTests<CountryCurrency, NamedEntity<CountryCurrencyData>> {
-    [TestInitialize] public void TestInitialize () {
-        (GetRepo.Instance<ICountryRepo>() as CountryRepo)?.clear();
-        (GetRepo.Instance<ICurrencyRepo>() as CurrencyRepo)?.clear();
-    }
     protected override CountryCurrency createObj() => new (GetRandom.Value<CountryCurrencyData>());
 
     [TestMethod] public void CountryIdTest() => isReadOnly(obj.Data.CountryId);

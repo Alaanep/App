@@ -21,36 +21,15 @@ public abstract class BaseTests<TClass, TBaseClass> : TypeTests where TClass : c
         var memberName = getCallingMember(callingMethod).Replace("Test", string.Empty);
         var propertyInfo = obj.GetType().GetProperty(memberName);
         isNotNull(propertyInfo);
-        if (isNullOrDefault(value)) value = random<T>();
-        if (!canWrite(propertyInfo, isReadOnly)) propertyInfo.SetValue(obj, value);
+        if (!isReadOnly && isNullOrDefault(value)) value = random<T>();
+        if (canWrite(propertyInfo, isReadOnly)) propertyInfo.SetValue(obj, value);
         propertyInfo.SetValue(obj, value);
         return propertyInfo.GetValue(obj);
     }
     protected void isReadOnly<T>(T? value) => isProperty(value, true, nameof(isReadOnly));
-    protected object? isReadOnly<T>(string? callingMethod = null) {
+    protected override object? isReadOnly<T>(string? callingMethod = null) {
         var def = default(T);
         return getProperty(ref def, true, callingMethod ?? nameof(isReadOnly));
-    }
-    protected void itemTest<TRepo, TObj, TData>(string id, Func<TData, TObj> toObj, Func<TObj?> getObj)
-    where TRepo : class, IRepo<TObj> where TObj : UniqueEntity
-    {
-        var c = isReadOnly<TObj>(nameof(itemTest));
-        isNotNull(c);
-        isInstanceOfType(c, typeof(TObj));
-        var r = GetRepo.Instance<TRepo>();
-        var d = GetRandom.Value<TData>();
-        d.Id = id;
-        var cnt = GetRandom.Int32(5, 30);
-        var idx = GetRandom.Int32(0, cnt);
-        for (var i = 0; i < cnt; i++)
-        {
-            var x = (i == idx) ? d : GetRandom.Value<TData>();
-            isNotNull(x);
-            r?.Add(toObj(x));
-        }
-        r.PageSize = 30;
-        areEqual(cnt, r.Get().Count);
-        areEqualProperties(d, getObj());
     }
     private static bool isNullOrDefault<T>(T? value) => value?.Equals(default(T)) ?? true;//kas T tüüp on oma vaikeväärtusega võrdne
 
