@@ -11,16 +11,24 @@ public abstract class BaseTests<TClass, TBaseClass> : TypeTests where TClass : c
 
     protected void isProperty<T>(T? value = default, bool isReadOnly = false, string? callingMethod = null) {
         callingMethod ??= nameof(isProperty);
+        var actual = getProperty(ref value, isReadOnly, callingMethod);
+        areEqual(value, actual);
+    }
+    protected object? getProperty<T>(ref T? value, bool isReadOnly, string callingMethod)
+    {
         var memberName = getCallingMember(callingMethod).Replace("Test", string.Empty);
         var propertyInfo = obj.GetType().GetProperty(memberName);
         isNotNull(propertyInfo);
         if (isNullOrDefault(value)) value = random<T>();
-        if (!canWrite(propertyInfo, isReadOnly)) return;
+        if (!canWrite(propertyInfo, isReadOnly)) propertyInfo.SetValue(obj, value);
         propertyInfo.SetValue(obj, value);
-        areEqual(value, propertyInfo.GetValue(obj));
+        return propertyInfo.GetValue(obj);
     }
     protected void isReadOnly<T>(T? value) => isProperty(value, true, nameof(isReadOnly));
-
+    protected object? isReadOnly<T>() {
+        var def = default(T);
+        return getProperty(ref def, true, nameof(isReadOnly));
+    } 
     private static bool isNullOrDefault<T>(T? value) => value?.Equals(default(T)) ?? true;//kas T tüüp on oma vaikeväärtusega võrdne
 
     private static bool canWrite(PropertyInfo i, bool isReadOnly) {
