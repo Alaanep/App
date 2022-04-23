@@ -2,5 +2,5 @@
 
 namespace App.Tests.Facade
 {
-    [TestClass] public class IsFacadeTested: AssemblyTests   {    }
+    [TestClass] public class IsFacadeTested: AssemblyTests   { }
 }

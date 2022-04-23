@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using App.Domain;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace App.Tests;
 public abstract class BaseTests<TClass, TBaseClass> : TypeTests where TClass : class where TBaseClass : class {
@@ -32,7 +34,26 @@ public abstract class BaseTests<TClass, TBaseClass> : TypeTests where TClass : c
         return getProperty(ref def, true, callingMethod ?? nameof(isReadOnly));
     }
     private static bool isNullOrDefault<T>(T? value) => value?.Equals(default(T)) ?? true;//kas T tüüp on oma vaikeväärtusega võrdne
-
+    protected PropertyInfo? getPropertyInfo(string callingMethod)
+    {
+        var memberName = getCallingMember(callingMethod).Replace("Test", string.Empty);
+        return obj.GetType().GetProperty(memberName);
+    }
+    protected PropertyInfo? isDisplayNamed<T>(string? displayName = null, T? value = default, bool isReadOnly = false, string? callingMethod = null)
+    {
+        callingMethod ??= nameof(isDisplayNamed);
+        var pi = getPropertyInfo(callingMethod);
+        isProperty(value, isReadOnly, callingMethod);
+        if (displayName is null) return pi;
+        var a = pi.GetAttribute<DisplayNameAttribute>();
+        areEqual(displayName, a?.DisplayName, nameof(DisplayNameAttribute));
+        return pi;
+    }
+    protected void isRequired<T>(string? displayName = null, T? value = default, bool isReadOnly = false)
+    {
+        var pi = isDisplayNamed(displayName, value, isReadOnly, nameof(isRequired));
+        isTrue(pi?.HasAttribute<RequiredAttribute>(), nameof(RequiredAttribute));
+    }
     private static bool canWrite(PropertyInfo i, bool isReadOnly) {
         var canWrite = i?.CanWrite??false;
         areEqual(canWrite, !isReadOnly);

@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace App.Facade.Party
 {
-    public class CountryCurrencyView : NamedView
+    public sealed class CountryCurrencyView : NamedView
     {
         [DisplayName("Country")][Required] public string? CountryId { get; set; }
         [DisplayName("Currency")][Required] public string? CurrencyId { get; set; }

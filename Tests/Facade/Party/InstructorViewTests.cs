@@ -12,11 +12,10 @@ namespace App.Tests.Facade.Party
     [TestClass]
     public class InstructorViewTests:SealedClassTests<InstructorView, UniqueView>
     {
-        [TestMethod] public void IdTest() => isProperty<string>();
-        [TestMethod] public void FirstNameTest() => isProperty<string?>();
-        [TestMethod] public void  LastNameTest() => isProperty<string?>();
-        [TestMethod] public void PhoneNrTest() => isProperty<string?>();
-        [TestMethod] public void LessonsGivenTest() => isProperty<string?>();
-        [TestMethod] public void FullNameTest() => isProperty<string?>();
+        [TestMethod] public void FirstNameTest() => isDisplayNamed<string>("First name");
+        [TestMethod] public void LastNameTest() => isDisplayNamed<string>("Last name");
+        [TestMethod] public void PhoneNrTest() => isDisplayNamed<string>("Phone nr");
+        [TestMethod] public void LessonsGivenTest() => isDisplayNamed<string>("Lessons given");
+        [TestMethod] public void FullNameTest() => isDisplayNamed<string>("Full name");
     }
 }

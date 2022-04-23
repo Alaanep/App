@@ -9,17 +9,15 @@ namespace App.Tests.Facade.Party
     [TestClass]
     public class StudentViewTests: SealedClassTests<StudentView, UniqueView>
     {
-
-        [TestMethod] public void IdTest() => isProperty<string>();
-        [TestMethod] public void FirstNameTest() => isProperty<string?>();
-        [TestMethod] public void LastNameTest() => isProperty<string?>();
-        [TestMethod] public void PhoneNrTest() => isProperty<string?>();
-        [TestMethod] public void EmailTest() => isProperty<string?>();
-        [TestMethod] public void WeightTest() => isProperty<string?>();
-        [TestMethod] public void HeightTest() => isProperty<string?>();
-        [TestMethod] public void ShoeSizeTest() => isProperty<string?>();
-        [TestMethod] public void EnrollmentDateTest() => isProperty<DateTime?>();
-        [TestMethod] public void LevelTest() => isProperty<Level>();
-        [TestMethod] public void FullNameTest() => isProperty<string?>();
+        [TestMethod] public void FirstNameTest() => isDisplayNamed<string>("First Name");
+        [TestMethod] public void LastNameTest() => isDisplayNamed<string>("Last Name");
+        [TestMethod] public void PhoneNrTest() => isDisplayNamed<string>("Phone nr");
+        [TestMethod] public void EmailTest() => isDisplayNamed<string>("Email");
+        [TestMethod] public void WeightTest() => isDisplayNamed<string>("Weight");
+        [TestMethod] public void HeightTest() => isDisplayNamed<string>("Height");
+        [TestMethod] public void ShoeSizeTest() => isDisplayNamed<string>("Shoe Size");
+        [TestMethod] public void EnrollmentDateTest() => isDisplayNamed<DateTime>("Enrollment Date");
+        [TestMethod] public void LevelTest() => isDisplayNamed<Level>("Level");
+        [TestMethod] public void FullNameTest() => isDisplayNamed<string>("Full Name");
     }
 }

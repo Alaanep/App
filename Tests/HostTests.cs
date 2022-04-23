@@ -13,13 +13,13 @@ namespace App.Tests;
 public abstract class HostTests : TestAsserts {
     internal static readonly TestHost<Program> host;
     internal static readonly HttpClient client;
-    [TestInitialize] public virtual void TestInitialize()
+    [TestInitialize]
+    public virtual void TestInitialize()
     {
         (GetRepo.Instance<ICountryRepo>() as CountryRepo)?.clear();
         (GetRepo.Instance<ICurrencyRepo>() as CurrencyRepo)?.clear();
         (GetRepo.Instance<ICountryCurrenciesRepo>() as CountryCurrenciesRepo)?.clear();
     }
-
     static HostTests() {
         host = new TestHost<Program>();
         client = host.CreateClient();
