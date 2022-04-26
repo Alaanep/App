@@ -20,7 +20,8 @@ public abstract class HostTests : TestAsserts {
         (GetRepo.Instance<ICurrencyRepo>() as CurrencyRepo)?.clear();
         (GetRepo.Instance<ICountryCurrenciesRepo>() as CountryCurrenciesRepo)?.clear();
     }
-    static HostTests() {
+    static HostTests() 
+    {
         host = new TestHost<Program>();
         client = host.CreateClient();
     }
