@@ -11,7 +11,7 @@ namespace App.Tests.Domain.Party;
 
     [TestMethod] public void SymbolTest() => isReadOnly(obj.Data.Symbol);
     [TestMethod] public void CountryCurrenciesTest()     
-        => itemsTest<ICountryCurrenciesRepo, CountryCurrency, CountryCurrencyData>(
+        => ItemsTest<ICountryCurrenciesRepo, CountryCurrency, CountryCurrencyData>(
             d => d.CurrencyId = obj.Id, d => new CountryCurrency(d), () => obj.CountryCurrencies);
     [TestMethod] public void CountriesTest() => relatedItemsTest<ICountryRepo, CountryCurrency, Country, CountryData>
             (CountryCurrenciesTest, () => obj.CountryCurrencies, () => obj.Countries,

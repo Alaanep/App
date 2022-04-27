@@ -13,6 +13,8 @@ namespace App.Facade.Party {
     }
     public sealed class InstructorViewFactory : BaseViewFactory<InstructorView, Instructor, InstructorData> {
         protected override Instructor toEntity(InstructorData d) => new(d);
+
+
         public override InstructorView Create(Instructor? e) {
             var v = base.Create(e);
             v.FullName = e?.ToString();

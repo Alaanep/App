@@ -17,17 +17,20 @@ public abstract class TestAsserts
     protected static void isInstanceOfType(object o, Type expectedType, string? message = null) => Assert.IsInstanceOfType(o, expectedType, message);
     protected static void isTrue(bool? b, string? message = null) => Assert.IsTrue(b ?? false, message ?? string.Empty);
     protected static void isFalse(bool? b, string? message = null) => Assert.IsFalse(b ?? true, message ?? string.Empty);
-    protected static void areEqualProperties(object? a, object? b)
+
+    protected virtual void areEqualProperties(object? a, object? b)
     {
         isNotNull(a);
         isNotNull(b);
         var tA = a.GetType();
         var tB = b.GetType();
-        foreach (var piA in tA?.GetProperties() ?? Array.Empty<PropertyInfo>()) {
-            var vA = piA.GetValue(a, null);
-            var piB = tB?.GetProperty(piA.Name);
-            var vB = piB?.GetValue(b, null);
-            areEqual(vA, vB, $"For property {piA.Name}.");
+
+        foreach (var propertyInfoA in tA?.GetProperties() ?? Array.Empty<PropertyInfo>())
+        {
+            var vA = propertyInfoA.GetValue(a, null);
+            var propertyInfoB = tB?.GetProperty(propertyInfoA.Name);
+            var vB = propertyInfoB?.GetValue(b, null);
+            areEqual(vA, vB, $"For property {propertyInfoA.Name}.");
         }
     }
 }

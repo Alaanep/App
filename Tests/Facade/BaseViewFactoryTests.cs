@@ -16,13 +16,13 @@ namespace App.Tests.Facade {
         {
             var v = GetRandom.Value<InstructorView>();
             var o = obj.Create(v);
-            areEqualProperties(v, o.Data);
+            arePropertiesEqual(v, o.Data);
         }
         [TestMethod] public void CreateObjectTest()
         {
             var d = GetRandom.Value<InstructorData>();
             var v = obj.Create(new Instructor(d));
-            areEqualProperties(d, v);
+            arePropertiesEqual(d, v);
         }
     }
 }
