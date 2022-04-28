@@ -2,8 +2,8 @@
 using App.Domain.Party;
 
 namespace App.Infra.Party {
-    public class CurrencyRepo : Repo<Currency, CurrencyData>, ICurrencyRepo {
-        public CurrencyRepo(AppDB? db) : base(db, db?.Currencies) { }
+    public sealed class CurrenciesRepo : Repo<Currency, CurrencyData>, ICurrencyRepo {
+        public CurrenciesRepo(AppDB? db) : base(db, db?.Currencies) { }
         protected override Currency toDomain(CurrencyData d) => new(d);
 
         internal override IQueryable<CurrencyData> addFilter(IQueryable<CurrencyData> q) {

@@ -3,9 +3,9 @@ using App.Domain.Party;
 
 namespace App.Infra.Party
 {
-    public partial class CountryRepo : Repo<Country, CountryData>, ICountryRepo
+    public  sealed class CountriesRepo : Repo<Country, CountryData>, ICountryRepo
     {
-        public CountryRepo(AppDB? db) : base(db, db?.Countries) { }
+        public CountriesRepo(AppDB? db) : base(db, db?.Countries) { }
         protected override Country toDomain(CountryData d) => new(d);
 
         internal override IQueryable<CountryData> addFilter(IQueryable<CountryData> q) {

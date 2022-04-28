@@ -25,8 +25,8 @@ namespace App.Pages.Party
         };
 
         public IEnumerable<SelectListItem> Students
-            => students?.GetAll(x => x.FirstName)?
-                   .Select(x => new SelectListItem(x.FirstName, x.Id))
+            => students?.GetAll(x => x.ToString())?
+                   .Select(x => new SelectListItem(x.ToString(), x.Id))
                ?? new List<SelectListItem>();
 
         public string StudentName(string? countryId = null)

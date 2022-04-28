@@ -25,8 +25,8 @@ public abstract class HostTests : TestAsserts
     [TestInitialize]
     public virtual void InitializeRepo()
     {
-        (GetRepo.Instance<ICountryRepo>() as CountryRepo)?.clear();
-        (GetRepo.Instance<ICurrencyRepo>() as CurrencyRepo)?.clear();
+        (GetRepo.Instance<ICountryRepo>() as CountriesRepo)?.clear();
+        (GetRepo.Instance<ICurrencyRepo>() as CurrenciesRepo)?.clear();
         (GetRepo.Instance<ICountryCurrenciesRepo>() as CountryCurrenciesRepo)?.clear();
         (GetRepo.Instance<IStudentsRepo>() as StudentsRepo)?.clear();
         (GetRepo.Instance<ILessonsRepo>() as LessonsRepo)?.clear();

@@ -24,8 +24,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddTransient<ILessonsRepo, LessonsRepo>();
 builder.Services.AddTransient<IStudentsRepo, StudentsRepo>();
 builder.Services.AddTransient<IInstructorsRepo, InstructorsRepo>();
-builder.Services.AddTransient < ICountryRepo, CountryRepo>();
-builder.Services.AddTransient<ICurrencyRepo, CurrencyRepo>();
+builder.Services.AddTransient < ICountryRepo, CountriesRepo>();
+builder.Services.AddTransient<ICurrencyRepo, CurrenciesRepo>();
 builder.Services.AddTransient<ICountryCurrenciesRepo, CountryCurrenciesRepo>();
 
 
