@@ -6,7 +6,7 @@ namespace App.Infra.Party
     public  sealed class CountriesRepo : Repo<Country, CountryData>, ICountryRepo
     {
         public CountriesRepo(AppDB? db) : base(db, db?.Countries) { }
-        protected override Country toDomain(CountryData d) => new(d);
+        protected internal override Country toDomain(CountryData d) => new(d);
 
         internal override IQueryable<CountryData> addFilter(IQueryable<CountryData> q) {
             var y = CurrentFilter;

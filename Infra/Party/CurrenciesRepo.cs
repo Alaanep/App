@@ -4,7 +4,7 @@ using App.Domain.Party;
 namespace App.Infra.Party {
     public sealed class CurrenciesRepo : Repo<Currency, CurrencyData>, ICurrencyRepo {
         public CurrenciesRepo(AppDB? db) : base(db, db?.Currencies) { }
-        protected override Currency toDomain(CurrencyData d) => new(d);
+        protected internal override Currency toDomain(CurrencyData d) => new(d);
 
         internal override IQueryable<CurrencyData> addFilter(IQueryable<CurrencyData> q) {
             var y = CurrentFilter;

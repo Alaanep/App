@@ -7,7 +7,7 @@ namespace App.Infra
     public abstract class CrudRepo<TDomain, TData> : BaseRepo<TDomain, TData>
         where TDomain : UniqueEntity<TData>, new() where TData : UniqueData, new() {
         protected CrudRepo(DbContext? c, DbSet<TData>? s) : base(c, s) { }
-        protected abstract TDomain toDomain(TData d);
+        protected internal abstract TDomain toDomain(TData d);
 
         public override bool Add(TDomain obj) => AddAsync(obj).GetAwaiter().GetResult();
         public override bool Delete(string id) => DeleteAsync(id).GetAwaiter().GetResult();

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace App.Infra.Party {
     public sealed class InstructorsRepo: Repo<Instructor, InstructorData>, IInstructorsRepo {
         public InstructorsRepo(AppDB? db) : base(db, db?.Instructors) { }
-        protected override Instructor toDomain(InstructorData d) => new(d);
+        protected internal override Instructor toDomain(InstructorData d) => new(d);
         internal override IQueryable<InstructorData> addFilter(IQueryable<InstructorData> q) {
             var y = CurrentFilter;
             if (string.IsNullOrWhiteSpace(y)) return q;

@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace App.Infra.Party {
     public  sealed class LessonsRepo: Repo<Lesson, LessonData>, ILessonsRepo {
         public LessonsRepo(AppDB? db) : base(db, db?.Lessons) { }
-        protected override Lesson toDomain(LessonData d) => new(d);
+        protected internal override Lesson toDomain(LessonData d) => new(d);
 
         internal override IQueryable<LessonData> addFilter(IQueryable<LessonData> q) {
             var y = CurrentFilter;
@@ -16,6 +16,7 @@ namespace App.Infra.Party {
                      || x.Student.Contains(y)
                      || x.LessonTime.ToString().Contains(y)
                      || x.Location.Contains(y)
+                     || x.LessonName.ToString().Contains(y)
                      || x.EquipmentNeeded.Contains(y));
                    //|| x.LessonName.Contains(y));
         }

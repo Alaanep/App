@@ -15,7 +15,7 @@ namespace App.Tests.Infra
         {
             public testClass(DbContext? c, DbSet<InstructorData>? s) : base(c, s) { }
 
-            protected override Instructor toDomain(InstructorData d) => new(d);
+            protected internal override Instructor toDomain(InstructorData d) => new(d);
         }
         protected override Repo<Instructor, InstructorData> createObj() => new testClass(null, null);
     }
@@ -46,7 +46,7 @@ namespace App.Tests.Infra
         private class testClass : CrudRepo<Instructor, InstructorData>
         {
             public testClass(DbContext? c, DbSet<InstructorData>? s) : base(c, s) { }
-            protected override Instructor toDomain(InstructorData d) => new(d);
+            protected  internal override Instructor toDomain(InstructorData d) => new(d);
         }
         protected override CrudRepo<Instructor, InstructorData> createObj() => new testClass(null, null);
     }
@@ -57,7 +57,7 @@ namespace App.Tests.Infra
         private class testClass : FilteredRepo<Instructor, InstructorData>
         {
             public testClass(DbContext? c, DbSet<InstructorData>? s) : base(c, s) { }
-            protected override Instructor toDomain(InstructorData d) => new(d);
+            protected internal override Instructor toDomain(InstructorData d) => new(d);
         }
         protected override FilteredRepo<Instructor, InstructorData> createObj() => new testClass(null, null);
     }
@@ -68,7 +68,7 @@ namespace App.Tests.Infra
         private class testClass : OrderedRepo<Instructor, InstructorData>
         {
             public testClass(DbContext? c, DbSet<InstructorData>? s) : base(c, s) { }
-            protected override Instructor toDomain(InstructorData d) => new(d);
+            protected internal override Instructor toDomain(InstructorData d) => new(d);
         }
         protected override OrderedRepo<Instructor, InstructorData> createObj() => new testClass(null, null);
     }
@@ -79,7 +79,7 @@ namespace App.Tests.Infra
         private class testClass : PagedRepo<Instructor, InstructorData>
         {
             public testClass(DbContext? c, DbSet<InstructorData>? s) : base(c, s) { }
-            protected override Instructor toDomain(InstructorData d) => new(d);
+            protected internal override Instructor toDomain(InstructorData d) => new(d);
         }
         protected override PagedRepo<Instructor, InstructorData> createObj() => new testClass(null, null);
     }

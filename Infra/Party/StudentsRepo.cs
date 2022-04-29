@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace App.Infra.Party {
     public sealed class StudentsRepo: Repo<Student, StudentData>, IStudentsRepo {
         public StudentsRepo(AppDB? db): base(db,db?.Students){}
-        protected override Student toDomain(StudentData d) => new(d);
+        protected internal override Student toDomain(StudentData d) => new(d);
         internal override IQueryable<StudentData> addFilter(IQueryable<StudentData> q) {
             var y = CurrentFilter;
             if (string.IsNullOrWhiteSpace(y)) return q;
@@ -18,8 +18,8 @@ namespace App.Infra.Party {
                      || x.Weight.Contains(y)
                      || x.Height.Contains(y)
                      || x.ShoeSize.Contains(y)
+                     || x.Level.ToString().Contains(y)
                      || x.EnrollmentDate.ToString().Contains(y));
-                     //|| x.Level.Contains(y));
         }
     }
 }

@@ -6,7 +6,7 @@ namespace App.Infra.Party
     public sealed class CountryCurrenciesRepo : Repo<CountryCurrency, CountryCurrencyData>, ICountryCurrenciesRepo
     {
         public CountryCurrenciesRepo(AppDB? db) : base(db, db?.CountryCurrencies) { }
-        protected override CountryCurrency toDomain(CountryCurrencyData d) => new(d);
+        protected internal override CountryCurrency toDomain(CountryCurrencyData d) => new(d);
 
         internal override IQueryable<CountryCurrencyData> addFilter(IQueryable<CountryCurrencyData> q)
         {

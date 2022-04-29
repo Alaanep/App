@@ -7,8 +7,8 @@ namespace App.Infra
     public abstract class BaseRepo<TDomain, TData> : IBaseRepo<TDomain> 
         where TDomain : UniqueEntity<TData>, new() where TData : UniqueData, new()
     {
-        protected readonly DbContext? db;
-        protected readonly DbSet<TData>? set;
+        protected internal readonly DbContext? db;
+        protected internal readonly DbSet<TData>? set;
         protected BaseRepo(DbContext? c, DbSet<TData>? s)
         {
             db = c;

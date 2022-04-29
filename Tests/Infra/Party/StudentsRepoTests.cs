@@ -7,38 +7,11 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.Tests.Infra.Party
 {
-    public abstract class SealedRepoTests<TClass, TBaseClass> : SealedBaseTests<TClass, TBaseClass> where TClass : class where TBaseClass : class { }
     [TestClass]
-    public class StudentsRepoTests : SealedRepoTests<StudentsRepo, Repo<Student, StudentData>>{
+    public class StudentsRepoTests : SealedRepoTests<StudentsRepo, Repo<Student, StudentData>, Student, StudentData>
+    {
         protected override StudentsRepo createObj() => new(GetRepo.Instance<AppDB>());
-    }
 
-    [TestClass]
-    public class CountriesRepoTests : SealedRepoTests<CountriesRepo, Repo<Country, CountryData>>
-    {
-        protected override CountriesRepo createObj() => new(GetRepo.Instance<AppDB>());
-    }
-
-    [TestClass]
-    public class CountryCurrenciesRepoTests : SealedRepoTests<CountryCurrenciesRepo, Repo<CountryCurrency, CountryCurrencyData>>{
-        protected override CountryCurrenciesRepo createObj() => new(GetRepo.Instance<AppDB>());
-    }
-
-    [TestClass]
-    public class CurrenciesRepoTests : SealedRepoTests<CurrenciesRepo, Repo<Currency, CurrencyData>>
-    {
-        protected override CurrenciesRepo createObj() => new(GetRepo.Instance<AppDB>());
-    }
-
-    [TestClass]
-    public class InstructorsRepoTests : SealedRepoTests<InstructorsRepo, Repo<Instructor, InstructorData>>
-    {
-        protected override InstructorsRepo createObj() => new(GetRepo.Instance<AppDB>());
-    }
-
-    [TestClass]
-    public class LessonsRepoTests : SealedRepoTests<LessonsRepo, Repo<Lesson, LessonData>>
-    {
-        protected override LessonsRepo createObj() => new(GetRepo.Instance<AppDB>());
+        protected override object? getSet(AppDB db) => db.Students;
     }
 }
