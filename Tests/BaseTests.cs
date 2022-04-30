@@ -102,6 +102,10 @@ public abstract class BaseTests<TClass, TBaseClass> : TypeTests where TClass : c
         }
         isTrue(hasProperties, $"No properties found for {x}");
     }
-
+    protected void isAbstractMethod(string name, params Type[] args)
+    {
+        var memberInfo = typeof(TClass).GetMethod(name, args);
+        areEqual(true, memberInfo.IsAbstract, name);
+    }
     [TestMethod] public void BaseClassTest() => areEqual(typeof(TClass).BaseType, typeof(TBaseClass));
 }

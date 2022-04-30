@@ -14,7 +14,7 @@ namespace App.Infra
         protected internal virtual IQueryable<TData> createSql() => from s in set select s;
         public override TDomain Get(string id) => GetAsync(id).GetAwaiter().GetResult();
         public override List<TDomain> Get() => GetAsync().GetAwaiter().GetResult();
-        public override List<TDomain> GetAll<TKey>(Func<TDomain, TKey>? orderBy = null) {
+        public override List<TDomain> GetAll(Func<TDomain, dynamic>? orderBy = null) {
             var r = new List<TDomain>();
             if (set is null) return r;
             foreach (var d in set) r.Add(toDomain(d));

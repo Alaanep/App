@@ -25,7 +25,7 @@ namespace App.Infra
         public abstract Task<bool> DeleteAsync(string id);
         public abstract TDomain Get(string id);
         public abstract List<TDomain> Get();
-        public abstract List<TDomain> GetAll<TKey>(Func<TDomain, TKey>? orderBy=null);
+        public abstract List<TDomain> GetAll(Func<TDomain, dynamic>? orderBy=null);
         public abstract Task<TDomain> GetAsync(string id);
         public abstract Task<List<TDomain>> GetAsync();
         public abstract bool Update(TDomain obj);

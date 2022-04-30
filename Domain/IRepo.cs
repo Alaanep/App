@@ -22,7 +22,7 @@
         bool Add(T obj);
         T Get(string id);
         List<T> Get();
-        List<T> GetAll<TKey>(Func<T, TKey>? orderBy=null);
+        List<T> GetAll(Func<T, dynamic>? orderBy=null);
         bool Update(T obj);
         bool Delete(string id);
 
