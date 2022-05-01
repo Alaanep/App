@@ -12,9 +12,8 @@ public abstract class BaseTests<TClass, TBaseClass> : TypeTests where TClass : c
 {
     protected TClass obj;
     protected BaseTests() => obj = createObj();
-
     protected abstract TClass createObj();
-
+    private readonly BindingFlags allFlags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static;
     protected void isProperty<T>(T? value = default, bool isReadOnly = false, string? callingMethod = null)
     {
         callingMethod ??= nameof(isProperty);
@@ -51,7 +50,7 @@ public abstract class BaseTests<TClass, TBaseClass> : TypeTests where TClass : c
     protected PropertyInfo? getPropertyInfo(string callingMethod)
     {
         var memberName = getCallingMember(callingMethod).Replace("Test", string.Empty);
-        return obj.GetType().GetProperty(memberName);
+        return obj.GetType().GetProperty(memberName, allFlags);
 
     }
 
