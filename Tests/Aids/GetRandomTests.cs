@@ -92,7 +92,7 @@ namespace App.Tests.Aids {
             var i = 0;
             while (x.Equals(y)) {
                 y = f();
-                if (i == count) areNotEqual(x, y);
+                if (i == count) areEqual(x, y);
                 i++;
             }
         }
