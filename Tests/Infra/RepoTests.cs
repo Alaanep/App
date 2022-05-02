@@ -19,17 +19,6 @@ namespace App.Tests.Infra
     }
 
     [TestClass]
-    public class FilteredRepoTests : AbstractClassTests<FilteredRepo<Instructor, InstructorData>, CrudRepo<Instructor, InstructorData>>
-    {
-        private class testClass : FilteredRepo<Instructor, InstructorData>
-        {
-            public testClass(DbContext? c, DbSet<InstructorData>? s) : base(c, s) { }
-            protected internal override Instructor toDomain(InstructorData d) => new(d);
-        }
-        protected override FilteredRepo<Instructor, InstructorData> createObj() => new testClass(null, null);
-    }
-
-    [TestClass]
     public class OrdereredRepoTests : AbstractClassTests<OrderedRepo<Instructor, InstructorData>, FilteredRepo<Instructor, InstructorData>>
     {
         private class testClass : OrderedRepo<Instructor, InstructorData>
