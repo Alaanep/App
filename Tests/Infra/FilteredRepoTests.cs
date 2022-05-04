@@ -8,7 +8,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.Tests.Infra
 {
-    [TestClass] public class FilteredRepoTests : AbstractClassTests<FilteredRepo<Instructor, InstructorData>, CrudRepo<Instructor, InstructorData>>
+    [TestClass] public class FilteredRepoTests 
+        : AbstractClassTests<FilteredRepo<Instructor, InstructorData>, CrudRepo<Instructor, InstructorData>>
     {
         private class testClass : FilteredRepo<Instructor, InstructorData>
         {

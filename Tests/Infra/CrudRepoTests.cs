@@ -61,11 +61,13 @@ namespace App.Tests.Infra
             areEqual(cnt + 1, await set.CountAsync());
         }
         [TestMethod] public async Task GetTest() {
+            isNotNull(d);
             await AddTest();
             var x = obj.Get(d.Id);
             arePropertiesEqual(d, x.Data);
         }
         [TestMethod] public async Task GetAsyncTest() {
+            isNotNull(d);
             await AddAsyncTest();
             var x = await obj.GetAsync(d.Id);
             arePropertiesEqual(d, x.Data);
