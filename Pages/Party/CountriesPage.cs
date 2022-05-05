@@ -11,6 +11,6 @@ namespace App.Pages.Party {
             nameof(CountryView.Name),
             nameof(CountryView.Description),
         };
-        public List<Currency?> Currencies => toObject(Item).Currencies;
+        public Lazy<List<Currency?>> Currencies => toObject(Item).Currencies;
     }
 }
