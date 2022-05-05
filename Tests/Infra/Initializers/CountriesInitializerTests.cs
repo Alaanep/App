@@ -6,13 +6,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.Tests.Infra.Initializers
 {
-    [TestClass] public class LessonsInitializerTest
-        : SealedBaseTests<LessonsInitializer, BaseInitializer<LessonData>>
+    [TestClass] public class CountriesInitializerTests
+        : SealedBaseTests<CountriesInitializer, BaseInitializer<CountryData>>
     {
-        protected override LessonsInitializer createObj()
+        protected override CountriesInitializer createObj()
         {
             var db = GetRepo.Instance<AppDB>();
-            return new LessonsInitializer(db);
+            return new CountriesInitializer(db);
         }
     }
 }

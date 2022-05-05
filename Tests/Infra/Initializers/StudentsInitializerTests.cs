@@ -6,12 +6,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.Tests.Infra.Initializers
 {
-    [TestClass] public class InstructorsInitializerTest 
-        : SealedBaseTests<InstructorsInitializer, BaseInitializer<InstructorData>> {
-        protected override InstructorsInitializer createObj()
+    [TestClass] public class StudentsInitializerTests
+        : SealedBaseTests<StudentsInitializer, BaseInitializer<StudentData>>
+    {
+        protected override StudentsInitializer createObj()
         {
             var db = GetRepo.Instance<AppDB>();
-            return new InstructorsInitializer(db);
+            return new StudentsInitializer(db);
         }
     }
 }

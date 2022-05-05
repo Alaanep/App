@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace App.Tests.Infra.Initializers
 {
-    [TestClass] public class CountryCurrenciesInitializerTest
+    [TestClass] public class CountryCurrenciesInitializerTests
         : SealedBaseTests<CountryCurrenciesInitializer, BaseInitializer<CountryCurrencyData>>
     {
         protected override CountryCurrenciesInitializer createObj()

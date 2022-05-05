@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace App.Tests.Infra.Initializers
 {
-    [TestClass] public class BaseInitializerTest
+    [TestClass] public class BaseInitializerTests
         : AbstractClassTests<BaseInitializer<InstructorData>, object> {
 
         private class testClass : BaseInitializer<InstructorData>
@@ -22,5 +22,7 @@ namespace App.Tests.Infra.Initializers
             var set = db?.Instructors;
             return new testClass(db, set);
         }
+
+        [TestMethod] public void InitTest() => isInconclusive();
     }
 }

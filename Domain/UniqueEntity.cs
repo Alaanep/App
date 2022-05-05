@@ -11,6 +11,7 @@ namespace App.Domain {
         protected static DateTime getValue(DateTime? v) => v ?? defaultDate;
         protected static Level getValue(Level? l) => l ?? Level.NotKnown;
         public abstract string Id { get; }
+        public abstract byte[] Token { get; }
 
     }
     public abstract class UniqueEntity<TData> : UniqueEntity where TData : UniqueData, new() {
@@ -18,5 +19,6 @@ namespace App.Domain {
         public UniqueEntity() : this(new TData()) {}
         public UniqueEntity(TData d) => Data = d;
         public override string Id => getValue(Data?.Id);
+        public override byte[] Token => Data?.Token ?? Array.Empty<byte>();
     }
 }
