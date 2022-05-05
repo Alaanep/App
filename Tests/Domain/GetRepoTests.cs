@@ -13,7 +13,7 @@ namespace App.Tests.Domain;
             throw new NotImplementedException();
         }
     }
-    [TestMethod] public void InstanceTest() => Assert.IsInstanceOfType(GetRepo.Instance<ICountryRepo>(), typeof(CountriesRepo));
+    [TestMethod] public void InstanceTest() => Assert.IsInstanceOfType(GetRepo.Instance<ICountriesRepo>(), typeof(CountriesRepo));
     [TestMethod] public  void SetServiceTest() {
         var s = GetRepo.service;
         var x = new testClass();

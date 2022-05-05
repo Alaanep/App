@@ -13,10 +13,10 @@ public class CountryCurrencyTests : SealedClassTests<CountryCurrency, NamedEntit
     [TestMethod] public void CountryIdTest() => isReadOnly(obj.Data.CountryId);
     [TestMethod] public void CurrencyIdTest() => isReadOnly(obj.Data.CurrencyId);
     [TestMethod]
-    public void CountryTest() => itemTest<ICountryRepo, Country, CountryData>(
+    public void CountryTest() => itemTest<ICountriesRepo, Country, CountryData>(
         obj.CountryId, d => new Country(d), () => obj.Country);
     [TestMethod]
-    public void CurrencyTest() => itemTest<ICurrencyRepo, Currency, CurrencyData>(
+    public void CurrencyTest() => itemTest<ICurrenciesRepo, Currency, CurrencyData>(
         obj.CurrencyId, d => new Currency(d), () => obj.Currency);
 
 } 

@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Index";
+    ViewData["Page"] = Model.GetType()?.Name?.Replace("Page", "") ?? string.Empty;
     var firstDisabled = (Model.PageIndex!=0)? "": "disabled";
     var prevDisabled =  (Model.HasPreviousPage)? "": "disabled" ;
     var nextDisabled = (Model.HasNextPage) ? "": "disabled";
@@ -9,6 +10,7 @@
 }
 
 <h1>@ViewData["Title"]</h1>
+<h4>@ViewData["Page"]</h4>
 
 <p>
     <a asp-page="Create" 

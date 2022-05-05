@@ -13,7 +13,7 @@ namespace App.Tests.Domain.Party
             => ItemsTest<ICountryCurrenciesRepo, CountryCurrency, CountryCurrencyData>(
                 d => d.CountryId = obj.Id, d => new CountryCurrency(d), () => obj.CountryCurrencies.Value);
 
-        [TestMethod] public void CurrenciesTest() => relatedItemsTest<ICurrencyRepo, CountryCurrency, Currency, CurrencyData>
+        [TestMethod] public void CurrenciesTest() => relatedItemsTest<ICurrenciesRepo, CountryCurrency, Currency, CurrencyData>
             (CountryCurrenciesTest, () => obj.CountryCurrencies.Value, () => obj.Currencies.Value, 
             x=> x.CurrencyId, d => new Currency(d), c=> c?.Data, x => x?.Currency?.Data);
     }

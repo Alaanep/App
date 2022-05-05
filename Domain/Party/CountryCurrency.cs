@@ -8,7 +8,7 @@ namespace App.Domain.Party
         public CountryCurrency(CountryCurrencyData d) : base(d) { }
         public string CountryId => getValue(Data?.CountryId);
         public string CurrencyId => getValue(Data?.CurrencyId);
-        public Country? Country => GetRepo.Instance<ICountryRepo>()?.Get(CountryId);
-        public Currency? Currency => GetRepo.Instance<ICurrencyRepo>()?.Get(CurrencyId);
+        public Country? Country => GetRepo.Instance<ICountriesRepo>()?.Get(CountryId);
+        public Currency? Currency => GetRepo.Instance<ICurrenciesRepo>()?.Get(CurrencyId);
     }
 }

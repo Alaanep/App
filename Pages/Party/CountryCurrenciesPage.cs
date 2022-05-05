@@ -6,10 +6,10 @@ namespace App.Pages.Party
 {
     public class CountryCurrenciesPage : PagedPage<CountryCurrencyView, CountryCurrency, ICountryCurrenciesRepo>
     {
-        private readonly ICountryRepo countries;
-        private readonly ICurrencyRepo currencies;
+        private readonly ICountriesRepo countries;
+        private readonly ICurrenciesRepo currencies;
 
-        public CountryCurrenciesPage(ICountryCurrenciesRepo r, ICountryRepo co, ICurrencyRepo cu) : base(r)
+        public CountryCurrenciesPage(ICountryCurrenciesRepo r, ICountriesRepo co, ICurrenciesRepo cu) : base(r)
         {
             countries = co;
             currencies = cu;

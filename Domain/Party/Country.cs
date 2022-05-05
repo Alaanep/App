@@ -3,7 +3,7 @@ using App.Data.Party;
 
 namespace App.Domain.Party
 {
-    public interface ICountryRepo : IRepo<Country> { }
+    public interface ICountriesRepo : IRepo<Country> { }
 
     public sealed class Country : NamedEntity<CountryData>, IComparable
     {

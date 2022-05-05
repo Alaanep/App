@@ -2,7 +2,7 @@
 using App.Domain.Party;
 
 namespace App.Infra.Party {
-    public sealed class CurrenciesRepo : Repo<Currency, CurrencyData>, ICurrencyRepo {
+    public sealed class CurrenciesRepo : Repo<Currency, CurrencyData>, ICurrenciesRepo {
         public CurrenciesRepo(AppDB? db) : base(db, db?.Currencies) { }
         protected internal override Currency toDomain(CurrencyData d) => new(d);
 
