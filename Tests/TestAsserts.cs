@@ -4,6 +4,7 @@ using System.Reflection;
 using Microsoft.CodeAnalysis;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using App.Aids;
+using System.Linq;
 
 namespace App.Tests;
 
@@ -18,7 +19,7 @@ public abstract class TestAsserts
     protected static void isTrue(bool? b, string? message = null) => Assert.IsTrue(b ?? false, message ?? string.Empty);
     protected static void isFalse(bool? b, string? message = null) => Assert.IsFalse(b ?? true, message ?? string.Empty);
 
-    protected virtual void areEqualProperties(object? a, object? b)
+    protected virtual void areEqualProperties(object? a, object? b, params string[] exclude)
     {
         isNotNull(a);
         isNotNull(b);
@@ -27,6 +28,7 @@ public abstract class TestAsserts
 
         foreach (var propertyInfoA in tA?.GetProperties() ?? Array.Empty<PropertyInfo>())
         {
+            if (exclude?.Contains(propertyInfoA.Name) ?? false) continue;
             var vA = propertyInfoA.GetValue(a, null);
             var propertyInfoB = tB?.GetProperty(propertyInfoA.Name);
             var vB = propertyInfoB?.GetValue(b, null);

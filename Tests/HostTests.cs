@@ -34,7 +34,7 @@ public abstract class HostTests : TestAsserts
     }
 
     protected virtual object? isReadOnly<T>(string? callingMethod = null) => null;
-    protected virtual void arePropertiesEqual(object? data1, object? data2) { isInconclusive(); }
+    protected virtual void arePropertiesEqual(object? data1, object? data2, params string[] excluded) { isInconclusive(); }
 
     protected void ItemsTest<TRepo, TObj, TData>(Action<TData> setId, Func<TData, TObj> toObj, Func<List<TObj>> getList)
         where TRepo : class, IRepo<TObj>
@@ -66,7 +66,7 @@ public abstract class HostTests : TestAsserts
         {
             var y = l.Find(z => z.Id == data.Id);
             isNotNull(y);
-            areEqualProperties(data, y);
+            areEqualProperties(data, y, nameof(UniqueData.Token));
         }
     }
 
@@ -90,7 +90,7 @@ public abstract class HostTests : TestAsserts
         }
         r.PageSize = 30;
         areEqual(count, r.Get().Count);
-        areEqualProperties(d, getObject());
+        areEqualProperties(d, getObject(), nameof(UniqueData.Token));
     }
 
     protected void relatedItemsTest<TRepo, TRelatedItem, TItem, TData>(
@@ -119,7 +119,7 @@ public abstract class HostTests : TestAsserts
         foreach (var e in list)
         {
             var a = currencies.Find(x => x.Id == detailId(e));
-            arePropertiesEqual(toData(a), relatedToData(e));
+            arePropertiesEqual(toData(a), relatedToData(e), nameof(UniqueData.Token));
         }
     }
 }

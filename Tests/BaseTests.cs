@@ -6,6 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using App.Domain;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
 
 namespace App.Tests;
 public abstract class BaseTests<TClass, TBaseClass> : TypeTests where TClass : class where TBaseClass : class
@@ -85,13 +86,14 @@ public abstract class BaseTests<TClass, TBaseClass> : TypeTests where TClass : c
         return string.Empty;
     }
 
-    protected override void arePropertiesEqual(object? x, object? y)
+    protected override void arePropertiesEqual(object? x, object? y, params string[] excluded)
     {
         var e = Array.Empty<PropertyInfo>();
         var px = x?.GetType().GetProperties() ?? e;
         var hasProperties = false;
         foreach (var prop in px)
         {
+            if (excluded?.Contains(prop.Name) ?? false) continue;
             var a = prop.GetValue(x, null);
             var py = y?.GetType().GetProperty(prop.Name);
             if (py == null) continue;
