@@ -3,7 +3,7 @@ using App.Facade.Party;
 
 namespace App.Pages.Party
 {
-    public class CurrenciesPage : PagedPage<CurrencyView, Currency, ICurrenciesRepo>  {
+    public sealed class CurrenciesPage : PagedPage<CurrencyView, Currency, ICurrenciesRepo>  {
         public CurrenciesPage(ICurrenciesRepo r) : base(r) { }
         protected override Currency toObject(CurrencyView? item) => new CurrencyViewFactory().Create(item);
         protected override CurrencyView toView(Currency? entity) => new CurrencyViewFactory().Create(entity);

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace App.Pages.Party
 {
-    public class LessonsPage: PagedPage<LessonView, Lesson, ILessonsRepo>
+    public sealed class LessonsPage: PagedPage<LessonView, Lesson, ILessonsRepo>
     {
         private readonly IStudentsRepo students;
 

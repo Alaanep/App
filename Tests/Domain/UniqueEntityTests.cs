@@ -26,4 +26,5 @@ public class UniqueEntityTests : AbstractClassTests<UniqueEntity<CountryData>, U
     [TestMethod]
     public void DataTest() => isReadOnly(d);
     [TestMethod] public void DefaultStrTest() => areEqual("Undefined", UniqueEntity.DefaultStr );
+    [TestMethod] public void TokenTest() => isInconclusive();
 }

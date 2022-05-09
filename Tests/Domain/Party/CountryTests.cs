@@ -16,5 +16,6 @@ namespace App.Tests.Domain.Party
         [TestMethod] public void CurrenciesTest() => relatedItemsTest<ICurrenciesRepo, CountryCurrency, Currency, CurrencyData>
             (CountryCurrenciesTest, () => obj.CountryCurrencies.Value, () => obj.Currencies.Value, 
             x=> x.CurrencyId, d => new Currency(d), c=> c?.Data, x => x?.Currency?.Data);
+        [TestMethod] public void CompareToTest() => isInconclusive();
     }
 }
