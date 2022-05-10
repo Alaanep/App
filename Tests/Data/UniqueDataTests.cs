@@ -15,7 +15,7 @@ namespace App.Tests.Data
             isFalse(pi?.CanWrite);
         }
         [TestMethod] public void IdTest() => isProperty<string>();
-        [TestMethod] public void TokenTest() => isInconclusive();
+        [TestMethod] public void TokenTest() => isProperty<byte[]>();
     }
 }
 

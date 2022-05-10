@@ -1,11 +1,14 @@
-﻿using App.Domain.Party;
+﻿using App.Domain;
+using App.Domain.Party;
 using App.Facade.Party;
+using App.Infra;
 using App.Infra.Party;
 using App.Pages;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace App.Tests.Pages {
@@ -28,7 +31,21 @@ namespace App.Tests.Pages {
             protected override Country toObject(CountryView? item) => throw new NotImplementedException();
             protected override CountryView toView(Country? entity) => throw new NotImplementedException();
         }
-        protected override BasePage<CountryView, Country, ICountriesRepo> createObj() => new testClass(null);
+        protected override BasePage<CountryView, Country, ICountriesRepo> createObj() => new testClass(GetRepo.Instance<ICountriesRepo>());
+        
+        [TestMethod] public void ErrorMessageTest() => isProperty<string?>();
+        [TestMethod] public void TokenTest() => isReadOnly<byte>();
+        [TestMethod] public void ItemIdTest() => isReadOnly<string>();
+        [TestMethod] public void ItemsTest() => isProperty<IList<CountryView>>();
+        [TestMethod] public void ItemTest() => isProperty<CountryView>();
+        [TestMethod] public void OnGetCreateTest() => isInconclusive();
+        [TestMethod] public void OnPostCreateAsyncTest()=> isInconclusive();
+        [TestMethod] public void OnGetDetailsAsyncTest() => isInconclusive();
+        [TestMethod] public void OnGetDeleteAsyncTest() => isInconclusive();
+        [TestMethod] public void OnPostDeleteAsyncTest() => isInconclusive();
+        [TestMethod] public void OnGetEditAsyncTest() => isInconclusive();
+        [TestMethod] public void OnPostEditAsyncTest() => isInconclusive();
+        [TestMethod] public void OnGetIndexAsyncTest() => isInconclusive();
     }
 
     [TestClass] public class CrudPageTests : AbstractClassTests<CrudPage<CountryView, Country, ICountriesRepo>, BasePage<CountryView, Country, ICountriesRepo>> {
@@ -58,6 +75,8 @@ namespace App.Tests.Pages {
             protected override CountryView toView(Country? entity) => throw new NotImplementedException();
         }
         protected override FilteredPage<CountryView, Country, ICountriesRepo> createObj()=> new testClass(null);
+        [TestMethod] public void CurrentFilterTest() => isInconclusive();
+
     }
 
     [TestClass]
@@ -74,6 +93,8 @@ namespace App.Tests.Pages {
             protected override CountryView toView(Country? entity) => throw new NotImplementedException();
         }
         protected override OrderedPage<CountryView, Country, ICountriesRepo> createObj() => new testClass(null);
+        [TestMethod] public void SortOrderTest() => isInconclusive();
+        [TestMethod] public void CurrentOrderTest() => isInconclusive();
     }
     
 
@@ -87,6 +108,13 @@ namespace App.Tests.Pages {
             
         }
         protected override PagedPage<CountryView, Country, ICountriesRepo> createObj() => new testClass(null);
+        [TestMethod] public void GetValueTest() => isInconclusive();
+        [TestMethod] public void DisplayNameTest() => isInconclusive();
+        [TestMethod] public void PageIndexTest() => isInconclusive();
+        [TestMethod] public void TotalPagesTest() => isInconclusive();
+        [TestMethod] public void HasNextPageTest() => isInconclusive();
+        [TestMethod] public void HasPreviousPageTest() => isInconclusive();
+        [TestMethod] public void IndexColumnsTest() => isInconclusive();
     }
     
 }

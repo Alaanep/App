@@ -8,6 +8,6 @@ namespace App.Tests.Facade
         private class testClass : UniqueView { }
         protected override UniqueView createObj() => new testClass();
         [TestMethod] public void IdTest() => isProperty<string>();
-        [TestMethod] public void TokenTest() => isInconclusive();
+        [TestMethod] public void TokenTest() => isProperty<byte[]>();
     }
 }
