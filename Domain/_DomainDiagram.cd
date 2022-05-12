@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="App.Domain.UniqueEntity">
+    <Position X="1.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAACAAAAAAAAAAAAAAAABQAAAAEAABAAA=</HashCode>
+      <FileName>UniqueEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Domain.UniqueEntity&lt;TData&gt;">
+    <Position X="3.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAABAAA=</HashCode>
+      <FileName>UniqueEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Domain.Party.Instructor">
+    <Position X="1.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEEAAAAAAAAEAAAAAAAAAAAAgAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Party\Instructor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Domain.Party.Lesson">
+    <Position X="3" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAQAEAAIAAAACAAAAAAAAAAQAAAAAgAA=</HashCode>
+      <FileName>Party\Lesson.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Domain.Party.Student">
+    <Position X="4.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAABCAAAAAEAAABAAAAACAAgAABAAAAAAAAAAg=</HashCode>
+      <FileName>Party\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Domain.NamedEntity&lt;TData&gt;">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NamedEntity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Domain.Party.Country">
+    <Position X="6.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAQACAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Party\Country.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="App.Domain.Party.CountryCurrency">
+    <Position X="8.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAACAIQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Party\CountryCurrency.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Domain.Party.Currency">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAQAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Party\Currency.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Domain.GetRepo">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAQEAAAAAAAAA=</HashCode>
+      <FileName>GetRepo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="App.Domain.IRepo&lt;T&gt;" Collapsed="true">
+    <Position X="12" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="App.Domain.IPagedRepo&lt;T&gt;" Collapsed="true">
+    <Position X="12" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAEAAUAAAAAAAAAAAAEAAAAAA=</HashCode>
+      <FileName>IRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="App.Domain.IOrderedRepo&lt;T&gt;" Collapsed="true">
+    <Position X="12" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>IRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="App.Domain.IFilteredRepo&lt;T&gt;" Collapsed="true">
+    <Position X="12" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="App.Domain.ICrudRepo&lt;T&gt;" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="App.Domain.IBaseRepo&lt;T&gt;" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAAAAAABAAAAAAAEAAAEAAAgAAgAAIAAAAIA=</HashCode>
+      <FileName>IRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="App.Domain.Party.ICountriesRepo" Collapsed="true">
+    <Position X="6.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Party\ICountriesRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="App.Domain.Party.ICountryCurrenciesRepo" Collapsed="true">
+    <Position X="8.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Party\ICountryCurrenciesRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="App.Domain.Party.ICurrenciesRepo" Collapsed="true">
+    <Position X="10" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Party\ICurrenciesRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="App.Domain.Party.IInstructorsRepo" Collapsed="true">
+    <Position X="1.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Party\IInstructorsRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="App.Domain.Party.ILessonsRepo" Collapsed="true">
+    <Position X="3" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Party\ILessonsRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="App.Domain.Party.IStudentsRepo" Collapsed="true">
+    <Position X="4.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Party\IStudentsRepo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

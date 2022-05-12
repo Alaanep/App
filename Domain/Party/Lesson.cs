@@ -1,6 +1,5 @@
 ﻿using App.Data.Party;
 namespace App.Domain.Party {
-    public interface ILessonsRepo : IRepo<Lesson> { }
 
     public sealed class Lesson: UniqueEntity<LessonData> {
         public Lesson(): this(new ()){}

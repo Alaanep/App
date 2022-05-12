@@ -8,6 +8,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace App.Tests.Pages.Party {
     [TestClass]
     public class CountriesPageTests : SealedBaseTests<CountriesPage, PagedPage<CountryView, Country, ICountriesRepo>> {
-        protected override CountriesPage createObj() => new CountriesPage(null);
+        protected override CountriesPage createObj() => new(null);
     }
 }

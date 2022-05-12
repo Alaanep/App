@@ -1,5 +1,7 @@
 ﻿using App.Data;
+using App.Aids;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.ComponentModel.DataAnnotations;
 
 namespace App.Tests.Data
 {
@@ -15,7 +17,8 @@ namespace App.Tests.Data
             isFalse(pi?.CanWrite);
         }
         [TestMethod] public void IdTest() => isProperty<string>();
-        [TestMethod] public void TokenTest() => isProperty<byte[]>();
+        [TestMethod] public void TokenTest() =>isProperty<byte[]>();
+          
     }
 }
 

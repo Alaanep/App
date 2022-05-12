@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="App.Data.UniqueData">
+    <Position X="4.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAABAAAAAAAAAACAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>UniqueData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Data.Party.InstructorData">
+    <Position X="1.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEEAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Party\InstructorData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Data.Party.LessonData">
+    <Position X="3.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAQAAAAIAAAACAAAAAAAAAAQAAAAAgAA=</HashCode>
+      <FileName>Party\LessonData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Data.Party.StudentData">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAABCAAAAAAAAABAAAAACAAgAABAAAAAAAAAAg=</HashCode>
+      <FileName>Party\StudentData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Data.NamedData">
+    <Position X="8.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NamedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Data.Party.CountryCurrencyData">
+    <Position X="6" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Party\CountryCurrencyData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Data.Party.CountryData">
+    <Position X="8.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Party\CountryData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Data.Party.CurrencyData">
+    <Position X="10.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Party\CurrencyData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="App.Data.Party.Level" Collapsed="true">
+    <Position X="10" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACgAABAAAAAAAAAAAAAAEAAAAAAACAAACAAAAAAAAA=</HashCode>
+      <FileName>Party\Level.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -3,7 +3,7 @@
 
 @Html.MyEditorFor(m => m.Item.Instructor)
 @Html.MyDropDownFor(m=>m.Item.Student, Model.Students)
-@Html.MyDropDownFor(m => m.Item.LessonName, Model.Levels) 
+@Html.MyDropDownFor(m => m.Item.LessonName, Party.LessonsPage.Levels) 
 @Html.MyEditorFor(m => m.Item.LessonTime) 
 @Html.MyEditorFor(m => m.Item.Location)
 @Html.MyEditorFor(m => m.Item.EquipmentNeeded) 

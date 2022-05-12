@@ -38,12 +38,12 @@ namespace App.Pages.Party
         }
 
 
-        public IEnumerable<SelectListItem> Levels
+        public static IEnumerable<SelectListItem> Levels
             => Enum.GetValues<Level>()?
                    .Select(x => new SelectListItem(x.Description(), x.ToString()))
                ?? new List<SelectListItem>();
 
-        public string LevelDescription(Level? isoGender)
+        public static string LevelDescription(Level? isoGender)
             => (isoGender ?? Level.NotKnown).Description();
 
         public  object? GetLessonValue(string name, LessonView v) {

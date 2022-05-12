@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="App.Aids.Chars">
+    <Position X="1.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chars.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Aids.ConcurrencyToken">
+    <Position X="3" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConcurrencyToken.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Aids.Copy">
+    <Position X="4.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Copy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Aids.Enums">
+    <Position X="6.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enums.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Aids.GetAssembly">
+    <Position X="8.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAABAAAg=</HashCode>
+      <FileName>GetAssembly.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Aids.GetNameSpace">
+    <Position X="10" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>GetNameSpace.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Aids.GetRandom">
+    <Position X="1.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAFAAAAAAAggQAgQAAAAAAAIAACACQAEAAgAAAAAAA=</HashCode>
+      <FileName>GetRandom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Aids.Lists">
+    <Position X="3" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAABAAAAAAAAAACAAAAAQAAAAA=</HashCode>
+      <FileName>Lists.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Aids.Methods">
+    <Position X="4.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Methods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Aids.Safe">
+    <Position X="6.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Safe.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Aids.Strings">
+    <Position X="8.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAQIAAAAAAAAAABAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Strings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Aids.Types">
+    <Position X="10" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAUAEAAAAAhBAAAAAgAAAAMAAAAAAgAAAAAAAABAA=</HashCode>
+      <FileName>Types.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

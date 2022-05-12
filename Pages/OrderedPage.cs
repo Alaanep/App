@@ -11,10 +11,10 @@ public abstract class OrderedPage<TView, TEntity, TRepo> : FilteredPage<TView, T
     where TRepo : IOrderedRepo<TEntity> {
     protected OrderedPage(TRepo r) : base(r) { }
     public string? CurrentOrder {
-        get => fromCurrentOrder(repo.CurrentOrder);
-        set => repo.CurrentOrder = toCurrentOrder(value);
+        get => OrderedPage<TView, TEntity, TRepo>.fromCurrentOrder(repo.CurrentOrder);
+        set => repo.CurrentOrder = OrderedPage<TView, TEntity, TRepo>.toCurrentOrder(value);
     }
-    private string? fromCurrentOrder(string? value)
+    private static string? fromCurrentOrder(string? value)
     {
         var isDesc = value?.Contains("_desc") ?? false;
         var propertyName = value?.Replace("_desc", string.Empty);
@@ -27,7 +27,7 @@ public abstract class OrderedPage<TView, TEntity, TRepo> : FilteredPage<TView, T
         var dn = pi?.GetCustomAttribute<DisplayNameAttribute>();
         return dn?.DisplayName;
     }
-    private string? toCurrentOrder(string? value) {
+    private static string? toCurrentOrder(string? value) {
         var isDesc = value?.Contains("_desc") ?? false;
         var displayName = value?.Replace("_desc", string.Empty);
         foreach (var pi in typeof(TView).GetProperties())
@@ -40,5 +40,5 @@ public abstract class OrderedPage<TView, TEntity, TRepo> : FilteredPage<TView, T
       private static bool isThisDisplayName(PropertyInfo pi, string? displayName)
         => getDisplayName(pi) == displayName;
 
-    public string? SortOrder(string propertyName) => repo.SortOrder(toCurrentOrder(propertyName));
+    public string? SortOrder(string propertyName) => repo.SortOrder(OrderedPage<TView, TEntity, TRepo>.toCurrentOrder(propertyName));
 }

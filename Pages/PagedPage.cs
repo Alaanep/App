@@ -52,7 +52,7 @@ public abstract class PagedPage<TView, TEntity, TRepo> : OrderedPage<TView, TEnt
 
         return RedirectToPage("./Delete", "Delete",
         new {
-            id = id,
+            id,
             pageIndex = PageIndex,
             currentFilter = CurrentFilter,
             sortOrder = CurrentOrder

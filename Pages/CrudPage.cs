@@ -51,8 +51,6 @@ public abstract class CrudPage<TView, TEntity, TRepo> : BasePage<TView, TEntity,
         }
         return itemPage();
     }
-
-
     protected override async Task<IActionResult> postDeleteAsync(string id, string? token = null) {
         if (id == null) return redirectToIndex();
         var o = await getItem(id);

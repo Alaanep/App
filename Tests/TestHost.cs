@@ -27,10 +27,9 @@ public class TestHost<TProgram> : WebApplicationFactory<TProgram> where TProgram
     }
     private static void ensureCreated(IServiceCollection s, params Type[] types) {
         var sp = s.BuildServiceProvider();
-        using (var scope = sp.CreateScope()) {
-            var scopedServices = scope.ServiceProvider;
-            foreach (var type in types) ensureCreated(scopedServices, type);
-        }
+        using var scope = sp.CreateScope();
+        var scopedServices = scope.ServiceProvider;
+        foreach (var type in types) ensureCreated(scopedServices, type);
     }
     private static void ensureCreated(IServiceProvider s, Type t) {
         if (s?.GetRequiredService(t) is not DbContext c)

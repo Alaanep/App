@@ -1,8 +1,6 @@
 ﻿using App.Data.Party;
 
-namespace App.Domain.Party
-{
-    public interface ICurrenciesRepo : IRepo<Currency> { }
+namespace App.Domain.Party {
     public sealed class Currency : NamedEntity<CurrencyData> {
         public Currency() : this(new ()) { }
         public Currency(CurrencyData d) : base(d) { }

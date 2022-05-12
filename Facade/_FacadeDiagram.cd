@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="App.Facade.UniqueView">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>UniqueView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Facade.Party.InstructorView">
+    <Position X="0.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEEAAAAAAIAAAAAAAAAAAAAAgAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Party\InstructorView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Facade.Party.LessonView">
+    <Position X="3" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAYAAAAIAAAACAAAAAAAAAAQAAAAAgAA=</HashCode>
+      <FileName>Party\LessonView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Facade.Party.StudentView">
+    <Position X="5.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAABCAAAIAAAAABAAAAACAAgAABAAAAAAAAAAg=</HashCode>
+      <FileName>Party\StudentView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Facade.NamedView">
+    <Position X="7.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NamedView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Facade.Party.CountryCurrencyView">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAgAAQAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Party\CountryCurrencyView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Facade.IsoNamedView">
+    <Position X="9.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IsoNamedView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Facade.Party.CountryView">
+    <Position X="7.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Party\CountryView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Facade.Party.CurrencyView">
+    <Position X="9.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Party\CurrencyView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Facade.BaseViewFactory&lt;TView, TEntity, TData&gt;">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEIAAAAAAAAABAA=</HashCode>
+      <FileName>BaseViewFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Facade.Party.CountryCurrencyViewFactory" Collapsed="true">
+    <Position X="0.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Party\CountryCurrencyView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Facade.Party.CountryViewFactory" Collapsed="true">
+    <Position X="2.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Party\CountryView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Facade.Party.CurrencyViewFactory" Collapsed="true">
+    <Position X="5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Party\CurrencyView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Facade.Party.InstructorViewFactory" Collapsed="true">
+    <Position X="7.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAABAA=</HashCode>
+      <FileName>Party\InstructorView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Facade.Party.LessonViewFactory" Collapsed="true">
+    <Position X="9.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAABAA=</HashCode>
+      <FileName>Party\LessonView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Facade.Party.StudentViewFactory" Collapsed="true">
+    <Position X="11.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAABAA=</HashCode>
+      <FileName>Party\StudentView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

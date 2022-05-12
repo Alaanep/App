@@ -27,12 +27,12 @@ namespace App.Pages.Party {
             nameof(StudentView.Level),
         };
 
-        public IEnumerable<SelectListItem> Levels
+        public static IEnumerable<SelectListItem> Levels
             => Enum.GetValues<Level>()?
                    .Select(x => new SelectListItem(x.Description(), x.ToString()))
                ?? new List<SelectListItem>();
 
-        public string LevelDescription(Level? level)
+        public static string LevelDescription(Level? level)
             => (level ?? Level.NotKnown).Description();
 
         public override object? GetValue(string name, StudentView v) {

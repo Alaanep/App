@@ -1,9 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using App.Data.Party;
 
-namespace App.Domain.Party
-{
-    public interface ICountriesRepo : IRepo<Country> { }
+namespace App.Domain.Party {
 
     public sealed class Country : NamedEntity<CountryData>, IComparable
     {

@@ -1,6 +1,5 @@
 ﻿using App.Data.Party;
 namespace App.Domain.Party {
-    public interface IStudentsRepo : IRepo<Student> { }
     public sealed class Student: UniqueEntity<StudentData> {
         public Student(): this(new ()){ }
         public Student(StudentData d): base(d){}
