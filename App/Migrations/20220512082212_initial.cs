@@ -57,6 +57,7 @@ namespace App.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Code = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -74,6 +75,7 @@ namespace App.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CountryId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CurrencyId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Code = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -90,6 +92,7 @@ namespace App.Migrations
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Symbol = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Code = table.Column<string>(type: "nvarchar(max)", nullable: true)
@@ -108,7 +111,8 @@ namespace App.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PhoneNr = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LessonsGiven = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    LessonsGiven = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -126,7 +130,8 @@ namespace App.Migrations
                     LessonName = table.Column<int>(type: "int", nullable: false),
                     LessonTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EquipmentNeeded = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    EquipmentNeeded = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -147,7 +152,8 @@ namespace App.Migrations
                     Height = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ShoeSize = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     EnrollmentDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Level = table.Column<int>(type: "int", nullable: false)
+                    Level = table.Column<int>(type: "int", nullable: false),
+                    Token = table.Column<byte[]>(type: "rowversion", rowVersion: true, nullable: false)
                 },
                 constraints: table =>
                 {

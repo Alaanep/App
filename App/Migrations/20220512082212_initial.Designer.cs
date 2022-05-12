@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace App.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220411083742_initial")]
+    [Migration("20220512082212_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,6 +44,12 @@ namespace App.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
                     b.HasKey("Id");
 
                     b.ToTable("CountryCurrencies", "AppDB");
@@ -62,6 +68,12 @@ namespace App.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("Id");
 
@@ -85,6 +97,12 @@ namespace App.Migrations
                     b.Property<string>("Symbol")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
                     b.HasKey("Id");
 
                     b.ToTable("Currencies", "AppDB");
@@ -106,6 +124,12 @@ namespace App.Migrations
 
                     b.Property<string>("PhoneNr")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("Id");
 
@@ -134,6 +158,12 @@ namespace App.Migrations
 
                     b.Property<string>("Student")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.HasKey("Id");
 
@@ -168,6 +198,12 @@ namespace App.Migrations
 
                     b.Property<string>("ShoeSize")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Token")
+                        .IsConcurrencyToken()
+                        .IsRequired()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.Property<string>("Weight")
                         .HasColumnType("nvarchar(max)");
