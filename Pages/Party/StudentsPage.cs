@@ -9,7 +9,7 @@ namespace App.Pages.Party {
     //todo To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
     //todo To protect from overposting attacks, enable the specific properties you want to bind to.
     //todo For more details, see https://aka.ms/RazorPagesCRUD.
-    [Authorize]
+    //[Authorize]
     public sealed class StudentsPage : PagedPage<StudentView, Student, IStudentsRepo>
     {
         public StudentsPage(IStudentsRepo r) : base(r) { }
