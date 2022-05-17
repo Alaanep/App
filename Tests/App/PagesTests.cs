@@ -44,6 +44,7 @@ namespace App.Tests.App {
             areEqual(HttpStatusCode.OK, page.StatusCode);
             html = await page.Content.ReadAsStringAsync();
             isTrue(html.Contains("<h1>Edit</h1>"));
+            isTrue(html.Contains($"<h4>{handlerName}</h4>"));
             isTrue(html.Contains(id));
             isTrue(html.Contains($"<input class=\"form-control text-box single-line\""));
             isTrue(html.Contains("<input type=\"submit\" value=\"Save\" class=\"btn btn-primary\" />"));
@@ -58,6 +59,7 @@ namespace App.Tests.App {
             areEqual(HttpStatusCode.OK, page.StatusCode);
             html = await page.Content.ReadAsStringAsync();
             isTrue(html.Contains("<h1>Details</h1>"));
+            isTrue(html.Contains($"<h4>{handlerName}</h4>"));
             isTrue(html.Contains(id));
         }
 
@@ -69,9 +71,21 @@ namespace App.Tests.App {
             areEqual(HttpStatusCode.OK, page.StatusCode);
             html = await page.Content.ReadAsStringAsync();
             isTrue(html.Contains("<h1>Delete</h1>"));
+            isTrue(html.Contains($"<h4>{handlerName}</h4>"));
             isTrue(html.Contains(id));
             isTrue(html.Contains("<input type=\"submit\" value=\"Delete\" class=\"btn btn-danger\" />"));
             isTrue(html.Contains($"<a href=\"/{handlerName}?idx=0&amp;handler=Index\">Back to List</a>"));
+        }
+
+        [TestMethod] public virtual async Task GetCreatePageTest() {
+            isNotNull(data);
+            isNotNull(id);
+            var page = await client.GetAsync($"/{handlerName}/Create?idx=0&handler=Create");
+            html = await page.Content.ReadAsStringAsync();
+            areEqual(HttpStatusCode.OK, page.StatusCode);
+            isTrue(html.Contains("<h1>Create</h1>"));
+            isTrue(html.Contains($"<h4>{handlerName}</h4>"));
+            isTrue(html.Contains($"<form method=\"post\" action=\"/{handlerName}/Create?idx=0&amp;handler=Create\">"));
         }
     }
 }

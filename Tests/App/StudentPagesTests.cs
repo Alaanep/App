@@ -49,6 +49,20 @@ namespace App.Tests.App {
             isTrue(html?.Contains(data?.Level.ToString()));
         }
 
+        [TestMethod]
+        public override async Task GetCreatePageTest() {
+            await base.GetCreatePageTest();
+            isNotNull(data);
+            isNotNull(html);
+            var a = nameof(Country.Description);
+            isTrue(html?.Contains(nameof(Student.FirstName)));
+            isTrue(html?.Contains(nameof(Student.LastName)));
+            isTrue(html?.Contains(nameof(Student.Email)));
+            isTrue(html?.Contains(nameof(Student.Level)));
+            isTrue(html?.Contains(nameof(Student.EnrollmentDate)));
+            isTrue(html?.Contains(nameof(Student.ShoeSize)));
+        }
+
     }
 }
  

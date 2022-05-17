@@ -43,6 +43,20 @@ namespace App.Tests.App {
             isTrue(html?.Contains(data?.LessonTime.ToString()));
             isTrue(html?.Contains(data?.Instructor));
         }
+
+        [TestMethod]
+        public override async Task GetCreatePageTest() {
+            await base.GetCreatePageTest();
+            isNotNull(data);
+            isNotNull(html);
+            var a = nameof(Country.Description);
+            isTrue(html?.Contains(nameof(Lesson.LessonName)));
+            isTrue(html?.Contains(nameof(Lesson.Location)));
+            isTrue(html?.Contains(nameof(Lesson.EquipmentNeeded)));
+            isTrue(html?.Contains(nameof(Lesson.LessonTime)));
+            isTrue(html?.Contains(nameof(Lesson.Student)));
+            isTrue(html?.Contains(nameof(Lesson.Instructor)));
+        }
     }
 }
  

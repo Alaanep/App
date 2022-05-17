@@ -39,6 +39,17 @@ namespace App.Tests.App {
             isTrue(html?.Contains(data?.FirstName));
             isTrue(html?.Contains(data?.LastName));
         }
+
+        [TestMethod]public override async Task GetCreatePageTest() {
+            await base.GetCreatePageTest();
+            isNotNull(data);
+            isNotNull(html);
+            var a = nameof(Country.Description);
+            isTrue(html?.Contains(nameof(Instructor.FirstName)));
+            isTrue(html?.Contains(nameof(Instructor.LastName)));
+            isTrue(html?.Contains(nameof(Instructor.LessonsGiven)));
+            isTrue(html?.Contains(nameof(Instructor.PhoneNr)));
+        }
     }
 }
  

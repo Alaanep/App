@@ -41,6 +41,17 @@ namespace App.Tests.App {
             isTrue(html?.Contains(data?.Description));
             isTrue(html?.Contains(data?.Name));
         }
+
+        [TestMethod] public override async Task GetCreatePageTest() {
+            await base.GetCreatePageTest();
+            isNotNull(data);
+            isNotNull(html);
+            var a = nameof(Country.Description);
+            isTrue(html?.Contains(nameof(Currency.Code)));
+            isTrue(html?.Contains(nameof(Currency.Description)));
+            isTrue(html?.Contains(nameof(Currency.Name)));
+        }
+
     }
 }
  
