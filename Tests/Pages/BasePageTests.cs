@@ -16,7 +16,7 @@ namespace App.Tests.Pages {
 
         private class testClass : BasePage<CountryView, Country, ICountriesRepo> {
             public testClass(ICountriesRepo r) : base(r) { }
-            protected override IActionResult getCreate() => throw new NotImplementedException();
+            protected override IActionResult getCreate() => getCreate();
             protected override Task<IActionResult> getDeleteAsync(string id) => throw new NotImplementedException();
             protected override Task<IActionResult> getDetailsAsync(string id) => throw new NotImplementedException();
             protected override Task<IActionResult> getEditAsync(string id) => throw new NotImplementedException();
