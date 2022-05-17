@@ -8,8 +8,7 @@ using System.Linq;
 
 namespace App.Tests;
 
-public abstract class TestAsserts
-{
+public abstract class TestAsserts{
     protected static void isInconclusive(string? s = null) => Assert.Inconclusive(s ?? string.Empty);
     protected static void isNotNull([NotNull] object? o = null, string? message = null) => Assert.IsNotNull(o, message);
     protected static void isNull(object? o = null, string? message = null) => Assert.IsNull(o, message);
