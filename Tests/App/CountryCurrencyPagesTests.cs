@@ -18,6 +18,7 @@ namespace App.Tests.App {
             await base.GetEditPageTest();
             isNotNull(data);
             isNotNull(html);
+            isTrue(html.Contains(data.Id));
             isTrue(html?.Contains(data?.Code));
             isTrue(html?.Contains(data?.Name));
         }
@@ -27,6 +28,7 @@ namespace App.Tests.App {
             await base.GetDetailsPageTest();
             isNotNull(data);
             isNotNull(html);
+            isTrue(html.Contains(data.Id));
             isTrue(html?.Contains(data?.Code));
             isTrue(html?.Contains(data?.Name));
         }
@@ -35,6 +37,7 @@ namespace App.Tests.App {
             await base.GetDeletePageTest();
             isNotNull(data);
             isNotNull(html);
+            isTrue(html.Contains(data.Id));
             isTrue(html?.Contains(data?.Code));
             isTrue(html?.Contains(data?.Name));
         }
