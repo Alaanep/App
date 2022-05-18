@@ -37,7 +37,7 @@ namespace App.Pages.Party {
 
         public override object? GetValue(string name, StudentView v) {
             var result = base.GetValue(name, v);
-            return name == nameof(StudentView.Level) ? LevelDescription((Level)result) : result;
+            return name == nameof(StudentView.Level) ? LevelDescription((Level?)result) : result;
         }
 
 

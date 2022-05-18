@@ -46,7 +46,7 @@ namespace App.Tests {
             return t is not null;
         }
 
-        private bool isDublicated(Type x, Type y) {
+        private static bool isDublicated(Type x, Type y) {
             if (x == y) return false;
             var nameX = x.Name;
             var nameY = y.Name;

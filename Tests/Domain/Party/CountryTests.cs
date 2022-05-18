@@ -22,7 +22,7 @@ namespace App.Tests.Domain.Party
             var dY = GetRandom.Value<CountryData>() as CountryData;
             isNotNull(dX);
             isNotNull(dY);
-            var expected = dX?.Name?.CompareTo(dY.Name);
+            var expected = dX.Name?.CompareTo(dY.Name);
             areEqual(expected, new Country(dX).CompareTo(new Country(dY)));
         }
     }

@@ -29,7 +29,7 @@ public abstract class BaseTests<TClass, TBaseClass> : TypeTests where TClass : c
         isProperty(value, isReadOnly, callingMethod);
         if (displayName == null) return pi;
         var a = pi.GetAttribute<DisplayNameAttribute>();
-        areEqual(displayName, a.DisplayName, nameof(DisplayNameAttribute));
+        areEqual(displayName, a?.DisplayName, nameof(DisplayNameAttribute));
         return pi;
     }
 
@@ -106,7 +106,7 @@ public abstract class BaseTests<TClass, TBaseClass> : TypeTests where TClass : c
     protected void isAbstractMethod(string name, params Type[] args)
     {
         var memberInfo = typeof(TClass).GetMethod(name, args);
-        areEqual(true, memberInfo.IsAbstract, name);
+        areEqual(true, memberInfo?.IsAbstract, name);
     }
     [TestMethod] public void BaseClassTest() => areEqual(typeof(TClass).BaseType, typeof(TBaseClass));
 }

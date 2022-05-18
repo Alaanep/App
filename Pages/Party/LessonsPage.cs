@@ -48,7 +48,8 @@ namespace App.Pages.Party
 
         public  object? GetLessonValue(string name, LessonView v) {
             var result = base.GetValue(name, v);
-            return name == nameof(LessonView.LessonName) ? LevelDescription((Level)result) : result;
+            
+            return name == nameof(LessonView.LessonName) ? LevelDescription((Level?)result) : result;
         }
     }
 }

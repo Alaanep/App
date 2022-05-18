@@ -86,7 +86,7 @@ namespace App.Tests.Aids {
         [DataRow(typeof(Level))]
         [TestMethod] public void EnumOfTest(Type t) => testManyTimes(() => GetRandom.EnumOf(t));
 
-        private void testManyTimes<T>(Func<T> f, int count = 5) {
+        private static void testManyTimes<T>(Func<T> f, int count = 5) {
             var x = f();
             var y = f();
             var i = 0;

@@ -15,7 +15,7 @@ namespace App.Tests.App {
         where TView : UniqueView, new()
         where TData : UniqueData, new() {
 
-        protected abstract string handlerName { get; set; }
+        protected abstract string? handlerName { get; set; }
         protected string? id { get; set; }
         protected abstract TData? data { get; set; }
         protected string? html { get; set; }
@@ -75,15 +75,15 @@ namespace App.Tests.App {
             isTrue(html.Contains($"<form method=\"post\" action=\"/{handlerName}/Create?idx=0&amp;handler=Create\">"));
         }
 
-        [TestMethod] public async Task PostEditPageTest() {
+        //[TestMethod] public async Task? PostEditPageTest() {
             //isNotNull(data);
             //StringContent queryString = new StringContent(data.ToString());
             //var page = await client.PostAsync($"/{handlerName}/Edit?idx=0&handler=Edit", queryString);
             //isNotNull(page);
-            isInconclusive();
-        }
+        //     isInconclusive();
+       // }
 
-        [TestMethod] public async Task PostDeletePageTest() => isInconclusive();
+        //[TestMethod] public async Task PostDeletePageTest() => isInconclusive();
     }
 }
  

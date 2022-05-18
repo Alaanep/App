@@ -17,37 +17,46 @@ namespace App.Tests.App {
             await base.GetEditPageTest();
             isNotNull(data);
             isNotNull(html);
+            isNotNull(data.FirstName);
+            isNotNull(data.LastName);
+            isNotNull(data.PhoneNr);
+            isNotNull(data.LessonsGiven);
             isTrue(html.Contains(data.Id));
-            isTrue(html.Contains(data?.FirstName));
-            isTrue(html.Contains(data?.LastName));
-            isTrue(html.Contains(data?.PhoneNr));
-            isTrue(html.Contains(data?.LessonsGiven));
+            isTrue(html.Contains(data.FirstName));
+            isTrue(html.Contains(data.LastName));
+            isTrue(html.Contains(data.PhoneNr));
+            isTrue(html.Contains(data.LessonsGiven));
         }
         [TestMethod]public override async Task GetDetailsPageTest() {
             await base.GetDetailsPageTest();
             isNotNull(data);
             isNotNull(html);
             isTrue(html.Contains(data.Id));
-            isTrue(html.Contains(data?.FirstName));
-            isTrue(html.Contains(data?.LastName));
-            isTrue(html.Contains(data?.PhoneNr));
-            isTrue(html.Contains(data?.LessonsGiven));
+            isNotNull(data.FirstName);
+            isNotNull(data.LastName);
+            isNotNull(data.PhoneNr);
+            isNotNull(data.LessonsGiven);
+            isTrue(html.Contains(data.FirstName));
+            isTrue(html.Contains(data.LastName));
+            isTrue(html.Contains(data.PhoneNr));
+            isTrue(html.Contains(data.LessonsGiven));
             //isTrue(html.Contains(d.Student));
         }
         [TestMethod]public override async Task GetDeletePageTest() {
             await base.GetDeletePageTest();
             isNotNull(data);
             isNotNull(html);
+            isNotNull(data.FirstName);
+            isNotNull(data.LastName);
             isTrue(html.Contains(data.Id));
-            isTrue(html.Contains(data?.FirstName));
-            isTrue(html.Contains(data?.LastName));
+            isTrue(html.Contains(data.FirstName));
+            isTrue(html.Contains(data.LastName));
         }
 
         [TestMethod]public override async Task GetCreatePageTest() {
             await base.GetCreatePageTest();
             isNotNull(data);
             isNotNull(html);
-            var a = nameof(Country.Description);
             isTrue(html.Contains(nameof(Instructor.FirstName)));
             isTrue(html.Contains(nameof(Instructor.LastName)));
             isTrue(html.Contains(nameof(Instructor.LessonsGiven)));

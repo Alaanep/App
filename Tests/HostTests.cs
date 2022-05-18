@@ -78,8 +78,8 @@ public abstract class HostTests : TestAsserts
         isNotNull(c);
         isInstanceOfType(c, typeof(TObj));
         var r = GetRepo.Instance<TRepo>();
-        int count;
-        var d = addRandomItems<TRepo, TObj, TData>(out count, toObj, id, r);
+        isNotNull(r);
+        var d = addRandomItems<TRepo, TObj, TData>(out int count, toObj, id, r);
         r.PageSize = 30;
         areEqual(count, r.Get().Count);
         areEqualProperties(d, getObject(), nameof(UniqueData.Token));
@@ -120,13 +120,13 @@ public abstract class HostTests : TestAsserts
         {
             var x = GetRandom.Value<TData>();
             if (x is not null) x.Id = detailId(e);
-            r.Add(toObj(x));
+            r?.Add(toObj(x));
         }
         var currencies = items();
         areEqual(list.Count, currencies.Count);
         foreach (var e in list)
         {
-            var a = currencies.Find(x => x.Id == detailId(e));
+            var a = currencies.Find(x => x?.Id == detailId(e));
             arePropertiesEqual(toData(a), relatedToData(e), nameof(UniqueData.Token));
         }
     }

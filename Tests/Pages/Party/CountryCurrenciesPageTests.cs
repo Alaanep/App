@@ -20,7 +20,7 @@ namespace App.Tests.Pages.Party {
         [TestMethod] public void IndexColumnsTest(){
             var arr = new string[] { "Code", "Name", "CountryId", "CurrencyId", "Description" };
             for (var i = 0; i<arr.Length; i++) {
-                areEqual(arr[i], page.IndexColumns[i]);
+                areEqual(arr[i], page?.IndexColumns[i]);
             }
         }
         [TestMethod] public void CountriesTest() => isReadOnly<IEnumerable<SelectListItem>>();

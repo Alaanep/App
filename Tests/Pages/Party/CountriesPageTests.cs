@@ -1,4 +1,5 @@
 ﻿using App.Aids;
+using App.Data.Party;
 using App.Domain;
 using App.Domain.Party;
 using App.Facade.Party;
@@ -18,9 +19,15 @@ namespace App.Tests.Pages.Party {
         [TestMethod] public void IndexColumnsTest() {
             var arr = new string[] { "Code", "Name", "Description" };
             for (var i = 0; i < arr.Length; i++) {
-                areEqual(arr[i], page.IndexColumns[i]);
+                areEqual(arr[i], page?.IndexColumns[i]);
             }
         }
-        [TestMethod] public void CurrenciesTest() => isReadOnly<Lazy<List<Currency?>>>(); 
+        [TestMethod] public void CurrenciesTest() =>
+            isReadOnly<Lazy<List<Currency?>>>();
+            /*var v = GetRandom.Value<CurrencyView>();
+            var data = addRandomItems<ICurrenciesRepo, Currency, CurrencyData>(out int cnt, x => new Currency(x));
+            var l = page?.Currencies;
+            isNotNull();*/
+        
     }
 }

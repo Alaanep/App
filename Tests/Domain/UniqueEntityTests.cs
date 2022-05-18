@@ -17,6 +17,7 @@ public class UniqueEntityTests : AbstractClassTests<UniqueEntity<CountryData>, U
 
     protected override UniqueEntity<CountryData> createObj() {
         d = GetRandom.Value<CountryData>();
+        isNotNull(d);
         return new testClass(d);
     }
 

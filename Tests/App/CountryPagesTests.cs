@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace App.Tests.App {
     [TestClass]
     public class CountryPagesTests : PagesTests<ICountriesRepo, Country, CountryData, CountryView> {
-        protected override string handlerName { get; set; } = "Countries";
+        protected override string? handlerName { get; set; } = "Countries";
         protected override CountryData? data { get; set; }
         [TestInitialize]
         public void Initialize() {
@@ -19,9 +19,12 @@ namespace App.Tests.App {
             isNotNull(data);
             isNotNull(html);
             isTrue(html.Contains(data.Id));
-            isTrue(html.Contains(data?.Code));
-            isTrue(html.Contains(data?.Description));
-            isTrue(html.Contains(data?.Name));
+            isNotNull(data.Name);
+            isNotNull(data.Description);
+            isNotNull(data.Code);
+            isTrue(html.Contains(data.Code));
+            isTrue(html.Contains(data.Description));
+            isTrue(html.Contains(data.Name));
         }
 
         [TestMethod]
@@ -29,27 +32,32 @@ namespace App.Tests.App {
             await base.GetDetailsPageTest();
             isNotNull(data);
             isNotNull(html);
+            isNotNull(data.Name);
+            isNotNull(data.Description);
+            isNotNull(data.Code);
             isTrue(html.Contains(data.Id));
-            isTrue(html.Contains(data?.Code));
-            isTrue(html.Contains(data?.Description));
-            isTrue(html.Contains(data?.Name));
+            isTrue(html.Contains(data.Code));
+            isTrue(html.Contains(data.Description));
+            isTrue(html.Contains(data.Name));
         }
         [TestMethod]
         public override async Task GetDeletePageTest() {
             await base.GetDeletePageTest();
             isNotNull(data);
             isNotNull(html);
+            isNotNull(data.Name);
+            isNotNull(data.Description);
+            isNotNull(data.Code);
             isTrue(html.Contains(data.Id));
-            isTrue(html.Contains(data?.Code));
-            isTrue(html.Contains(data?.Description));
-            isTrue(html.Contains(data?.Name));
+            isTrue(html.Contains(data.Code));
+            isTrue(html.Contains(data.Description));
+            isTrue(html.Contains(data.Name));
         }
 
         [TestMethod] public override async Task GetCreatePageTest() {
             await base.GetCreatePageTest();
             isNotNull(data);
             isNotNull(html);
-            var a = nameof(Country.Description);
             isTrue(html.Contains(nameof(Country.Code)));
             isTrue(html.Contains(nameof(Country.Description)));
             isTrue(html.Contains(nameof(Country.Name)));

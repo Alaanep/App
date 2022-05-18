@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace App.Tests.App {
     [TestClass]
     public class LessonPagesTests : PagesTests<ILessonsRepo, Lesson, LessonData, LessonView> {
-        protected override string handlerName { get; set; } = "Lessons";
+        protected override string? handlerName { get; set; } = "Lessons";
         protected override LessonData? data { get; set; }
         [TestInitialize]
         public void Initialize() {
@@ -17,34 +17,41 @@ namespace App.Tests.App {
             await base.GetEditPageTest();
             isNotNull(data);
             isNotNull(html);
+            isNotNull(data.LessonName.ToString());
+            isNotNull(data.Location);
+            isNotNull(data.EquipmentNeeded);
+            isNotNull(data.Instructor);
             isTrue(html.Contains(data.Id));
             isTrue(html.Contains(data.LessonName.ToString()));
-            isTrue(html.Contains(data?.Location));
-            isTrue(html.Contains(data?.EquipmentNeeded));
-            //isTrue(html.Contains(data.LessonTime.ToString()));
-            isTrue(html.Contains(data?.Instructor));
+            isTrue(html.Contains(data.Location));
+            isTrue(html.Contains(data.EquipmentNeeded));
+            isTrue(html.Contains(data.Instructor));
         }
 
         [TestMethod]public override async Task GetDetailsPageTest() {
             await base.GetDetailsPageTest();
             isNotNull(data);
             isNotNull(html);
+            isNotNull(data.LessonName.ToString());
+            isNotNull(data.Location);
+            isNotNull(data.EquipmentNeeded);
+            isNotNull(data.Instructor);
             isTrue(html.Contains(data.Id));
-            isTrue(html.Contains(data?.LessonName.ToString()));
-            isTrue(html.Contains(data?.Location));
-            isTrue(html.Contains(data?.EquipmentNeeded));
-            isTrue(html.Contains(data?.LessonTime.ToString()));
-            isTrue(html.Contains(data?.Instructor));
+            isTrue(html.Contains(data.LessonName.ToString()));
+            isTrue(html.Contains(data.Location));
+            isTrue(html.Contains(data.EquipmentNeeded));
+            isTrue(html.Contains(data.Instructor));
             //isTrue(html.Contains(d.Student));
         }
         [TestMethod]public override async Task GetDeletePageTest() {
             await base.GetDeletePageTest();
             isNotNull(data);
             isNotNull(html);
+            isNotNull(data.LessonName.ToString());
+            isNotNull(data.Instructor);
             isTrue(html.Contains(data.Id));
-            isTrue(html.Contains(data?.LessonName.ToString()));
-            isTrue(html.Contains(data?.LessonTime.ToString()));
-            isTrue(html.Contains(data?.Instructor));
+            isTrue(html.Contains(data.LessonName.ToString()));
+            isTrue(html.Contains(data.Instructor));
         }
 
         [TestMethod]
@@ -52,7 +59,6 @@ namespace App.Tests.App {
             await base.GetCreatePageTest();
             isNotNull(data);
             isNotNull(html);
-            var a = nameof(Country.Description);
             isTrue(html.Contains(nameof(Lesson.LessonName)));
             isTrue(html.Contains(nameof(Lesson.Location)));
             isTrue(html.Contains(nameof(Lesson.EquipmentNeeded)));

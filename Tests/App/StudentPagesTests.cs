@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace App.Tests.App {
     [TestClass]
     public class StudentPagesTests : PagesTests<IStudentsRepo, Student, StudentData, StudentView> {
-        protected override string handlerName { get; set; } = "Students";
+        protected override string? handlerName { get; set; } = "Students";
         protected override StudentData? data { get; set; }
         [TestInitialize]
         public void Initialize() {
@@ -19,6 +19,10 @@ namespace App.Tests.App {
             await base.GetEditPageTest();
             isNotNull(data);
             isNotNull(html);
+            isNotNull(data.FirstName);
+            isNotNull(data.LastName);
+            isNotNull(data.Email);
+            isNotNull(data.ShoeSize);
             isTrue(html.Contains(data.FirstName));
             isTrue(html.Contains(data.LastName));
             isTrue(html.Contains(data.Email));
@@ -31,12 +35,16 @@ namespace App.Tests.App {
             await base.GetDetailsPageTest();
             isNotNull(data);
             isNotNull(html);
-            isTrue(html?.Contains(data?.FirstName));
-            isTrue(html?.Contains(data?.LastName));
-            isTrue(html?.Contains(data?.Email));
-            isTrue(html?.Contains(data?.ShoeSize));
-            isTrue(html?.Contains(data?.EnrollmentDate.ToString()));
-            isTrue(html?.Contains(data?.Level.ToString()));
+            isNotNull(data.FirstName);
+            isNotNull(data.LastName);
+            isNotNull(data.Email);
+            isNotNull(data.ShoeSize);
+            isNotNull(data.Level.ToString());
+            isTrue(html.Contains(data.FirstName));
+            isTrue(html.Contains(data.LastName));
+            isTrue(html.Contains(data.Email));
+            isTrue(html.Contains(data.ShoeSize));
+            isTrue(html.Contains(data.Level.ToString()));
         }
 
         [TestMethod]
@@ -44,9 +52,12 @@ namespace App.Tests.App {
             await base.GetDeletePageTest();
             isNotNull(data);
             isNotNull(html);
-            isTrue(html?.Contains(data?.FirstName));
-            isTrue(html?.Contains(data?.LastName));
-            isTrue(html?.Contains(data?.Level.ToString()));
+            isNotNull(data.FirstName);
+            isNotNull(data.LastName);
+            isNotNull(data.Level.ToString());
+            isTrue(html?.Contains(data.FirstName));
+            isTrue(html?.Contains(data.LastName));
+            isTrue(html?.Contains(data.Level.ToString()));
         }
 
         [TestMethod]
@@ -54,7 +65,6 @@ namespace App.Tests.App {
             await base.GetCreatePageTest();
             isNotNull(data);
             isNotNull(html);
-            var a = nameof(Country.Description);
             isTrue(html?.Contains(nameof(Student.FirstName)));
             isTrue(html?.Contains(nameof(Student.LastName)));
             isTrue(html?.Contains(nameof(Student.Email)));

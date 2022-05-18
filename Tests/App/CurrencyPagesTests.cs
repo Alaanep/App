@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace App.Tests.App {
     [TestClass]
     public class CurrencyPagesTests : PagesTests<ICurrenciesRepo, Currency, CurrencyData, CurrencyView> {
-        protected override string handlerName { get; set; } = "Currencies";
+        protected override string? handlerName { get; set; } = "Currencies";
 
         protected override CurrencyData? data { get; set; }
         [TestInitialize]
@@ -19,6 +19,9 @@ namespace App.Tests.App {
             await base.GetEditPageTest();
             isNotNull(data);
             isNotNull(html);
+            isNotNull(data.Name);
+            isNotNull(data.Description);
+            isNotNull(data.Code);
             isTrue(html.Contains(data.Id));
             isTrue(html.Contains(data.Code));
             isTrue(html.Contains(data.Description));
@@ -29,27 +32,33 @@ namespace App.Tests.App {
             await base.GetDetailsPageTest();
             isNotNull(data);
             isNotNull(html);
+            isNotNull(data.Name);
+            isNotNull(data.Description);
+            isNotNull(data.Code);
             isTrue(html.Contains(data.Id));
-            isTrue(html.Contains(data?.Code));
-            isTrue(html.Contains(data?.Description));
-            isTrue(html.Contains(data?.Name));
+            isTrue(html.Contains(data.Code));
+            isTrue(html.Contains(data.Description));
+            isTrue(html.Contains(data.Name));
         }
         [TestMethod]
         public override async Task GetDeletePageTest() {
             await base.GetDeletePageTest();
             isNotNull(data);
             isNotNull(html);
+            isNotNull(data.Name);
+            isNotNull(data.Description);
+            isNotNull(data.Code);
             isTrue(html.Contains(data.Id));
-            isTrue(html.Contains(data?.Code));
-            isTrue(html.Contains(data?.Description));
-            isTrue(html.Contains(data?.Name));
+            isTrue(html.Contains(data.Code));
+            isTrue(html.Contains(data.Description));
+            isTrue(html.Contains(data.Name));
         }
 
         [TestMethod] public override async Task GetCreatePageTest() {
             await base.GetCreatePageTest();
             isNotNull(data);
             isNotNull(html);
-            var a = nameof(Country.Description);
+            
             isTrue(html.Contains(nameof(Currency.Code)));
             isTrue(html.Contains(nameof(Currency.Description)));
             isTrue(html.Contains(nameof(Currency.Name)));

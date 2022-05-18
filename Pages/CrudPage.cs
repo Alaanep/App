@@ -39,7 +39,7 @@ public abstract class CrudPage<TView, TEntity, TRepo> : BasePage<TView, TEntity,
             + "edit operation was canceled and the current values in the database "
             + "have been disabled. If you still want to to edit this record, click "
             + "the Save button again.");
-        foreach (var p in Item?.GetType()?.GetProperties()) {
+        foreach (var p in Item.GetType().GetProperties()) {
             var n = p.Name;
             var currentValue = p.GetValue(Item)?.ToString();
             var clientValue = v?.GetType()?.GetProperty(n)?.GetValue(v)?.ToString();
