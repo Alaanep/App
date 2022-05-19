@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using App.Pages.Extensions;
+using Microsoft.AspNetCore.Html;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +10,7 @@ using System.Threading.Tasks;
 namespace App.Tests.Pages.Extensions {
     [TestClass] public class ItemButtonsHtmlTests: TypeTests {
         [TestMethod] public void ItemButtonsTest() => isInconclusive();
+           
     }    
     [TestClass] public class MyBtnHtmlTests : TypeTests {
         [TestMethod] public void MyBtnTest() => isInconclusive();

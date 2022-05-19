@@ -37,14 +37,13 @@ namespace App.Pages.Party
             return name == nameof(LessonView.Student) ? StudentName(result as string) : result;
         }
 
-
         public static IEnumerable<SelectListItem> Levels
             => Enum.GetValues<Level>()?
                    .Select(x => new SelectListItem(x.Description(), x.ToString()))
                ?? new List<SelectListItem>();
 
-        public static string LevelDescription(Level? isoGender)
-            => (isoGender ?? Level.NotKnown).Description();
+        public static string LevelDescription(Level? level)
+            => (level ?? Level.NotKnown).Description();
 
         public  object? GetLessonValue(string name, LessonView v) {
             var result = base.GetValue(name, v);

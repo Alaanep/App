@@ -22,12 +22,12 @@ namespace App.Tests.Pages.Party {
                 areEqual(arr[i], page?.IndexColumns[i]);
             }
         }
-        [TestMethod] public void CurrenciesTest() =>
+        [TestMethod] public void CurrenciesTest() { 
             isReadOnly<Lazy<List<Currency?>>>();
-            /*var v = GetRandom.Value<CurrencyView>();
-            var data = addRandomItems<ICurrenciesRepo, Currency, CurrencyData>(out int cnt, x => new Currency(x));
             var l = page?.Currencies;
-            isNotNull();*/
-        
+            var data = addRandomItems<ICurrenciesRepo, Currency, CurrencyData>(out int cnt, x => new Currency(x));
+            l = page?.Currencies;
+            isNotNull(page?.Currencies);
+        }
     }
 }
