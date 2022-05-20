@@ -13,5 +13,31 @@ namespace App.Domain.Party {
         public DateTime EnrollmentDate => getValue(Data?.EnrollmentDate);
         public Level Level => getValue(Data?.Level);
         public override string ToString() => $"{FirstName} {LastName}";
+        public Lazy<List<StudentLesson>> StudentLessons
+        {
+            get
+            {
+                var l = GetRepo.Instance<IStudentLessonsRepo>()?
+                       .GetAll(x => x.StudentId)?
+                       .Where(x => x.StudentId == Id)?
+                       .ToList() ?? new List<StudentLesson>();
+                return new Lazy<List<StudentLesson>>(l);
+            }
+        }
+        public Lazy<List<Lesson?>> Lessons
+        {
+            get
+            {
+                var l = StudentLessons.Value
+                    .Select(x => x.Lesson)?
+                    .ToList() ?? new List<Lesson?>();
+                return new Lazy<List<Lesson?>>(l);
+            }
+        }
+
+        public int CompareTo(object? x) => compareTo(x as Student);
+
+        private int compareTo(Student? c) => Id.CompareTo(c?.Id);
     }
 }
+

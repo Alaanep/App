@@ -1,0 +1,6 @@
+﻿@model App.Pages.Party.StudentLessonsPage
+@using App.Pages.Extensions
+
+@Html.MyViewerFor(m => m.Item.StudentId, Model.StudentName(Model.Item.StudentId))
+@Html.MyViewerFor(m => m.Item.LessonId, Model.LessonName(Model.Item.LessonId))
+

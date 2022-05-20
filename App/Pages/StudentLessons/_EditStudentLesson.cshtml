@@ -1,0 +1,6 @@
+﻿@model App.Pages.Party.StudentLessonsPage;
+@using App.Pages.Extensions
+
+@Html.MyDropDownFor(m => m.Item.StudentId, Model.Students)
+@Html.MyDropDownFor(m => m.Item.LessonId, Model.Lessons)
+

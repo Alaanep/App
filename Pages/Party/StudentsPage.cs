@@ -28,18 +28,18 @@ namespace App.Pages.Party {
         };
 
         public static IEnumerable<SelectListItem> Levels
-            => Enum.GetValues<Level>()?
-                   .Select(x => new SelectListItem(x.Description(), x.ToString()))
-               ?? new List<SelectListItem>();
+     => Enum.GetValues<Level>()?
+            .Select(x => new SelectListItem(x.Description(), x.ToString()))
+        ?? new List<SelectListItem>();
 
         public static string LevelDescription(Level? level)
             => (level ?? Level.NotKnown).Description();
 
-        public override object? GetValue(string name, StudentView v) {
+        public override object? GetValue(string name, StudentView v)
+        {
             var result = base.GetValue(name, v);
-            return name == nameof(StudentView.Level) ? LevelDescription((Level?)result) : result;
+            return name == nameof(StudentView.Level) ? LevelDescription((Level)result) : result;
         }
-
-
+        public Lazy<List<Lesson?>> Lessons => toObject(Item).Lessons;
     }
 }
