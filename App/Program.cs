@@ -27,6 +27,7 @@ builder.Services.AddTransient<IInstructorsRepo, InstructorsRepo>();
 builder.Services.AddTransient <ICountriesRepo, CountriesRepo>();
 builder.Services.AddTransient<ICurrenciesRepo, CurrenciesRepo>();
 builder.Services.AddTransient<ICountryCurrenciesRepo, CountryCurrenciesRepo>();
+builder.Services.AddTransient<IStudentLessonsRepo, StudentLessonsRepo>();
 
 
 var app = builder.Build();
