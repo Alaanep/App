@@ -11,7 +11,7 @@ public abstract class BasePage<TView, TEntity, TRepo> : PageModel
     where TEntity : UniqueEntity
     where TRepo : IBaseRepo<TEntity> {
 
-    protected readonly TRepo repo;
+    internal readonly TRepo repo;
     protected abstract TView toView(TEntity? entity);
     protected abstract TEntity toObject(TView? item);
     protected abstract IActionResult redirectToIndex();

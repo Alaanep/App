@@ -9,10 +9,9 @@ using System.Threading.Tasks;
 
 namespace App.Tests.App {
 
-    public abstract class PagesTests<TRepo, TObj, TData, TView> : HostTests
+    public abstract class PagesTests<TRepo, TObj, TData> : HostTests
         where TRepo : class, IRepo<TObj>
         where TObj : UniqueEntity<TData>, new()
-        where TView : UniqueView, new()
         where TData : UniqueData, new() {
 
         protected abstract string? handlerName { get; set; }
@@ -85,5 +84,59 @@ namespace App.Tests.App {
 
         //[TestMethod] public async Task PostDeletePageTest() => isInconclusive();
     }
+
+    [TestClass]
+    public class HomePageTests : HostTests {
+        [TestMethod]
+        public async Task HomePageTest() {
+            var page = await client.GetAsync($"/Index");
+            areEqual(HttpStatusCode.OK, page.StatusCode);
+            var html = await page.Content.ReadAsStringAsync();
+            isNotNull(html);
+            isTrue(html.Contains("Lessons"));
+            isTrue(html.Contains("Students"));
+            isTrue(html.Contains("Instructors"));
+            isTrue(html.Contains("Countries"));
+            isTrue(html.Contains("Currencies"));
+            isTrue(html.Contains("Welcome"));
+        }
+    }
+
+    [TestClass]
+    public class RegisterPageTests : HostTests {
+        [TestMethod]
+        public async Task RegisterPageTest() {
+            var page = await client.GetAsync($"/Identity/Account/Register");
+            areEqual(HttpStatusCode.OK, page.StatusCode);
+            var html = await page.Content.ReadAsStringAsync();
+            isNotNull(html);
+            isTrue(html.Contains("Create a new account"));   
+        }
+    }
+
+    [TestClass]
+    public class LoginPageTests : HostTests {
+        [TestMethod]
+        public async Task LoginPageTest() {
+            var page = await client.GetAsync($"/Identity/Account/Login");
+            areEqual(HttpStatusCode.OK, page.StatusCode);
+            var html = await page.Content.ReadAsStringAsync();
+            isNotNull(html);
+            isTrue(html.Contains("Use a local account to log in"));
+        }
+    }
+
+    [TestClass]
+    public class PrivacyPageTests : HostTests {
+        [TestMethod]
+        public async Task PrivacyPageTest() {
+            var page = await client.GetAsync($"/Privacy");
+            areEqual(HttpStatusCode.OK, page.StatusCode);
+            var html = await page.Content.ReadAsStringAsync();
+            isNotNull(html);
+            isTrue(html.Contains("Privacy Policy"));
+        }
+    }
 }
- 
+
+

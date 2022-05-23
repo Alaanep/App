@@ -1,11 +1,5 @@
 ﻿using App.Pages.Extensions;
-using Microsoft.AspNetCore.Html;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace App.Tests.Pages.Extensions {
     [TestClass] public class ItemButtonsHtmlTests: TypeTests {

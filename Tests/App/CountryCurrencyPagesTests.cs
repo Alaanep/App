@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace App.Tests.App {
     [TestClass]
-    public class CountryCurrencyPagesTests : PagesTests<ICountryCurrenciesRepo, CountryCurrency, CountryCurrencyData, CountryCurrencyView> {
+    public class CountryCurrencyPagesTests : PagesTests<ICountryCurrenciesRepo, CountryCurrency, CountryCurrencyData> {
         protected override string? handlerName { get; set; } = "CountryCurrencies";
         protected override CountryCurrencyData? data { get; set; }
         [TestInitialize]

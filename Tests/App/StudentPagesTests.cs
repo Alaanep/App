@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace App.Tests.App {
     [TestClass]
-    public class StudentPagesTests : PagesTests<IStudentsRepo, Student, StudentData, StudentView> {
+    public class StudentPagesTests : PagesTests<IStudentsRepo, Student, StudentData> {
         protected override string? handlerName { get; set; } = "Students";
         protected override StudentData? data { get; set; }
         [TestInitialize]
